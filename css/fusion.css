@@ -1,0 +1,57 @@
+/* ============================================================
+   fusion.css — styles additionnels pour les pages issues de la fusion
+   (vitrine personnelle de Lydie Parsus x OKILYS Life Science)
+   Chargé APRES styles.css, sur index.html et fondatrice.html.
+   Réutilise les tokens définis dans styles.css (:root).
+   ============================================================ */
+
+/* ---------- Bandeau statistiques (index.html) ---------- */
+.stats { background: var(--navy); }
+.stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 26px 20px; text-align: center; border-left: 1px solid rgba(255,255,255,0.12); }
+.stat:first-child { border-left: none; }
+.stat strong { display: block; font-family: 'Agne', serif; font-size: 2rem; color: #fff; letter-spacing: -0.01em; }
+.stat span { font-size: 0.8rem; color: #b9d4e8; }
+
+/* ---------- Etapes du déroulé d'une étude (variante des .step existants, libellé de phase) ---------- */
+.step__phase {
+  font-family: 'Agne', serif; font-size: 0.82rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--teal-dark); margin-bottom: 10px; display: block;
+}
+
+/* ---------- Section Fondatrice (fondatrice.html) : mise en page image + texte ---------- */
+.founder-split { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 52px; align-items: start; }
+.founder-photo {
+  background: var(--bg-alt); border: 2px dashed var(--border); border-radius: var(--radius);
+  min-height: 340px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; color: var(--gray); font-size: 0.84rem; text-align: center; padding: 30px;
+}
+.founder-photo__icon { font-size: 2rem; }
+.proof-list { display: flex; flex-direction: column; gap: 12px; margin: 26px 0 30px; }
+.proof-item { display: flex; gap: 12px; align-items: flex-start; }
+.proof-item__mark {
+  flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: #fff;
+  font-size: 0.72rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-top: 2px;
+}
+.proof-item p { margin: 0; font-size: 0.95rem; color: var(--ink); font-weight: 600; }
+
+/* ---------- Carte fondatrice enrichie (disponibilité + actions) ---------- */
+.founder__avail { font-size: 0.86rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; }
+.founder__actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.founder__body { flex: 1; min-width: 220px; }
+
+/* ---------- Témoignage vide (emplacement à compléter) ---------- */
+.testimonial--empty { border-left-color: var(--border); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; color: var(--gray); }
+.testimonial--empty p { font-style: normal; color: var(--gray); font-size: 0.88rem; margin: 0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 960px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(3) { border-left: none; }
+  .founder-split { grid-template-columns: 1fr; }
+  .founder-photo { min-height: 220px; }
+}
+@media (max-width: 640px) {
+  .stats__grid { grid-template-columns: repeat(2, 1fr); }
+  .stat:nth-child(2n+1) { border-left: none; }
+}
