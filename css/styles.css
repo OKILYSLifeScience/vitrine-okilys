@@ -1384,3 +1384,109 @@ section[id] { scroll-margin-top: 135px; }
     linear-gradient(90deg, rgba(18,76,239,0.82) 0%, rgba(45,156,175,0.72) 100%),
     url('../assets/images/sections/gingko-accueil.webp') center 30% / cover no-repeat;
 }
+
+/* ---------- Sous-menu de navigation (Developpement clinique) ---------- */
+.nav-item { position: relative; display: inline-flex; }
+.nav-item > a .caret { font-size: 0.7em; margin-left: 4px; }
+.nav-item .sub-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  min-width: 210px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 18px 30px -18px rgba(15, 23, 42, 0.25);
+  z-index: 70;
+}
+.nav-item:hover .sub-menu,
+.nav-item:focus-within .sub-menu { display: flex; }
+.nav .sub-menu a {
+  width: 100%;
+  padding: 9px 12px;
+  border-bottom: none;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+.nav .sub-menu a:hover { background: var(--bg-alt); border-color: transparent; }
+.nav .sub-menu a.is-active { background: var(--bg-alt); color: var(--blue); border-bottom: none; }
+@media (max-width: 1180px) {
+  .nav-item { display: block; width: 100%; }
+  .nav-item > a { width: 100%; display: block; }
+  .nav-item .sub-menu {
+    display: flex;
+    position: static;
+    min-width: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0 0 0 18px;
+    border-radius: 0;
+  }
+  .nav .sub-menu a { border-bottom: 1px solid var(--border); border-radius: 0; }
+}
+
+/* ---------- Cartes Developpement clinique (accueil, 3 sous-pages) ---------- */
+.link-cards--3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 960px) { .link-cards--3 { grid-template-columns: 1fr; } }
+
+/* ---------- Frise verticale (sous-pages Medicament / DM / Donnees) ---------- */
+.vpipe { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.vstep {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+.vstep__num {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+.vstep h3 { font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.98rem; margin: 6px 0 4px; }
+.vstep p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.5; }
+.vstep--muted { background: var(--bg-alt); }
+.vstep--muted .vstep__num { background: #aeb9c2; }
+.vstep--muted h3 { color: var(--gray); }
+.vstep--muted p { color: var(--gray); }
+.vscope {
+  position: relative;
+  border: 2px solid var(--teal);
+  border-radius: 16px;
+  padding: 22px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 6px 0;
+}
+.vscope__label {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #fff;
+  padding: 0 10px;
+  color: var(--teal-dark);
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.vpipe-axis {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+}

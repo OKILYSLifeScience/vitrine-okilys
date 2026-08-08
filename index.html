@@ -34,7 +34,14 @@
 
     <nav class="nav" id="nav">
       <a href="#apropos">À propos</a>
-      <a href="#developpement">Développement clinique</a>
+      <div class="nav-item">
+        <a href="#developpement">Développement clinique <span class="caret" aria-hidden="true">▾</span></a>
+        <div class="sub-menu">
+          <a href="medicament.html">Médicament</a>
+          <a href="dispositif-medical.html">Dispositif médical</a>
+          <a href="donnees.html">Données</a>
+        </div>
+      </div>
       <a href="#expertise">Notre expertise</a>
       <a href="#domaines">Domaines</a>
       <a href="#fondatrice">Fondatrice</a>
@@ -114,100 +121,27 @@
     <div class="container">
       <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">Développement clinique</p>
       <h2 class="section__title">Du produit de santé au patient</h2>
-      <p class="section__lead">Médicament, dispositif médical ou données : chaque produit de santé suit un parcours de développement strictement encadré par la réglementation européenne et nationale. OKILYS intervient sur le versant <strong>recherche clinique</strong> de ces parcours — pas sur la phase préclinique.</p>
+      <p class="section__lead">Médicament, dispositif médical ou données de vie réelle : chaque produit de santé suit un parcours de développement strictement encadré par la réglementation européenne et nationale. OKILYS intervient sur le versant <strong>recherche clinique</strong> de chacun de ces parcours — jamais sur la phase préclinique.</p>
 
-      <div class="pipeline-block">
-        <p class="pipeline-block__title">Médicament</p>
-        <div class="pipeline">
-          <div class="pipe-seg pipe-seg--muted">
-            <h3>Recherche préclinique</h3>
-            <p>Criblage de milliers de molécules · études in vitro et in vivo</p>
-          </div>
-          <div class="pipe-seg pipe-seg--2">
-            <h3>Phase I</h3>
-            <p>Tolérance et sécurité · quelques dizaines de volontaires sains</p>
-          </div>
-          <div class="pipe-seg pipe-seg--3">
-            <h3>Phase II</h3>
-            <p>Efficacité et dose optimale · quelques centaines de patients</p>
-          </div>
-          <div class="pipe-seg pipe-seg--4">
-            <h3>Phase III</h3>
-            <p>Confirmation à grande échelle · milliers de patients, multicentrique</p>
-          </div>
-          <div class="pipe-seg pipe-seg--5">
-            <h3>AMM</h3>
-            <p>Autorisation de Mise sur le Marché · EMA / ANSM</p>
-          </div>
-          <div class="pipe-seg pipe-seg--6">
-            <h3>Phase IV</h3>
-            <p>Pharmacovigilance et données en vie réelle, après commercialisation</p>
-          </div>
-        </div>
-        <div class="pipeline-scope">
-          <div class="pipeline-scope__spacer" style="flex:1;"></div>
-          <div class="pipeline-scope__bar" style="flex:5;">Recherche clinique — périmètre d'intervention OKILYS</div>
-        </div>
-        <p class="pipeline-axis">Cadre européen : Règlement (UE) n°536/2014 — essais cliniques de médicaments · ⏱ 10 à 15 ans au total</p>
-      </div>
-
-      <div class="pipeline-block">
-        <p class="pipeline-block__title">Dispositif médical</p>
-        <div class="pipeline">
-          <div class="pipe-seg pipe-seg--muted">
-            <h3>Conception</h3>
-            <p>Développement du dispositif · prototypage</p>
-          </div>
-          <div class="pipe-seg pipe-seg--muted">
-            <h3>Préclinique</h3>
-            <p>Essais en laboratoire · vérification &amp; validation techniques</p>
-          </div>
-          <div class="pipe-seg pipe-seg--3">
-            <h3>Investigation clinique</h3>
-            <p>Sécurité et performance chez l'humain · ISO 14155</p>
-          </div>
-          <div class="pipe-seg pipe-seg--5">
-            <h3>Marquage CE</h3>
-            <p>Évaluation de conformité · organisme notifié</p>
-          </div>
-          <div class="pipe-seg pipe-seg--6">
-            <h3>Suivi post-commercialisation</h3>
-            <p>Suivi clinique après commercialisation (PMCF) · vigilance</p>
-          </div>
-        </div>
-        <div class="pipeline-scope">
-          <div class="pipeline-scope__spacer" style="flex:2;"></div>
-          <div class="pipeline-scope__bar" style="flex:3;">Recherche clinique — périmètre d'intervention OKILYS</div>
-        </div>
-        <p class="pipeline-axis">Cadre européen : Règlement (UE) 2017/745 (MDR) — investigations cliniques de dispositifs médicaux</p>
-      </div>
-
-      <div class="pipeline-block">
-        <p class="pipeline-block__title">Données</p>
-        <div class="pipeline">
-          <div class="pipe-seg pipe-seg--muted">
-            <h3>Données collectées</h3>
-            <p>Données de soins, d'études, d'entrepôts de données de santé</p>
-          </div>
-          <div class="pipe-seg pipe-seg--3">
-            <h3>Cadre &amp; conformité</h3>
-            <p>RNIPH, méthodologies de référence CNIL, Health Data Hub</p>
-          </div>
-          <div class="pipe-seg pipe-seg--4">
-            <h3>Étude sur données</h3>
-            <p>Études rétrospectives ou prospectives sur données collectées</p>
-          </div>
-          <div class="pipe-seg pipe-seg--6">
-            <h3>Valorisation</h3>
-            <p>Analyses, publications, données en vie réelle</p>
-          </div>
-        </div>
-        <div class="pipeline-scope">
-          <div class="pipeline-scope__spacer" style="flex:1;"></div>
-          <div class="pipeline-scope__bar" style="flex:2;">Recherche clinique — périmètre d'intervention OKILYS</div>
-          <div class="pipeline-scope__spacer" style="flex:1;"></div>
-        </div>
-        <p class="pipeline-axis">Cadre France : recherches n'impliquant pas la personne humaine (RNIPH), CNIL, Health Data Hub</p>
+      <div class="link-cards link-cards--3">
+        <a href="medicament.html" class="link-card">
+          <div class="link-card__icon">💊</div>
+          <h3>Médicament</h3>
+          <p>Essais cliniques de phase I à IV, de la première administration à l'humain à la pharmacovigilance — Règlement (UE) n°536/2014, soumissions via CTIS.</p>
+          <span class="link-card__arrow">Découvrir le parcours →</span>
+        </a>
+        <a href="dispositif-medical.html" class="link-card">
+          <div class="link-card__icon">🩺</div>
+          <h3>Dispositif médical</h3>
+          <p>Investigations cliniques ISO 14155 : sécurité et performance, du marquage CE au suivi post-commercialisation (PMCF) — Règlement (UE) 2017/745 (MDR).</p>
+          <span class="link-card__arrow">Découvrir le parcours →</span>
+        </a>
+        <a href="donnees.html" class="link-card">
+          <div class="link-card__icon">📊</div>
+          <h3>Données</h3>
+          <p>Études sur données de vie réelle (RWD/RWE) : études rétrospectives ou prospectives sur données collectées — RNIPH, méthodologies CNIL, Health Data Hub.</p>
+          <span class="link-card__arrow">Découvrir le parcours →</span>
+        </a>
       </div>
 
       <p class="section__lead" style="margin-top:44px;margin-bottom:0;"><strong>Trois parcours, un même terrain d'action :</strong> l'étude clinique, de la conception à la clôture.</p>
