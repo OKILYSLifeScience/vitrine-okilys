@@ -1272,4 +1272,4 @@ input, textarea { font-family: inherit; }
 .cov-icon svg { width: 26px; height: 26px; }
 
 /* Ancres : compenser le bandeau collant pour que les sections ciblées ne soient pas masquées */
-section[id] { scroll-margin-top: 110px; }
+section[id] { scroll-margin-top: 135px; }
