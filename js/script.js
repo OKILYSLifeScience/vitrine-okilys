@@ -54,13 +54,27 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 // Contact form -> Web3Forms (relais d'envoi pour site statique, sans backend)
 const form = document.getElementById('contact-form');
 const note = document.getElementById('form-note');
+const isEnglish = document.documentElement.lang === 'en';
+const formMsg = isEnglish
+  ? {
+      sending: 'Sending…',
+      sent: 'Message sent, thank you! I will get back to you shortly.',
+      failed: 'Sending failed. Please try again or email me directly (address opposite).',
+      network: 'Sending failed (connection issue). Please try again or email me directly (address opposite).'
+    }
+  : {
+      sending: 'Envoi en cours…',
+      sent: 'Message envoyé, merci ! Je reviens vers vous rapidement.',
+      failed: "L'envoi a échoué. Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre).",
+      network: "L'envoi a échoué (connexion). Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre)."
+    };
 
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = document.getElementById('contact-submit');
     submitBtn.disabled = true;
-    note.textContent = 'Envoi en cours…';
+    note.textContent = formMsg.sending;
 
     try {
       const response = await fetch(form.action, {
@@ -71,12 +85,12 @@ if (form) {
       const result = await response.json();
       if (result.success) {
         form.reset();
-        note.textContent = 'Message envoyé, merci ! Je reviens vers vous rapidement.';
+        note.textContent = formMsg.sent;
       } else {
-        note.textContent = "L'envoi a échoué. Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre).";
+        note.textContent = formMsg.failed;
       }
     } catch (err) {
-      note.textContent = "L'envoi a échoué (connexion). Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre).";
+      note.textContent = formMsg.network;
     } finally {
       submitBtn.disabled = false;
     }
