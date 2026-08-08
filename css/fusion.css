@@ -37,8 +37,12 @@
 
 /* ---------- Carte fondatrice enrichie (disponibilité + actions) ---------- */
 .founder__avail { font-size: 0.86rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 8px; }
-.founder__actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+.founder__actions { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
 .founder__body { flex: 1; min-width: 220px; }
+
+/* ---------- Portrait de la fondatrice + carte empilée dessous ---------- */
+.founder-portrait { display: block; width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+.founder--stack { flex-direction: column; margin-top: 20px; }
 
 /* ---------- Témoignage vide (emplacement à compléter) ---------- */
 .testimonial--empty { border-left-color: var(--border); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; color: var(--gray); }

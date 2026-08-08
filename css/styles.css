@@ -214,15 +214,23 @@ input, textarea { font-family: inherit; }
 .btn--primary {
   background: var(--gradient);
   color: #fff;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 10px -4px rgba(18, 76, 239, 0.35);
 }
 .btn--primary:hover { transform: translateY(-2px); }
 .btn--ghost {
+  background: var(--blue);
   border-color: var(--blue);
-  color: var(--blue);
-  background: transparent;
+  color: #fff;
 }
-.btn--ghost:hover { background: var(--blue); color: #fff; }
+.btn--ghost:hover { background: var(--blue-dark, #0d3ab8); border-color: var(--blue-dark, #0d3ab8); color: #fff; }
+.btn--linkedin {
+  background: #0a66c2;
+  color: #fff;
+  gap: 10px;
+  box-shadow: 0 4px 10px -4px rgba(10, 102, 194, 0.35);
+}
+.btn--linkedin svg { width: 18px; height: 18px; fill: #fff; flex: none; }
+.btn--linkedin:hover { background: #084e96; transform: translateY(-2px); }
 .btn--block { width: 100%; }
 
 /* ---------- Hero band (bandeau d'en-tête uniforme, sans photo) ---------- */
