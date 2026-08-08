@@ -1243,6 +1243,8 @@ input, textarea { font-family: inherit; }
 .cov-bar--3 { background: #2a72c1; }
 .cov-bar--4 { background: #2d9caf; }
 .cov-bar--5 { background: #21778a; }
+.cov-bar--6 { background: #17566b; }
+.cov-bar--7 { background: #2f86b8; }
 .cov-bar--oversight {
   background: var(--navy);
   justify-content: center;
