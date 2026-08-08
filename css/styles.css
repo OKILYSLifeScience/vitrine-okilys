@@ -1338,6 +1338,52 @@ input, textarea { font-family: inherit; }
   color: var(--ink-soft);
 }
 
+/* ---------- Frise allégée : phases cliquables + info-bulle au survol ---------- */
+a.cov-phase { color: inherit; position: relative; display: block; cursor: pointer; }
+a.cov-phase:hover h3 { color: var(--blue); }
+a.cov-phase h3::after { content: " ↗"; font-size: 0.72em; color: var(--teal); }
+.cov-tip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 8px);
+  width: 265px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 13px 15px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+  z-index: 40;
+  box-shadow: 0 14px 30px -12px rgba(15, 23, 42, 0.45);
+}
+.cov-tip::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: var(--navy);
+}
+a.cov-phase:hover .cov-tip,
+a.cov-phase:focus-visible .cov-tip { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.cov-phase--first .cov-tip { left: 0; transform: translate(0, 8px); }
+.cov-phase--first .cov-tip::before { left: 34px; transform: rotate(45deg); }
+a.cov-phase--first:hover .cov-tip,
+a.cov-phase--first:focus-visible .cov-tip { transform: translate(0, 0); }
+.cov-phase--last .cov-tip { left: auto; right: 0; transform: translate(0, 8px); }
+.cov-phase--last .cov-tip::before { left: auto; right: 34px; transform: rotate(45deg); }
+a.cov-phase--last:hover .cov-tip,
+a.cov-phase--last:focus-visible .cov-tip { transform: translate(0, 0); }
+
 /* Icônes des étapes de la frise (reprises des anciens blocs de services) */
 .cov-icon {
   width: 46px;
