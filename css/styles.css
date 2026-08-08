@@ -214,7 +214,6 @@ input, textarea { font-family: inherit; }
 .btn--primary {
   background: var(--gradient);
   color: #fff;
-  box-shadow: 0 4px 10px -4px rgba(18, 76, 239, 0.35);
 }
 .btn--primary:hover { transform: translateY(-2px); }
 .btn--ghost {
@@ -227,7 +226,6 @@ input, textarea { font-family: inherit; }
   background: #0a66c2;
   color: #fff;
   gap: 10px;
-  box-shadow: 0 4px 10px -4px rgba(10, 102, 194, 0.35);
 }
 .btn--onblue {
   background: rgba(255, 255, 255, 0.14);
@@ -1117,6 +1115,9 @@ input, textarea { font-family: inherit; }
 }
 .lang-switch a.is-active { background: var(--gradient); color: #fff; }
 .nav a.is-active { color: var(--blue); border-color: var(--teal); }
+/* la règle .nav a.is-active ci-dessus ne doit jamais passer le texte du bouton de langue actif en bleu */
+.nav .lang-switch a.is-active,
+.nav .lang-switch a.is-active:hover { background: var(--gradient); color: #fff; border-color: transparent; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
@@ -1245,7 +1246,7 @@ input, textarea { font-family: inherit; }
 .pipe-seg--4 { background: #2f86b8; }
 .pipe-seg--5 { background: var(--navy); }
 .pipe-seg--6 { background: #2d9caf; }
-.pipe-seg h3 { color: #fff; font-size: 0.9rem; margin-bottom: 4px; white-space: nowrap; }
+.pipe-seg h3 { color: #fff; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.88rem; margin-bottom: 4px; white-space: nowrap; }
 .pipe-seg p { color: rgba(255,255,255,0.85); font-size: 0.74rem; margin: 0; line-height: 1.4; }
 .pipeline-axis {
   margin-top: 14px;
