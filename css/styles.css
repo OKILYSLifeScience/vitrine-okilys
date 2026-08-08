@@ -1529,9 +1529,30 @@ section[id] { scroll-margin-top: 135px; }
 .nav .sub-menu a.is-active { background: var(--bg-alt); color: var(--blue); border-bottom: none; }
 @media (max-width: 1180px) {
   .nav-item { display: block; width: 100%; }
-  .nav-item > a { width: 100%; display: block; }
-  .nav-item .sub-menu {
+  .nav-item > a {
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  /* La flèche devient un bouton développer/réduire avec une large zone tactile */
+  .nav-item > a .caret {
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 36px;
+    margin: -8px 0;
+    border-radius: 8px;
+    background: var(--bg-alt);
+    font-size: 0.9rem;
+    transition: transform .2s;
+  }
+  .nav-item.is-sub-open > a .caret { transform: rotate(180deg); }
+  .nav-item .sub-menu {
+    display: none;
     position: static;
     min-width: 0;
     border: none;
@@ -1539,6 +1560,7 @@ section[id] { scroll-margin-top: 135px; }
     padding: 0 0 0 18px;
     border-radius: 0;
   }
+  .nav-item.is-sub-open .sub-menu { display: flex; }
   .nav .sub-menu a { border-bottom: 1px solid var(--border); border-radius: 0; }
 }
 

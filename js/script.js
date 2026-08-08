@@ -41,6 +41,20 @@ if (burger) {
   burger.addEventListener('click', toggleNav);
   overlay.addEventListener('click', closeNav);
   nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeNav));
+
+  // Sur mobile, la flèche des entrées à sous-menu développe/réduit le sous-menu (sans naviguer)
+  nav.querySelectorAll('.nav-item > a .caret').forEach(caret => {
+    caret.addEventListener('click', e => {
+      if (window.matchMedia('(max-width: 1180px)').matches) {
+        e.preventDefault();
+        e.stopPropagation();
+        const item = caret.closest('.nav-item');
+        const wasOpen = item.classList.contains('is-sub-open');
+        nav.querySelectorAll('.nav-item').forEach(i => i.classList.remove('is-sub-open'));
+        if (!wasOpen) item.classList.add('is-sub-open');
+      }
+    });
+  });
 }
 
 // Sticky header shadow on scroll
