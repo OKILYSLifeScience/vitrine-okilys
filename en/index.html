@@ -33,8 +33,7 @@
     </a>
 
     <nav class="nav" id="nav">
-      <a href="index.html" class="is-active">Home</a>
-      <a href="#qui-sommes-nous">About us</a>
+      <a href="#apropos">About us</a>
       <a href="#developpement">Clinical development</a>
       <a href="#expertise">Our expertise</a>
       <a href="#domaines">Areas</a>
@@ -45,8 +44,13 @@
         <a href="../index.html">FR</a>
       </div>
     </nav>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
+<div class="nav-overlay" id="nav-overlay"></div>
 
 <main>
 
@@ -56,7 +60,7 @@
       <div class="hero-band__text">
         <p class="eyebrow">Clinical research &amp; clinical trials</p>
         <h1>OKILYS Life Science</h1>
-        <p class="hero-band__lead">12 years of experience in clinical research, from the field to project coordination. OKILYS supports CROs, sponsors and investigator sites in the design, site selection, start-up, monitoring and quality supervision (Clinical Oversight) of their clinical trials.</p>
+        <p class="hero-band__lead">12 years of experience in clinical research, from the field to project coordination, at the service of your clinical trials.</p>
         <a href="#contact" class="btn" style="background:#fff;color:var(--blue);">Let's discuss your study →</a>
       </div>
       <div class="hero-band__panel">
@@ -84,13 +88,12 @@
   </section>
 
   <!-- ABOUT US -->
-  <section class="section" id="qui-sommes-nous">
+  <section class="section" id="apropos">
     <div class="container" style="max-width:820px;">
       <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">About us</p>
       <h2 class="section__title">Qualified expertise, tailored to each study</h2>
       <p>OKILYS Life Science is a young, dynamic company based in France, specialised in supporting Clinical Research — across the different categories of trials governed by European and national regulations: drugs, medical devices, standard-of-care evaluation, research on collected data, Non-Pharmacological Interventions (NPIs).</p>
-      <p>Are you a pharmaceutical company, a biotech, a CRO, a hospital…, looking for qualified clinical trial expertise tailored to the needs of your current or upcoming studies?</p>
-      <p>OKILYS assesses your needs and then provides the expertise best suited to your studies: <strong>investigator site management and monitoring, Start-Up and Regulatory activities, clinical trial coordination (Clinical Trial Lead/Manager), quality supervision of vendors (Clinical Oversight)</strong>,…</p>
+      <p>Are you a pharmaceutical company, a biotech, a CRO, a hospital…? OKILYS assesses your needs and then provides the expertise best suited to your current or upcoming studies: <strong>study design and site selection, Start-Up and Regulatory activities, investigator site management and monitoring, clinical trial coordination (Clinical Trial Lead/Manager), quality supervision of vendors (Clinical Oversight)</strong>,…</p>
       <p>OKILYS ensures rigorous follow-up of every assignment, from scoping to close-out.</p>
       <div class="sectors" style="margin-top:28px;">
         <div class="sector">Pharmaceutical companies</div>
@@ -149,12 +152,12 @@
 
       <div class="coverage-wrap">
         <div class="coverage">
-          <div class="cov-phase" style="grid-column:1;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6h16l8 8v26a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 6v8h8" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="m30 27-8 8-4 1 1-4 8-8 3 3z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg></span><h3>1. Design</h3><p>Strategic advice based on trial type, protocol &amp; synopsis, ICF: writing, country adaptation, French translation review (FR, BE, CH, LU…), eCRF, CTMS, patient-facing tools</p></div>
+          <div class="cov-phase" style="grid-column:1;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6h16l8 8v26a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 6v8h8" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="m30 27-8 8-4 1 1-4 8-8 3 3z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/></svg></span><h3>1. Design</h3><p>Strategic advice based on trial type (including non-standard or early-phase trials), protocol &amp; synopsis, ICF: writing, country adaptation, French translation review (FR, BE, CH, LU…), eCRF, CTMS, patient-facing tools</p></div>
           <div class="cov-phase" style="grid-column:2;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="9" r="4" stroke="#fff" stroke-width="2.5"/><circle cx="10" cy="34" r="4" stroke="#fff" stroke-width="2.5"/><circle cx="24" cy="34" r="4" stroke="#fff" stroke-width="2.5"/><circle cx="38" cy="34" r="4" stroke="#fff" stroke-width="2.5"/><path d="M24 13v13M24 26 10 30M24 26v4M24 26l14 4" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><h3>2. Site selection</h3><p>Country and investigator site selection: feasibility, selection visits</p></div>
-          <div class="cov-phase" style="grid-column:3;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12l4 5h20v19a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V12z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><line x1="13" y1="26" x2="35" y2="26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="32" x2="28" y2="32" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><h3>3. Preparation</h3><p>Collection of site essential documents, contract &amp; budget negotiation, submission package preparation</p></div>
-          <div class="cov-phase" style="grid-column:4;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6h16l8 8v28a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 6v8h8" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="30" r="7" stroke="#fff" stroke-width="2.5"/><polyline points="21,30 23,32 27,27" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>4. Submissions</h3><p>Submission strategy based on trial type · EU Regulation: CTIS Part II · National frameworks: ANSM &amp; CPP (FR), FAMHP &amp; Ethics Committees (BE) — initial &amp; amendments, up to Greenlight (approval + signed contract)</p></div>
+          <div class="cov-phase" style="grid-column:3;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 12h12l4 5h20v19a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V12z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><line x1="13" y1="26" x2="35" y2="26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="32" x2="28" y2="32" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><h3>3. Preparation</h3><p>Collection of site essential documents, contract &amp; budget negotiation (Convention Unique, Pharma.be), ARS &amp; CNOM notifications, submission package preparation</p></div>
+          <div class="cov-phase" style="grid-column:4;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6h16l8 8v28a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><path d="M28 6v8h8" stroke="#fff" stroke-width="2.5" stroke-linejoin="round"/><circle cx="24" cy="30" r="7" stroke="#fff" stroke-width="2.5"/><polyline points="21,30 23,32 27,27" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>4. Submissions</h3><p>Submission strategy based on trial type · EU Regulation: CTIS Part II · National frameworks: ANSM &amp; CPP, CNIL/HDH (FR), FAMHP &amp; Ethics Committees (BE) — initial &amp; amendments, up to Greenlight (approval + signed contract)</p></div>
           <div class="cov-phase" style="grid-column:5;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="17" cy="14" r="6" stroke="#fff" stroke-width="2.5"/><path d="M6 38c0-7 5-11 11-11s11 4 11 11" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="33" cy="18" r="5" stroke="#fff" stroke-width="2.5"/><path d="M25 38c1-6 4-9 8-9s7 3 8 9" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><h3>5. Site initiation</h3><p>Initiation visits, team training, site activation, first patient in</p></div>
-          <div class="cov-phase" style="grid-column:6;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="24" rx="2" stroke="#fff" stroke-width="2.5"/><line x1="16" y1="40" x2="32" y2="40" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="34" x2="24" y2="40" stroke="#fff" stroke-width="2.5"/><polyline points="12,26 18,18 24,24 30,15 37,20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>6. Conduct &amp; monitoring</h3><p>Patient recruitment, monitoring &amp; recruitment-boosting visits, close communication &amp; escalation, data quality, eTMF, risk &amp; deviation management</p></div>
+          <div class="cov-phase" style="grid-column:6;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="10" width="36" height="24" rx="2" stroke="#fff" stroke-width="2.5"/><line x1="16" y1="40" x2="32" y2="40" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="34" x2="24" y2="40" stroke="#fff" stroke-width="2.5"/><polyline points="12,26 18,18 24,24 30,15 37,20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>6. Conduct &amp; monitoring</h3><p>Patient recruitment, monitoring &amp; recruitment-boosting visits — on-site or remote (RBM, DCT), close communication &amp; escalation, data quality, eTMF, risk &amp; deviation management</p></div>
           <div class="cov-phase" style="grid-column:7;"><span class="cov-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="6" width="22" height="30" rx="2" stroke="#fff" stroke-width="2.5"/><line x1="13" y1="14" x2="25" y2="14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="20" x2="25" y2="20" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="26" x2="20" y2="26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><circle cx="32" cy="32" r="7" stroke="#fff" stroke-width="2.5"/><line x1="37" y1="37" x2="42" y2="42" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg></span><h3>7. Close-out</h3><p>Site close-out visits, final query resolution, drug &amp; material returns, TMF/eTMF reconciliation &amp; archiving, study wrap-up</p></div>
 
           <div class="cov-bar cov-bar--1" style="grid-column:1 / 2;">Study design &amp; documents — Consultant</div>
@@ -207,20 +210,11 @@
     </div>
   </section>
 
-  <!-- FOUNDER: STORY -->
+  <!-- FOUNDER -->
   <section class="section" id="fondatrice">
     <div class="container" style="max-width:820px;">
       <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">At the heart of OKILYS</p>
-      <h2 class="section__title">The OKILYS story</h2>
-
-      <div style="border-top:1px dotted var(--border);padding-top:24px;margin-top:24px;">
-        <p class="eyebrow" style="color:var(--teal-dark);font-size:1.3rem;letter-spacing:0;">2020</p>
-        <p><strong>OKILYS Life Science founded in France by Lydie PARSUS</strong> – a service company dedicated to Clinical Research on Drugs and Medical Devices.</p>
-      </div>
-      <div style="border-top:1px dotted var(--border);padding-top:24px;margin-top:24px;">
-        <p class="eyebrow" style="color:var(--teal-dark);font-size:1.3rem;letter-spacing:0;">2023</p>
-        <p><strong>OKILYS Life Science expands its services</strong> – Building on the trust of its partners and a commitment to global health, the company broadened its scope to support Clinical Research on Drugs, Medical Devices, standard-of-care evaluation, research on collected data and Non-Pharmacological Interventions (NPIs).</p>
-      </div>
+      <p style="margin-top:12px;">Building on the trust of its partners and a commitment to global health, the company broadened its scope to support Clinical Research on Drugs, Medical Devices, standard-of-care evaluation, research on collected data and Non-Pharmacological Interventions (NPIs).</p>
       <div style="border-top:1px dotted var(--border);border-bottom:1px dotted var(--border);padding:24px 0;margin-top:24px;">
         <p style="font-family:'Agne', serif;font-size:1.2rem;color:var(--teal-dark);margin:0;">OKILYS Life Science is committed to the health of future generations and the well-being of its collaborators</p>
       </div>
@@ -254,6 +248,9 @@
             <div class="proof-item"><span class="proof-item__mark">✓</span><p>Tailored communication with each stakeholder: CRA, SSU, Lead, CPM, contract teams, investigators, sponsors, vendors</p></div>
             <div class="proof-item"><span class="proof-item__mark">✓</span><p>A structured mentoring approach with junior CRAs, team coordination across several countries</p></div>
             <div class="proof-item"><span class="proof-item__mark">✓</span><p>A natural facilitator role — aligning priorities, teams and timelines to keep every study on track</p></div>
+            <div class="proof-item"><span class="proof-item__mark">✓</span><p>Hands-on experience with authorities and committees: ANSM, CPP, CTIS, CNIL/HDH, FAMHP</p></div>
+            <div class="proof-item"><span class="proof-item__mark">✓</span><p>A dual strategic and operational view — a reliable anchor between sponsor, CRO and sites</p></div>
+            <div class="proof-item"><span class="proof-item__mark">✓</span><p>Strong site relationships and risk anticipation, grounded in field experience</p></div>
             <div class="proof-item"><span class="proof-item__mark">✓</span><p>Comfortable juggling tools, regulatory constraints and shifting priorities</p></div>
             <div class="proof-item"><span class="proof-item__mark">✓</span><p>Available immediately, fully remote, with up to 4-5 days of travel per month</p></div>
           </div>
@@ -277,41 +274,6 @@
     </div>
   </section>
 
-  <!-- WHAT SHE BRINGS -->
-  <section class="section">
-    <div class="container">
-      <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">What she brings</p>
-      <h2 class="section__title">Five facets of a single expertise</h2>
-
-      <div class="cards">
-        <article class="card">
-          <div class="card__icon">🧾</div>
-          <h3>From submission planning to dossier delivery</h3>
-          <p>She defines the optimal submission strategy based on trial type and the applicable EU and national regulations. She prepares and coordinates submission packages (regulatory and ethics) for both initial submissions and substantial amendments — with hands-on experience of ANSM, CPP, CTIS, CNIL/HDH (France) and FAMHP/local Ethics Committees (Belgium).</p>
-        </article>
-        <article class="card">
-          <div class="card__icon">🚦</div>
-          <h3>Efficient site management before FPI</h3>
-          <p>She leads feasibility assessments, SSU activities and essential document collection. She negotiates contracts and budgets with French and Belgian sites, adapting to institutional, legal and financial frameworks (Pharma.be, Convention Unique, ARS/CNOM) — with one constant focus: streamlining timelines while ensuring full compliance from the start.</p>
-        </article>
-        <article class="card">
-          <div class="card__icon">🔎</div>
-          <h3>From initiation to close-out, on-site or remotely</h3>
-          <p>She conducts site initiation, monitoring and close-out visits across various models: on-site, remote, RBM or DCT. She tracks data quality, protocol adherence and timelines with investigators and site staff — her field experience enables her to build strong site relationships and anticipate risks.</p>
-        </article>
-        <article class="card">
-          <div class="card__icon">🤝</div>
-          <h3>Bridging operations and leadership</h3>
-          <p>She acts as Clinical Trial Lead or operational coordinator across multiple countries (France, Belgium, Germany, Netherlands). She manages priorities, supports junior CRAs, trains new staff and ensures smooth collaboration between sponsor, CRO and site teams — her dual view, strategic and operational, makes her a reliable team anchor.</p>
-        </article>
-        <article class="card">
-          <div class="card__icon">🎯</div>
-          <h3>From expert input to tailored support</h3>
-          <p>She supports sponsors and CROs with regulatory, methodological and operational advice, especially for non-standard or early-phase trials. She adapts quickly to various roles (SSU, Senior CRA, CTL) and contexts (local or international, fully remote or hybrid) — bringing autonomy, precision and value, even in demanding environments.</p>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- TESTIMONIALS -->
   <section class="section section--alt">
@@ -418,8 +380,7 @@
     </div>
 
     <nav class="footer__nav">
-      <a href="index.html">Home</a>
-      <a href="#qui-sommes-nous">About us</a>
+      <a href="#apropos">About us</a>
       <a href="#developpement">Clinical development</a>
       <a href="#expertise">Our expertise</a>
       <a href="#domaines">Areas</a>

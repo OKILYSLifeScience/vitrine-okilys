@@ -47,6 +47,23 @@ window.addEventListener('scroll', () => {
   header.style.boxShadow = window.scrollY > 8 ? '0 8px 24px -12px rgba(15,23,42,0.18)' : 'none';
 });
 
+// Scrollspy : surligne l'entrée de menu correspondant à la section visible
+const spyLinks = [...document.querySelectorAll('.nav a[href^="#"]:not(.nav__cta)')].filter(a => a.getAttribute('href').length > 1);
+const spySections = [...document.querySelectorAll('main section[id]')];
+
+if (spyLinks.length && spySections.length) {
+  const updateSpy = () => {
+    const pos = window.scrollY + 160;
+    let currentId = null;
+    for (const s of spySections) {
+      if (s.offsetTop <= pos) currentId = s.id;
+    }
+    spyLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + currentId));
+  };
+  window.addEventListener('scroll', updateSpy, { passive: true });
+  updateSpy();
+}
+
 // Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();

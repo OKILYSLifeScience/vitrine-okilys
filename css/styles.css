@@ -111,8 +111,7 @@ input, textarea { font-family: inherit; }
   .brand__tagline { display: none; }
 }
 
-/* Liens toujours visibles dans le bandeau — plus de menu tiroir/burger
-   (le menu ne compte plus que 4 entrées, elles tiennent sur toutes les tailles d'écran) */
+/* Navigation : liens en ligne sur grand écran, tiroir + burger en dessous de 1180px (façon infrarch.fr) */
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +128,7 @@ input, textarea { font-family: inherit; }
   transition: color .2s, border-color .2s;
 }
 .nav a:hover { color: var(--blue); border-color: var(--teal); }
-.nav a.is-active { border-bottom-color: var(--teal); }
+.nav a.is-active { border-bottom-color: var(--teal); color: var(--blue); }
 .nav__cta {
   background: var(--gradient);
   color: #fff !important;
@@ -141,9 +140,63 @@ input, textarea { font-family: inherit; }
 .nav__cta:hover { opacity: .92; border-color: transparent !important; }
 .nav .lang-switch { margin-top: 0; }
 
-@media (max-width: 860px) {
-  .header__inner { flex-direction: column; align-items: center; gap: 8px; padding-bottom: 14px; }
-  .nav { justify-content: center; }
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: 1px solid var(--peach-dark);
+  border-radius: 8px;
+  flex: none;
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  margin: 0 auto;
+  background: var(--ink);
+  transition: transform .25s, opacity .25s;
+}
+.burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.is-open span:nth-child(2) { opacity: 0; }
+.burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* L'overlay n'est pas utilisé avec le menu déroulant (façon infrarch.fr) mais reste dans le
+   HTML pour le script — il ne s'affiche jamais. */
+.nav-overlay { display: none !important; }
+
+@media (max-width: 1180px) {
+  .burger { display: flex; }
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 24px 20px;
+    display: none;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 18px 30px -18px rgba(15,23,42,0.25);
+    z-index: 60;
+  }
+  .nav.is-open { display: flex; }
+  .nav a {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 2px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav a.is-active { border-bottom-color: var(--teal); }
+  .nav__cta { margin-top: 8px; }
+  .nav .lang-switch { margin-top: 12px; }
 }
 
 /* ---------- Buttons ---------- */
