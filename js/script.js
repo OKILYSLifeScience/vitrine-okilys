@@ -26,6 +26,7 @@ function closeNav() {
   overlay.classList.remove('is-open');
   burger.classList.remove('is-open');
   burger.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('nav-open');
 }
 
 function toggleNav() {
@@ -33,6 +34,7 @@ function toggleNav() {
   overlay.classList.toggle('is-open', isOpen);
   burger.classList.toggle('is-open', isOpen);
   burger.setAttribute('aria-expanded', String(isOpen));
+  document.body.classList.toggle('nav-open', isOpen);
 }
 
 if (burger) {

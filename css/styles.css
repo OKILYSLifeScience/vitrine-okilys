@@ -203,7 +203,10 @@ input, textarea { font-family: inherit; }
     max-height: calc(100dvh - 150px);
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
+  /* Menu ouvert : la page derrière ne défile plus, seul le menu défile */
+  body.nav-open { overflow: hidden; }
   .nav.is-open { display: flex; }
   .nav a {
     width: 100%;
