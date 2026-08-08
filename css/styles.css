@@ -1256,3 +1256,16 @@ input, textarea { font-family: inherit; }
   font-size: 0.85rem;
   color: var(--ink-soft);
 }
+
+/* Icônes des étapes de la frise (reprises des anciens blocs de services) */
+.cov-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: var(--gradient);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.cov-icon svg { width: 26px; height: 26px; }
