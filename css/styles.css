@@ -1326,3 +1326,39 @@ input, textarea { font-family: inherit; }
 
 /* Ancres : compenser le bandeau collant pour que les sections ciblées ne soient pas masquées */
 section[id] { scroll-margin-top: 135px; }
+
+/* ---------- Développement clinique : sous-sections par type de produit ---------- */
+.pipeline-block { margin-bottom: 48px; }
+.pipeline-block:last-child { margin-bottom: 0; }
+.pipeline-block__title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--teal-dark);
+  margin-bottom: 16px;
+}
+/* Segments hors périmètre OKILYS (préclinique, conception produit…) : grisés */
+.pipe-seg--muted { background: #aeb9c2; }
+.pipe-seg--muted h3 { color: #f4f7f9; }
+.pipe-seg--muted p { color: rgba(255,255,255,0.85); }
+/* Barre de périmètre sous le pipeline : "Recherche clinique — OKILYS intervient ici" */
+.pipeline-scope { display: flex; gap: 6px; margin-top: 10px; }
+.pipeline-scope__spacer { flex: 1; }
+.pipeline-scope__bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 2px solid var(--teal);
+  background: rgba(45,156,175,0.08);
+  border-radius: 10px;
+  color: var(--teal-dark);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 7px 12px;
+}
+@media (max-width: 960px) {
+  .pipeline-scope { display: none; }
+}
