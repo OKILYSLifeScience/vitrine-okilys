@@ -15,9 +15,6 @@ document.querySelectorAll('[data-tel]').forEach((el) => {
   el.setAttribute('href', 'tel:' + tel);
   if (!el.textContent.trim()) el.textContent = label;
 });
-const CONTACT_EMAIL = document.body.hasAttribute('data-contact-email')
-  ? unreverse(document.body.getAttribute('data-contact-email'))
-  : null;
 
 // Mobile navigation
 const burger = document.getElementById('burger');
@@ -54,25 +51,35 @@ window.addEventListener('scroll', () => {
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// Contact form -> mailto (site statique, sans backend)
+// Contact form -> Web3Forms (relais d'envoi pour site statique, sans backend)
 const form = document.getElementById('contact-form');
 const note = document.getElementById('form-note');
 
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const organisation = document.getElementById('organisation').value.trim();
-    const message = document.getElementById('message').value.trim();
+    const submitBtn = document.getElementById('contact-submit');
+    submitBtn.disabled = true;
+    note.textContent = 'Envoi en cours…';
 
-    const subject = encodeURIComponent(`Contact site vitrine - ${name}`);
-    const body = encodeURIComponent(
-      `Nom : ${name}\nEmail : ${email}\nOrganisation : ${organisation || 'Non renseignée'}\n\nMessage :\n${message}`
-    );
-
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    note.textContent = "Votre messagerie va s'ouvrir pour envoyer votre message.";
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      const result = await response.json();
+      if (result.success) {
+        form.reset();
+        note.textContent = 'Message envoyé, merci ! Je reviens vers vous rapidement.';
+      } else {
+        note.textContent = "L'envoi a échoué. Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre).";
+      }
+    } catch (err) {
+      note.textContent = "L'envoi a échoué (connexion). Vous pouvez réessayer ou m'écrire directement par email (adresse ci-contre).";
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
 
