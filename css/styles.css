@@ -148,7 +148,6 @@ input, textarea { font-family: inherit; }
   border-radius: 999px;
   border: none !important;
   text-align: center;
-  box-shadow: 0 0 0 1px rgba(13, 58, 140, 0.35);
 }
 .nav__cta:hover { opacity: .92; border-color: transparent !important; }
 .nav .lang-switch { margin-top: 0; }
@@ -234,21 +233,20 @@ input, textarea { font-family: inherit; }
 .btn--primary {
   background: var(--gradient);
   color: #fff;
-  box-shadow: 0 0 0 1px rgba(13, 58, 140, 0.35);
 }
 .btn--primary:hover { transform: translateY(-2px); }
 .btn--ghost {
   background: var(--blue);
-  border-color: var(--blue);
   color: #fff;
 }
-.btn--ghost:hover { background: var(--blue-dark, #0d3ab8); border-color: var(--blue-dark, #0d3ab8); color: #fff; }
+.btn--ghost:hover { background: var(--blue-dark, #0d3ab8); color: #fff; }
 .btn--linkedin {
   background: #0a66c2;
   color: #fff;
   gap: 10px;
-  box-shadow: 0 0 0 1px rgba(6, 60, 115, 0.4);
 }
+/* Boutons pleins : pas de bordure transparente ni d'anneau — le fond s'arrête net au bord arrondi */
+.btn--primary, .btn--ghost, .btn--linkedin, .btn--arrow { border: none; padding: 15px 28px; }
 .btn--onblue {
   background: rgba(255, 255, 255, 0.14);
   border-color: #fff;
@@ -261,7 +259,6 @@ input, textarea { font-family: inherit; }
   background: var(--blue-dark, #0d3ab8);
   color: #fff;
   gap: 10px;
-  box-shadow: 0 0 0 1px rgba(8, 30, 90, 0.4);
 }
 .btn--arrow .arrow { display: inline-block; transition: transform .2s; }
 .btn--arrow:hover { background: var(--blue); }
@@ -930,10 +927,44 @@ input, textarea { font-family: inherit; }
 .accordion__panel p { padding: 0 4px 20px; margin: 0; }
 
 /* ---------- FAQ (simple Q&A) ---------- */
-.faq { display: flex; flex-direction: column; gap: 28px; }
+.faq { display: flex; flex-direction: column; gap: 18px; }
 .faq__item { border-left: 4px solid var(--peach-dark); padding-left: 20px; }
 .faq__item h3 { font-size: 1.08rem; color: var(--teal-dark); margin-bottom: 8px; }
 .faq__item p { margin: 0; }
+/* FAQ en accordéon (details/summary) */
+details.faq__item summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--teal-dark);
+  padding: 6px 0;
+}
+details.faq__item summary::-webkit-details-marker { display: none; }
+details.faq__item summary::after {
+  content: '+';
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  color: var(--teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform .2s;
+}
+details.faq__item[open] summary::after { content: '−'; transform: rotate(180deg); }
+details.faq__item p { margin: 8px 0 6px; }
+/* Logo LinkedIn standard (carré arrondi, sans pastille ronde) */
+.linkedin-glyph { display: inline-flex; align-items: center; }
+.linkedin-glyph svg { width: 21px; height: 21px; fill: #0a66c2; }
 
 /* ---------- Service icon (brand-colored pictogram, replaces photo placeholders) ---------- */
 .service-icon {
