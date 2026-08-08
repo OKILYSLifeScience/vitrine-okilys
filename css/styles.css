@@ -229,6 +229,12 @@ input, textarea { font-family: inherit; }
   gap: 10px;
   box-shadow: 0 4px 10px -4px rgba(10, 102, 194, 0.35);
 }
+.btn--onblue {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: #fff;
+  color: #fff;
+}
+.btn--onblue:hover { background: #fff; color: var(--blue-dark, #0d3ab8); transform: translateY(-2px); }
 .btn--linkedin svg { width: 18px; height: 18px; fill: #fff; flex: none; }
 .btn--linkedin:hover { background: #084e96; transform: translateY(-2px); }
 .btn--block { width: 100%; }
