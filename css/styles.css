@@ -239,6 +239,70 @@ input, textarea { font-family: inherit; }
 .btn--ghost:hover { background: var(--blue); color: #fff; }
 .btn--block { width: 100%; }
 
+/* ---------- Hero band (bandeau d'en-tête uniforme, sans photo) ---------- */
+.hero-band {
+  position: relative;
+  background: var(--gradient);
+  padding: 64px 0;
+  overflow: hidden;
+}
+.hero-band::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(560px 320px at 88% 0%, rgba(255,255,255,0.16), transparent 70%);
+  pointer-events: none;
+}
+.hero-band .container { position: relative; z-index: 2; }
+.hero-band .eyebrow { color: #d9f0f5; }
+.hero-band h1 {
+  color: #fff;
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  margin-bottom: 0.35em;
+}
+.hero-band__lead {
+  color: #eef4fb;
+  font-size: 1.08rem;
+  max-width: 56ch;
+  margin-bottom: 0;
+}
+.hero-band__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.hero-band__text .btn { margin-top: 26px; }
+.hero-band__panel {
+  flex: none;
+  background: var(--navy);
+  border-radius: var(--radius);
+  padding: 30px 34px;
+  min-width: 300px;
+}
+.hero-band__panel-title {
+  font-family: 'Agne', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  margin: 0 0 14px;
+}
+.hero-band__panel-title a { color: #fff; }
+.hero-band__panel-title a:hover { text-decoration: underline; }
+.hero-band__panel ul { display: flex; flex-direction: column; gap: 10px; }
+.hero-band__panel li {
+  color: #dce8f5;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.hero-band--center { text-align: center; }
+.hero-band--center .hero-band__lead { margin: 0 auto; }
+@media (max-width: 960px) {
+  .hero-band__inner { flex-direction: column; align-items: flex-start; }
+  .hero-band__panel { width: 100%; min-width: 0; }
+}
+
 /* ---------- Hero ---------- */
 .hero {
   padding: 72px 0 56px;
