@@ -108,7 +108,19 @@ input, textarea { font-family: inherit; }
   .brand__tagline { font-size: 0.56rem; }
 }
 @media (max-width: 480px) {
-  .brand__tagline { display: none; }
+  .brand__tagline { font-size: 0.5rem; }
+}
+/* En-tête compact sur petit écran : logo réduit pour laisser la place au sélecteur de langue et au burger */
+@media (max-width: 560px) {
+  .header__inner { padding: 8px 12px; gap: 6px; }
+  .brand { gap: 7px; min-width: 0; flex: 1; }
+  .brand__mark { width: 40px; }
+  .brand__text { min-width: 0; overflow: hidden; }
+  .brand__name { font-size: 0.86rem; }
+  .brand__tagline { font-size: 0.46rem; }
+  .burger { width: 40px; height: 40px; }
+  .lang-switch--mobile { margin-right: 4px; flex: none; }
+  .lang-switch--mobile a { padding: 3px 7px; font-size: 0.66rem; }
 }
 
 /* Navigation : liens en ligne sur grand écran, tiroir + burger en dessous de 1180px (façon infrarch.fr) */
@@ -187,6 +199,10 @@ input, textarea { font-family: inherit; }
     border-bottom: 1px solid var(--border);
     box-shadow: 0 18px 30px -18px rgba(15,23,42,0.25);
     z-index: 60;
+    max-height: calc(100vh - 150px);
+    max-height: calc(100dvh - 150px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav.is-open { display: flex; }
   .nav a {
@@ -1130,6 +1146,12 @@ input, textarea { font-family: inherit; }
 /* la règle .nav a.is-active ci-dessus ne doit jamais passer le texte du bouton de langue actif en bleu */
 .nav .lang-switch a.is-active,
 .nav .lang-switch a.is-active:hover { background: var(--gradient); color: #fff; border-color: transparent; }
+/* Sélecteur de langue visible dans le bandeau sur mobile (le .nav est replié derrière le burger) */
+.lang-switch--mobile { display: none; }
+@media (max-width: 1180px) {
+  .lang-switch--mobile { display: flex; margin-left: auto; margin-right: 12px; }
+  .nav .lang-switch { display: none; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
