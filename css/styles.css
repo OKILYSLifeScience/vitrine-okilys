@@ -1362,3 +1362,10 @@ section[id] { scroll-margin-top: 135px; }
 @media (max-width: 960px) {
   .pipeline-scope { display: none; }
 }
+
+/* Hero avec la photo gingko biloba sous le dégradé de charte */
+.hero-band--gingko {
+  background:
+    linear-gradient(90deg, rgba(18,76,239,0.82) 0%, rgba(45,156,175,0.72) 100%),
+    url('../assets/images/sections/gingko-accueil.webp') center 30% / cover no-repeat;
+}
