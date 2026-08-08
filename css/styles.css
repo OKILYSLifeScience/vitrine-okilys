@@ -1201,11 +1201,11 @@ input, textarea { font-family: inherit; }
 .coverage-wrap { overflow-x: auto; }
 .coverage {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   gap: 8px 0;
-  min-width: 940px;
+  min-width: 1080px;
   background-image: linear-gradient(to right, var(--border) 1px, transparent 1px);
-  background-size: calc(100% / 6) 100%;
+  background-size: calc(100% / 7) 100%;
   padding-bottom: 6px;
 }
 .cov-phase {
@@ -1245,6 +1245,7 @@ input, textarea { font-family: inherit; }
 .cov-bar--5 { background: #21778a; }
 .cov-bar--6 { background: #17566b; }
 .cov-bar--7 { background: #2f86b8; }
+.cov-bar--8 { background: var(--blue-dark); }
 .cov-bar--oversight {
   background: var(--navy);
   justify-content: center;
