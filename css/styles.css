@@ -136,6 +136,7 @@ input, textarea { font-family: inherit; }
   border-radius: 999px;
   border: none !important;
   text-align: center;
+  box-shadow: 0 0 0 1px rgba(13, 58, 140, 0.35);
 }
 .nav__cta:hover { opacity: .92; border-color: transparent !important; }
 .nav .lang-switch { margin-top: 0; }
@@ -214,6 +215,7 @@ input, textarea { font-family: inherit; }
 .btn--primary {
   background: var(--gradient);
   color: #fff;
+  box-shadow: 0 0 0 1px rgba(13, 58, 140, 0.35);
 }
 .btn--primary:hover { transform: translateY(-2px); }
 .btn--ghost {
@@ -226,6 +228,7 @@ input, textarea { font-family: inherit; }
   background: #0a66c2;
   color: #fff;
   gap: 10px;
+  box-shadow: 0 0 0 1px rgba(6, 60, 115, 0.4);
 }
 .btn--onblue {
   background: rgba(255, 255, 255, 0.14);
@@ -235,6 +238,15 @@ input, textarea { font-family: inherit; }
 .btn--onblue:hover { background: #fff; color: var(--blue-dark, #0d3ab8); transform: translateY(-2px); }
 .btn--linkedin svg { width: 18px; height: 18px; fill: #fff; flex: none; }
 .btn--linkedin:hover { background: #084e96; transform: translateY(-2px); }
+.btn--arrow {
+  background: var(--blue-dark, #0d3ab8);
+  color: #fff;
+  gap: 10px;
+  box-shadow: 0 0 0 1px rgba(8, 30, 90, 0.4);
+}
+.btn--arrow .arrow { display: inline-block; transition: transform .2s; }
+.btn--arrow:hover { background: var(--blue); }
+.btn--arrow:hover .arrow { transform: translateX(5px); }
 .btn--block { width: 100%; }
 
 /* ---------- Hero band (bandeau d'en-tête uniforme, sans photo) ---------- */
