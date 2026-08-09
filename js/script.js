@@ -65,7 +65,7 @@ if (burger) {
   // Sur mobile, la flèche des entrées à sous-menu développe/réduit le sous-menu (sans naviguer)
   nav.querySelectorAll('.nav-item > a .caret').forEach(caret => {
     caret.addEventListener('click', e => {
-      if (window.matchMedia('(max-width: 1180px)').matches) {
+      if (window.matchMedia('(max-width: 1320px)').matches) {
         e.preventDefault();
         e.stopPropagation();
         caret.closest('.nav-item').classList.toggle('is-sub-open');
