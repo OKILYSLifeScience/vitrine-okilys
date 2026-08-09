@@ -991,6 +991,15 @@ details.faq__item p { margin: 8px 0 6px; }
   margin: 0 0 8px 6px;
 }
 
+/* Page Réalisations — proposition B validée : cartes teintées par famille de rôle */
+.hl-card { border-left: 4px solid var(--rail, var(--teal)); }
+.hl-card .vstep__num { background: var(--rail, var(--teal)); }
+.hl-gap { height: 26px; }
+.hl-context { margin: 0 0 4px; font-size: 0.94rem; color: var(--ink-soft); font-style: italic; }
+.hl-arrows { list-style: none; margin: 8px 0 0; padding: 0; }
+.hl-arrows li { padding-left: 24px; position: relative; margin: 7px 0; font-size: 0.94rem; }
+.hl-arrows li::before { content: '→'; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
+
 /* Logo LinkedIn standard (carré arrondi, sans pastille ronde) */
 .linkedin-glyph { display: inline-flex; align-items: center; }
 .linkedin-glyph svg { width: 21px; height: 21px; fill: #0a66c2; }
