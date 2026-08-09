@@ -967,6 +967,30 @@ details.faq__item summary::after {
 }
 details.faq__item[open] summary::after { content: '−'; transform: rotate(180deg); }
 details.faq__item p { margin: 8px 0 6px; }
+/* Pastille de rôle sur la page Réalisations : associe visuellement chaque succès à son rôle */
+.hl-role {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--teal-dark);
+  background: var(--bg-alt);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 8px;
+}
+.hl-key {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--gradient);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin: 0 0 8px 6px;
+}
+
 /* Logo LinkedIn standard (carré arrondi, sans pastille ronde) */
 .linkedin-glyph { display: inline-flex; align-items: center; }
 .linkedin-glyph svg { width: 21px; height: 21px; fill: #0a66c2; }
