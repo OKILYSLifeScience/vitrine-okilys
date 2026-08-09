@@ -1516,8 +1516,11 @@ section[id] { scroll-margin-top: 135px; }
   box-shadow: 0 18px 30px -18px rgba(15, 23, 42, 0.25);
   z-index: 70;
 }
-.nav-item:hover .sub-menu,
-.nav-item:focus-within .sub-menu { display: flex; }
+/* Ouverture au survol : uniquement sur ordinateur — sur mobile (tactile), seul le bouton-flèche pilote l'ouverture */
+@media (min-width: 1181px) {
+  .nav-item:hover .sub-menu,
+  .nav-item:focus-within .sub-menu { display: flex; }
+}
 .nav .sub-menu a {
   width: 100%;
   padding: 9px 12px;
