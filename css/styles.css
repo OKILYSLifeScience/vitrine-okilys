@@ -1245,7 +1245,7 @@ details.faq__item p { margin: 8px 0 6px; }
 .nav .lang-switch a.is-active:hover { background: var(--gradient); color: #fff; border-color: transparent; }
 /* Sélecteur de langue : toujours dans le bandeau, à droite (jamais dans le menu) —
    le menu reste ainsi sur une seule ligne, alignée verticalement avec le logo et la tagline */
-.lang-switch--mobile { display: flex; margin-left: 12px; flex: none; }
+.lang-switch--mobile { display: flex; margin-left: 12px; margin-top: 0; flex: none; }
 .nav .lang-switch { display: none; }
 @media (max-width: 1320px) {
   .lang-switch--mobile { margin-left: auto; margin-right: 12px; }
