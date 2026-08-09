@@ -27,6 +27,16 @@ function closeNav() {
   burger.classList.remove('is-open');
   burger.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('nav-open');
+  nav.style.top = '';
+  nav.style.maxHeight = '';
+}
+
+function sizeNav() {
+  // Cale le panneau sous l'en-tête et le limite à la hauteur réellement visible,
+  // pour que son contenu défile toujours au doigt (la barre d'adresse mobile fausse les unités vh/dvh)
+  const headerBottom = Math.max(0, Math.round(document.getElementById('header').getBoundingClientRect().bottom));
+  nav.style.top = headerBottom + 'px';
+  nav.style.maxHeight = (window.innerHeight - headerBottom) + 'px';
 }
 
 function toggleNav() {
@@ -35,7 +45,17 @@ function toggleNav() {
   burger.classList.toggle('is-open', isOpen);
   burger.setAttribute('aria-expanded', String(isOpen));
   document.body.classList.toggle('nav-open', isOpen);
+  if (isOpen) {
+    sizeNav();
+  } else {
+    nav.style.top = '';
+    nav.style.maxHeight = '';
+  }
 }
+
+window.addEventListener('resize', () => {
+  if (nav.classList.contains('is-open')) sizeNav();
+});
 
 if (burger) {
   burger.addEventListener('click', toggleNav);

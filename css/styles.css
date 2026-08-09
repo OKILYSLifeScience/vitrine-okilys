@@ -184,26 +184,28 @@ input, textarea { font-family: inherit; }
 @media (max-width: 1180px) {
   .burger { display: flex; }
   .nav {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 150px; /* recalé en JS à l'ouverture sur la position réelle du bas de l'en-tête */
     left: 0;
     right: 0;
     background: #fff;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
+    justify-content: flex-start; /* sinon le flex-end du desktop pousse le contenu hors du haut du panneau et bloque le défilement */
     gap: 4px;
     padding: 14px 24px 20px;
     display: none;
     border-bottom: 1px solid var(--border);
     box-shadow: 0 18px 30px -18px rgba(15,23,42,0.25);
     z-index: 60;
-    max-height: calc(100vh - 150px);
-    max-height: calc(100dvh - 150px);
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     overscroll-behavior: contain;
   }
+  /* Les entrées du menu gardent leur hauteur naturelle : le contenu déborde et devient défilable
+     (sans ceci, les enfants flex se compressent et le menu ne défile jamais) */
+  .nav > * { flex-shrink: 0; }
   /* Menu ouvert : la page derrière ne défile plus, seul le menu défile */
   body.nav-open { overflow: hidden; }
   .nav.is-open { display: flex; }
