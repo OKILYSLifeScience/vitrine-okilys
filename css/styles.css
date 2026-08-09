@@ -1498,7 +1498,7 @@ section[id] { scroll-margin-top: 135px; }
 .hero-band--gingko {
   background:
     linear-gradient(90deg, rgba(18,76,239,0.82) 0%, rgba(45,156,175,0.72) 100%),
-    url('../assets/images/sections/gingko-accueil.webp') center 30% / cover no-repeat;
+    url('../assets/images/sections/gingko-accueil.webp') 75% center / cover no-repeat;
 }
 
 /* ---------- Sous-menu de navigation (Developpement clinique) ---------- */

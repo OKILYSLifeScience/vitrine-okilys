@@ -56,6 +56,8 @@
   .founder-photo { min-height: 220px; }
 }
 @media (max-width: 640px) {
-  .stats__grid { grid-template-columns: repeat(2, 1fr); }
-  .stat:nth-child(2n+1) { border-left: none; }
+  /* Sur téléphone : une seule colonne, séparateurs horizontaux — le 2x2 était déséquilibré */
+  .stats__grid { grid-template-columns: 1fr; }
+  .stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.12); padding: 20px 24px; }
+  .stat:first-child { border-top: none; }
 }
