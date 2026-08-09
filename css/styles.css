@@ -45,7 +45,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-img { max-width: 100%; display: block; }
+/* height:auto est indispensable depuis que les <img> portent des attributs width/height
+   (anti-CLS) : sans lui, l'attribut height s'appliquerait tel quel et déformerait l'image. */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3 { font-family: 'Agne', 'Manrope', serif; margin: 0 0 .5em; line-height: 1.15; color: var(--ink); }
@@ -707,6 +709,7 @@ input, textarea { font-family: inherit; }
 }
 .footer__logo {
   height: 116px;
+  width: auto; /* neutralise l'attribut width du <img> (present pour l'anti-CLS) */
   /* logo-white.png export is broken (only a stray mark survives) — derive a clean
      white mark from the color logo instead of relying on a separate white asset */
   filter: brightness(0) invert(1);

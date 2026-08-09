@@ -1,0 +1,12 @@
+# robots.txt — okilys.com
+# Site vitrine statique hébergé sur GitHub Pages.
+#
+# Aucune exclusion par Disallow : les pages sans intérêt pour l'indexation
+# (redirections internes, page 404) portent une balise <meta name="robots"
+# content="noindex, follow">. Les bloquer ici empêcherait au contraire les
+# moteurs de lire ce noindex.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.okilys.com/sitemap.xml
