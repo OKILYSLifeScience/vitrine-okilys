@@ -588,6 +588,9 @@ input, textarea { font-family: inherit; }
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 16px 18px;
   font-weight: 700;
@@ -1498,7 +1501,16 @@ section[id] { scroll-margin-top: 135px; }
 .hero-band--gingko {
   background:
     linear-gradient(90deg, rgba(18,76,239,0.82) 0%, rgba(45,156,175,0.72) 100%),
-    url('../assets/images/sections/gingko-accueil.webp') 75% center / cover no-repeat;
+    url('../assets/images/sections/gingko-accueil.webp') center 30% / cover no-repeat;
+}
+/* Sur grand écran : image agrandie et calée pour que la feuille soit centrée verticalement,
+   dans l'espace libre entre le texte et le panneau Notre expertise */
+@media (min-width: 960px) {
+  .hero-band--gingko {
+    background:
+      linear-gradient(90deg, rgba(18,76,239,0.82) 0%, rgba(45,156,175,0.72) 100%),
+      url('../assets/images/sections/gingko-accueil.webp') 100% 0% / 135% auto no-repeat;
+  }
 }
 
 /* ---------- Sous-menu de navigation (Developpement clinique) ---------- */
