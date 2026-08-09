@@ -48,10 +48,7 @@ if (burger) {
       if (window.matchMedia('(max-width: 1180px)').matches) {
         e.preventDefault();
         e.stopPropagation();
-        const item = caret.closest('.nav-item');
-        const wasOpen = item.classList.contains('is-sub-open');
-        nav.querySelectorAll('.nav-item').forEach(i => i.classList.remove('is-sub-open'));
-        if (!wasOpen) item.classList.add('is-sub-open');
+        caret.closest('.nav-item').classList.toggle('is-sub-open');
       }
     });
   });
