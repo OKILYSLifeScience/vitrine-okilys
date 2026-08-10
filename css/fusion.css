@@ -13,6 +13,21 @@
 .stat strong { display: block; font-family: 'Agne', serif; font-size: 2rem; color: #fff; letter-spacing: -0.01em; }
 .stat span { font-size: 0.8rem; color: #b9d4e8; }
 
+/* ---------- Panneau d'accueil : rattachement de chaque ligne aux étapes détaillées ----------
+   L'aperçu regroupe volontairement les 7 étapes en 4 lignes ; le repère indique lesquelles,
+   pour que le lecteur retrouve la même chose dans le tableau plus bas. */
+.hero-band__panel-step {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #bfe4ef;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
 /* ---------- Etapes du déroulé d'une étude (variante des .step existants, libellé de phase) ---------- */
 .step__phase {
   font-family: 'Agne', serif; font-size: 0.82rem; letter-spacing: 0.06em;

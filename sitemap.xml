@@ -81,6 +81,44 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://www.okilys.com/pratique-courante.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/pratique-courante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/standard-of-care.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/pratique-courante.html"/>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/standard-of-care.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/pratique-courante.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/standard-of-care.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/pratique-courante.html"/>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.okilys.com/inm.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/inm.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/npi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/inm.html"/>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/npi.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/inm.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/npi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/inm.html"/>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
   <!-- ============ Expertises : les 7 étapes ============ -->
   <url>
     <loc>https://www.okilys.com/conception.html</loc>
