@@ -13,20 +13,24 @@
 .stat strong { display: block; font-family: 'Agne', serif; font-size: 2rem; color: #fff; letter-spacing: -0.01em; }
 .stat span { font-size: 0.8rem; color: #b9d4e8; }
 
-/* ---------- Panneau d'accueil : rattachement de chaque ligne aux étapes détaillées ----------
-   L'aperçu regroupe volontairement les 7 étapes en 4 lignes ; le repère indique lesquelles,
-   pour que le lecteur retrouve la même chose dans le tableau plus bas. */
-.hero-band__panel-step {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #bfe4ef;
-  opacity: 0.85;
-  white-space: nowrap;
+/* ---------- Cadres réglementaires (pages Produits de santé) ----------
+   Trois échelles de lecture d'un même parcours : mondiale, européenne, française. */
+.frameworks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 22px; }
+.framework {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 22px 22px 18px;
 }
+.framework__tag {
+  display: block;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--gray); margin-bottom: 6px;
+}
+.framework h3 { font-size: 1.02rem; margin-bottom: 10px; color: var(--teal-dark); }
+.framework p { font-size: 0.9rem; margin-bottom: 0; }
+@media (max-width: 900px) { .frameworks { grid-template-columns: 1fr; } }
 
 /* ---------- Etapes du déroulé d'une étude (variante des .step existants, libellé de phase) ---------- */
 .step__phase {
