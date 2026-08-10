@@ -44,15 +44,34 @@
 .founder-portrait { display: block; width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
 .founder--stack { flex-direction: column; margin-top: 20px; }
 
-/* ---------- Bandeaux de références (sociétés & partenaires) ----------
-   Variante de .sectors : les pastilles se répartissent d'elles-mêmes et restent centrées
-   quel que soit leur nombre, contrairement à la grille fixe en 3 colonnes. */
-.sectors--inline { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-.sectors--inline .sector { padding: 12px 26px; font-weight: 800; }
-/* Pastilles cliquables vers le site de la société (ouverture dans un nouvel onglet) */
-a.sector { transition: border-color .2s, box-shadow .2s, transform .2s; }
-a.sector:hover, a.sector:focus-visible { border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px); }
-.sector__ext { font-size: 0.78em; color: var(--teal-dark); margin-left: 7px; }
+/* ---------- Mur de logos (sociétés & partenaires) ----------
+   Tuiles de taille fixe : les logos ont des proportions très différentes, seule une boîte
+   commune avec object-fit:contain donne un alignement propre. La hauteur fixe évite aussi
+   tout décalage de mise en page pendant le chargement des images. */
+.logo-wall { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.logo-wall__item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  width: 186px; height: 96px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 14px 20px; text-align: center;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.logo-wall__item:hover, .logo-wall__item:focus-visible {
+  border-color: var(--teal); box-shadow: var(--shadow); transform: translateY(-2px);
+}
+.logo-wall__item img { max-height: 52px; max-width: 100%; width: auto; object-fit: contain; }
+/* Repli typographique : ICON ne diffuse qu'un logo blanc (invisible sur fond clair) et
+   adverum.com n'affiche plus que le logo Lilly depuis le rachat. */
+.logo-wall__item--text { font-weight: 800; font-size: 0.95rem; color: var(--ink); line-height: 1.3; }
+
+@media (max-width: 640px) {
+  .logo-wall { gap: 12px; }
+  .logo-wall__item { width: calc(50% - 6px); height: 84px; padding: 12px 14px; }
+  .logo-wall__item img { max-height: 42px; }
+  .logo-wall__item--text { font-size: 0.86rem; }
+}
 
 /* ---------- Témoignage vide (emplacement à compléter) ---------- */
 .testimonial--empty { border-left-color: var(--border); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; color: var(--gray); }
