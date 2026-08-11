@@ -66,14 +66,11 @@
    pas écrites. */
 .testimonial cite { display: block; }
 .testimonial__role {
-  display: block; margin-top: 3px;
-  font-size: 0.8rem; color: var(--gray);
+  display: block; margin-top: 4px;
+  font-size: 0.8rem; color: var(--gray); line-height: 1.45;
 }
-.testimonial__mission {
-  display: block; margin-top: 10px;
-  font-size: 0.76rem; font-weight: 800; letter-spacing: 0.03em;
-  color: var(--blue-dark);
-}
+/* Le rôle tenu par OKILYS s'enchaîne sur la même ligne, séparé par une barre oblique */
+.testimonial__mission { font-weight: 800; color: var(--blue-dark); }
 
 /* ---------- Mur de logos (sociétés & partenaires) ----------
    Tuiles de taille fixe : les logos ont des proportions très différentes, seule une boîte
