@@ -53,7 +53,9 @@
 .founder__body { flex: 1; min-width: 220px; }
 
 /* ---------- Portrait de la fondatrice + carte empilée dessous ---------- */
-.founder-portrait { display: block; width: 100%; border-radius: var(--radius); box-shadow: var(--shadow); }
+/* Portrait réduit d'un tiers (2/3 de la largeur de colonne) et centré : laisser l'image
+   calée à gauche aurait creusé un vide en haut à droite, au-dessus de la carte fondatrice. */
+.founder-portrait { display: block; width: 67%; margin: 0 auto; border-radius: var(--radius); box-shadow: var(--shadow); }
 .founder--stack { flex-direction: column; margin-top: 20px; }
 
 /* ---------- Mur de logos (sociétés & partenaires) ----------
