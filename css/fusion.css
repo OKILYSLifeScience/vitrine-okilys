@@ -58,6 +58,23 @@
 .founder-portrait { display: block; width: 67%; margin: 0 auto; border-radius: var(--radius); box-shadow: var(--shadow); }
 .founder--stack { flex-direction: column; margin-top: 20px; }
 
+/* ---------- Attribution des recommandations ----------
+   Sous le nom : la fonction de la personne, puis le rôle tenu par OKILYS sur la mission
+   dont elle parle — sans quoi le lecteur ne sait pas à quelle expertise le propos se
+   rapporte. Les citations restent dans leur langue d'origine (anglais), y compris sur
+   le site français : traduire ferait dire à ces personnes des phrases qu'elles n'ont
+   pas écrites. */
+.testimonial cite { display: block; }
+.testimonial__role {
+  display: block; margin-top: 3px;
+  font-size: 0.8rem; color: var(--gray);
+}
+.testimonial__mission {
+  display: block; margin-top: 10px;
+  font-size: 0.76rem; font-weight: 800; letter-spacing: 0.03em;
+  color: var(--blue-dark);
+}
+
 /* ---------- Mur de logos (sociétés & partenaires) ----------
    Tuiles de taille fixe : les logos ont des proportions très différentes, seule une boîte
    commune avec object-fit:contain donne un alignement propre. La hauteur fixe évite aussi
