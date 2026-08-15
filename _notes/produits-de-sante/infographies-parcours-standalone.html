@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parcours de recherche clinique — 5 infographies</title>
+<style>
+  :root{
+    --bg:#F6F8F9; --panel:#FFFFFF; --ink:#22303A; --muted:#5C6B76; --line:#D5DEE3;
+    --acc-med:#2F6CB3; --acc-mti:#7A54BD; --acc-dm:#0F7D70; --acc-hum:#B34743; --acc-hps:#A87A22; --acc-inm:#4C8B50;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#101820; --panel:#18232C; --ink:#E4EBF0; --muted:#93A5B1; --line:#2C3B46;
+      --acc-med:#5D95D6; --acc-mti:#9E7DD9; --acc-dm:#33A092; --acc-hum:#D07470; --acc-hps:#C79A44; --acc-inm:#6FAF72; }
+  }
+  :root[data-theme="light"]{ --bg:#F6F8F9; --panel:#FFFFFF; --ink:#22303A; --muted:#5C6B76; --line:#D5DEE3;
+    --acc-med:#2F6CB3; --acc-mti:#7A54BD; --acc-dm:#0F7D70; --acc-hum:#B34743; --acc-hps:#A87A22; --acc-inm:#4C8B50; }
+  :root[data-theme="dark"]{ --bg:#101820; --panel:#18232C; --ink:#E4EBF0; --muted:#93A5B1; --line:#2C3B46;
+    --acc-med:#5D95D6; --acc-mti:#9E7DD9; --acc-dm:#33A092; --acc-hum:#D07470; --acc-hps:#C79A44; --acc-inm:#6FAF72; }
+
+  html{background:var(--bg)}
+  body{margin:0;color:var(--ink);font-family:"Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.55}
+  .wrap{max-width:1000px;margin:0 auto;padding:40px 20px 80px}
+
+  header.intro{margin-bottom:36px}
+  h1{font-family:Charter,Georgia,"Times New Roman",serif;font-weight:600;font-size:2rem;line-height:1.2;margin:0 0 10px;text-wrap:balance}
+  .lede{color:var(--muted);max-width:62ch;margin:0}
+  .legend{display:flex;align-items:center;gap:10px;margin-top:18px;font-size:.9rem;color:var(--muted)}
+  .legend .dot{width:26px;height:16px;border-radius:4px;background:linear-gradient(90deg,var(--acc-med),var(--acc-dm),var(--acc-hps));flex:none}
+
+  section.cat{--acc:var(--acc-med);margin-top:56px;padding-top:8px}
+  section.cat + section.cat{border-top:1px solid var(--line);padding-top:48px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
+  .eyebrow::before{content:"";width:22px;height:3px;background:var(--acc);border-radius:2px}
+  h2{font-family:Charter,Georgia,"Times New Roman",serif;font-weight:600;font-size:1.55rem;margin:8px 0 6px;text-wrap:balance}
+  .sub{color:var(--muted);max-width:68ch;margin:0 0 6px}
+  .badge{display:inline-block;font-size:.78rem;font-weight:600;color:var(--acc);border:1px solid var(--acc);border-radius:999px;padding:2px 12px;margin:8px 0 0}
+
+  figure{margin:22px 0 0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 12px 10px;overflow-x:auto}
+  figure svg{display:block;min-width:820px;width:100%;height:auto}
+  figcaption{font-size:.85rem;color:var(--muted);padding:10px 8px 4px;border-top:1px dashed var(--line);margin-top:10px}
+
+  /* SVG marks */
+  .box{fill:var(--panel);stroke:var(--line);stroke-width:1.4}
+  .box-acc{fill:var(--acc);stroke:none}
+  .flow{stroke:var(--muted);stroke-width:1.6;fill:none}
+  .flow-dash{stroke:var(--muted);stroke-width:1.4;fill:none;stroke-dasharray:5 5}
+  text{font-family:"Segoe UI",system-ui,sans-serif}
+  .t{font-size:13px;font-weight:600;fill:var(--ink);text-anchor:middle}
+  .t2{font-size:13px;font-weight:600;fill:#fff;text-anchor:middle}
+  .s{font-size:11.5px;fill:var(--muted);text-anchor:middle}
+  .lane{font-size:11px;font-weight:600;letter-spacing:.08em;fill:var(--acc);text-anchor:start}
+  .al{font-size:11px;fill:var(--muted);text-anchor:middle}
+
+  .frames{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+  .frame{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:10px;padding:12px 14px}
+  .frame b{display:block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);margin-bottom:4px}
+  .frame p{margin:0;font-size:.9rem;color:var(--ink)}
+  .frame p small{color:var(--muted)}
+
+  @media (prefers-reduced-motion: no-preference){
+    section.cat{scroll-margin-top:20px}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header class="intro">
+  <h1>Le parcours en recherche clinique, catégorie par catégorie</h1>
+  <p class="lede">Cinq familles de produits et d'interventions, cinq parcours différents. Chaque schéma se lit de gauche à droite, du laboratoire jusqu'aux patients.</p>
+  <div class="legend"><span class="dot"></span><span>Dans chaque schéma, <strong>l'étape en couleur est le « sésame »</strong> : celle qui ouvre l'accès au marché ou aux patients.</span></div>
+</header>
+
+<!-- ===================== 1. MÉDICAMENT ===================== -->
+<section class="cat" style="--acc:var(--acc-med)">
+  <span class="eyebrow">Catégorie 1</span>
+  <h2>Le médicament</h2>
+  <p class="sub">Le seul parcours découpé en <strong>phases I à IV</strong> — un langage harmonisé mondialement (ICH), identique en Europe, aux USA, au Japon ou au Brésil. Comptez 10 à 15 ans du laboratoire au marché.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 268" role="img" aria-label="Parcours du médicament : recherche préclinique, puis phases 1, 2 et 3, autorisation de mise sur le marché, puis phase 4. En dessous, le parcours compressé des médicaments de thérapie innovante.">
+      <defs><marker id="ar1" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--muted)"/></marker></defs>
+
+      <text class="lane" x="10" y="24" fill="var(--acc-med)">MÉDICAMENT · VACCIN · BIOLOGIQUE</text>
+      <rect class="box" x="10"  y="38" width="125" height="44" rx="8"/><text class="t" x="72.5" y="65">Préclinique</text>
+      <rect class="box" x="173" y="38" width="125" height="44" rx="8"/><text class="t" x="235.5" y="65">Phase I</text>
+      <rect class="box" x="336" y="38" width="125" height="44" rx="8"/><text class="t" x="398.5" y="65">Phase II</text>
+      <rect class="box" x="499" y="38" width="125" height="44" rx="8"/><text class="t" x="561.5" y="65">Phase III</text>
+      <rect class="box-acc" x="662" y="38" width="125" height="44" rx="8"/><text class="t2" x="724.5" y="65">AMM</text>
+      <rect class="box" x="825" y="38" width="125" height="44" rx="8"/><text class="t" x="887.5" y="65">Phase IV</text>
+      <line class="flow" x1="135" y1="60" x2="169" y2="60" marker-end="url(#ar1)"/>
+      <line class="flow" x1="298" y1="60" x2="332" y2="60" marker-end="url(#ar1)"/>
+      <line class="flow" x1="461" y1="60" x2="495" y2="60" marker-end="url(#ar1)"/>
+      <line class="flow" x1="624" y1="60" x2="658" y2="60" marker-end="url(#ar1)"/>
+      <line class="flow" x1="787" y1="60" x2="821" y2="60" marker-end="url(#ar1)"/>
+      <text class="s" x="72.5"  y="102">in vitro &amp; animal</text>
+      <text class="s" x="235.5" y="102">dizaines · volontaires sains</text>
+      <text class="s" x="398.5" y="102">centaines · dose</text>
+      <text class="s" x="561.5" y="102">milliers · vs comparateur</text>
+      <text class="s" x="724.5" y="102">EMA / ANSM</text>
+      <text class="s" x="887.5" y="102">vie réelle</text>
+
+      <text class="lane" x="10" y="152" fill="var(--acc-mti)">ENCART MTI / ATMP — PHASES COMPRESSÉES</text>
+      <rect class="box" x="10"  y="166" width="125" height="44" rx="8"/><text class="t" x="72.5" y="193">Préclinique</text>
+      <rect class="box" x="173" y="166" width="288" height="44" rx="8"/><text class="t" x="317" y="193">Phase I / II combinée</text>
+      <rect class="box" x="499" y="166" width="125" height="44" rx="8"/><text class="t" x="561.5" y="193">Phase III</text>
+      <rect x="662" y="166" width="125" height="44" rx="8" fill="var(--acc-mti)"/><text class="t2" x="724.5" y="193">AMM · EMA</text>
+      <rect class="box" x="825" y="166" width="125" height="44" rx="8"/><text class="t" x="887.5" y="193">Suivi long terme</text>
+      <line class="flow" x1="135" y1="188" x2="169" y2="188" marker-end="url(#ar1)"/>
+      <line class="flow" x1="461" y1="188" x2="495" y2="188" marker-end="url(#ar1)"/>
+      <line class="flow" x1="624" y1="188" x2="658" y2="188" marker-end="url(#ar1)"/>
+      <line class="flow" x1="787" y1="188" x2="821" y2="188" marker-end="url(#ar1)"/>
+      <text class="s" x="72.5"  y="230">+ OGM / corps humain</text>
+      <text class="s" x="317"   y="230">peu de patients éligibles</text>
+      <text class="s" x="561.5" y="230">effectifs restreints</text>
+      <text class="s" x="724.5" y="230">centralisée obligatoire · comité CAT</text>
+      <text class="s" x="887.5" y="230">jusqu'à 15 ans</text>
+    </svg>
+    <figcaption>Le médicament suit les phases I à IV jusqu'à l'autorisation de mise sur le marché (AMM). Les thérapies innovantes (thérapie génique, cellulaire, ingénierie tissulaire) suivent le même chemin en version compressée, avec une AMM obligatoirement européenne et un suivi des patients pouvant durer 15 ans.</figcaption>
+  </figure>
+
+  <div class="frames">
+    <div class="frame"><b>Monde</b><p>Phases et bonnes pratiques ICH communes. <small>USA : dossier IND, éthique par IRB · Japon : notification au PMDA · Australie : simple notification CTN.</small></p></div>
+    <div class="frame"><b>Europe</b><p>Règlement 536/2014 : un seul dépôt via le portail <strong>CTIS</strong> pour tous les pays de l'essai.</p></div>
+    <div class="frame"><b>France</b><p>RIPH 1 : <strong>autorisation ANSM + avis favorable CPP</strong>, consentement écrit obligatoire.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 2. DISPOSITIF MÉDICAL ===================== -->
+<section class="cat" style="--acc:var(--acc-dm)">
+  <span class="eyebrow">Catégorie 2</span>
+  <h2>Le dispositif médical, dont le diagnostic in vitro</h2>
+  <p class="sub">Pas de dose à chercher, pas de test « pour voir » sur volontaires sains : le DM ne suit pas les phases du médicament. Son sésame n'est pas une AMM mais le <strong>marquage CE</strong>.</p>
+  <span class="badge">Pas de phases I-IV</span>
+
+  <figure>
+    <svg viewBox="0 0 960 268" role="img" aria-label="Parcours du dispositif médical : conception et préclinique, étude pilote, étude pivot, marquage CE, puis suivi post-commercialisation. En dessous, le parcours du diagnostic in vitro en trois volets de performances.">
+      <defs><marker id="ar2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--muted)"/></marker></defs>
+
+      <text class="lane" x="10" y="24">DISPOSITIF MÉDICAL</text>
+      <rect class="box" x="10"  y="38" width="160" height="44" rx="8"/><text class="t" x="90"  y="65">Conception · préclinique</text>
+      <rect class="box" x="205" y="38" width="160" height="44" rx="8"/><text class="t" x="285" y="65">Étude pilote</text>
+      <rect class="box" x="400" y="38" width="160" height="44" rx="8"/><text class="t" x="480" y="65">Étude pivot</text>
+      <rect class="box-acc" x="595" y="38" width="160" height="44" rx="8"/><text class="t2" x="675" y="65">Marquage CE</text>
+      <rect class="box" x="790" y="38" width="160" height="44" rx="8"/><text class="t" x="870" y="65">Suivi PMCF</text>
+      <line class="flow" x1="170" y1="60" x2="201" y2="60" marker-end="url(#ar2)"/>
+      <line class="flow" x1="365" y1="60" x2="396" y2="60" marker-end="url(#ar2)"/>
+      <line class="flow" x1="560" y1="60" x2="591" y2="60" marker-end="url(#ar2)"/>
+      <line class="flow" x1="755" y1="60" x2="786" y2="60" marker-end="url(#ar2)"/>
+      <text class="s" x="90"  y="102">banc d'essai · biocompatibilité</text>
+      <text class="s" x="285" y="102">faisabilité · parfois ≤ 10 pers.</text>
+      <text class="s" x="480" y="102">multicentrique · fonde la certification</text>
+      <text class="s" x="675" y="102">organisme notifié</text>
+      <text class="s" x="870" y="102">vie réelle · long terme</text>
+
+      <text class="lane" x="10" y="152">DIAGNOSTIC IN VITRO (DMDIV) — ÉTUDES DE PERFORMANCES</text>
+      <rect class="box" x="10"  y="166" width="160" height="44" rx="8"/><text class="t" x="90"  y="193">Validité scientifique</text>
+      <rect class="box" x="205" y="166" width="160" height="44" rx="8"/><text class="t" x="285" y="193">Perf. analytique</text>
+      <rect class="box" x="400" y="166" width="160" height="44" rx="8"/><text class="t" x="480" y="193">Perf. clinique</text>
+      <rect class="box-acc" x="595" y="166" width="160" height="44" rx="8"/><text class="t2" x="675" y="193">Marquage CE</text>
+      <rect class="box" x="790" y="166" width="160" height="44" rx="8"/><text class="t" x="870" y="193">Suivi</text>
+      <line class="flow" x1="170" y1="188" x2="201" y2="188" marker-end="url(#ar2)"/>
+      <line class="flow" x1="365" y1="188" x2="396" y2="188" marker-end="url(#ar2)"/>
+      <line class="flow" x1="560" y1="188" x2="591" y2="188" marker-end="url(#ar2)"/>
+      <line class="flow" x1="755" y1="188" x2="786" y2="188" marker-end="url(#ar2)"/>
+      <text class="s" x="90"  y="230">lien marqueur ↔ maladie</text>
+      <text class="s" x="285" y="230">le test mesure juste</text>
+      <text class="s" x="480" y="230">résultat utile au patient</text>
+      <text class="s" x="675" y="230">classes B · C · D</text>
+      <text class="s" x="870" y="230">vigilance</text>
+    </svg>
+    <figcaption>L'étude pilote correspond, dans l'esprit, aux phases I-II du médicament ; l'étude pivot à la phase III ; le suivi clinique post-commercialisation (PMCF) à la phase IV. Le DMDIV démontre ses performances en trois volets, sans « phases » non plus.</figcaption>
+  </figure>
+
+  <div class="frames">
+    <div class="frame"><b>Monde</b><p>Norme <strong>ISO 14155</strong> + convergence IMDRF. <small>USA : procédure IDE, mise sur le marché par équivalence 510(k) ou approbation PMA.</small></p></div>
+    <div class="frame"><b>Europe</b><p>Règlements <strong>MDR</strong> 2017/745 et <strong>IVDR</strong> 2017/746 · marquage CE par organisme notifié.</p></div>
+    <div class="frame"><b>France</b><p>DM non marqué CE : <strong>ANSM + CPP</strong> (RIPH 1) · DM déjà marqué CE dans sa destination : procédures allégées.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 3. PRODUITS D'ORIGINE HUMAINE ===================== -->
+<section class="cat" style="--acc:var(--acc-hum)">
+  <span class="eyebrow">Catégorie 3</span>
+  <h2>Les produits d'origine humaine</h2>
+  <p class="sub">Sang, tissus, cellules, organes. Ici, la question clé n'est pas la phase mais la <strong>qualification</strong> : selon son degré de transformation, le produit reste d'origine humaine… ou change de catégorie réglementaire.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 300" role="img" aria-label="Parcours des produits d'origine humaine : don, prélèvement, qualification et préparation, puis trois voies selon la transformation : usage direct en transfusion ou greffe, transformation en médicament dérivé du sang, ou transformation en médicament de thérapie innovante.">
+      <defs><marker id="ar3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--muted)"/></marker></defs>
+
+      <rect class="box" x="10"  y="128" width="110" height="44" rx="8"/><text class="t" x="65" y="155">Don</text>
+      <text class="s" x="65" y="192">volontaire · gratuit</text>
+      <rect class="box" x="160" y="128" width="150" height="44" rx="8"/><text class="t" x="235" y="155">Prélèvement</text>
+      <text class="s" x="235" y="192">EFS · Agence de la biomédecine</text>
+      <rect class="box" x="350" y="128" width="180" height="44" rx="8"/><text class="t" x="440" y="155">Qualification · préparation</text>
+      <text class="s" x="440" y="192">sécurité · traçabilité</text>
+      <line class="flow" x1="120" y1="150" x2="156" y2="150" marker-end="url(#ar3)"/>
+      <line class="flow" x1="310" y1="150" x2="346" y2="150" marker-end="url(#ar3)"/>
+
+      <path class="flow" d="M530 142 C 590 142 600 52 656 52" marker-end="url(#ar3)"/>
+      <path class="flow" d="M530 150 L 656 150" marker-end="url(#ar3)"/>
+      <path class="flow" d="M530 158 C 590 158 600 248 656 248" marker-end="url(#ar3)"/>
+      <text class="al" x="593" y="84">peu transformé</text>
+      <text class="al" x="593" y="141">fractionnement du plasma</text>
+      <text class="al" x="593" y="226">manipulation substantielle</text>
+
+      <rect class="box-acc" x="660" y="30" width="290" height="44" rx="8"/><text class="t2" x="805" y="57">Usage direct : transfusion · greffe</text>
+      <text class="s" x="805" y="94">reste un produit d'origine humaine · RIPH 1, 2 ou 3 selon le risque</text>
+      <rect class="box" x="660" y="128" width="290" height="44" rx="8"/><text class="t" x="805" y="155">Médicament dérivé du sang</text>
+      <text class="s" x="805" y="192">bascule en catégorie 1 · parcours du médicament</text>
+      <rect class="box" x="660" y="226" width="290" height="44" rx="8"/><text class="t" x="805" y="253">MTI (thérapie cellulaire · génique)</text>
+      <text class="s" x="805" y="290">bascule vers l'encart MTI · AMM centralisée EMA</text>
+    </svg>
+    <figcaption>La première question d'un projet de recherche sur un produit d'origine humaine : quelle est sa qualification ? Peu transformé, il reste dans cette catégorie ; le plasma fractionné industriellement devient un médicament ; des cellules très manipulées deviennent un MTI — et le parcours réglementaire change avec.</figcaption>
+  </figure>
+
+  <div class="frames">
+    <div class="frame"><b>Monde</b><p>Principes OMS : don volontaire non rémunéré, traçabilité. <small>USA : produits sanguins, tissus et cellules relèvent du CBER (FDA).</small></p></div>
+    <div class="frame"><b>Europe</b><p>Nouveau règlement <strong>SoHO</strong> 2024/1938 (applicable en 2027), qui remplace les directives sang et tissus-cellules.</p></div>
+    <div class="frame"><b>France</b><p>Loi Jardé (RIPH selon risque) + acteurs dédiés : <strong>EFS</strong> pour le sang, <strong>Agence de la biomédecine</strong> pour organes, tissus, cellules.</p></div>
+  </div>
+</section>
+
+<!-- ===================== 4. HPS ===================== -->
+<section class="cat" style="--acc:var(--acc-hps)">
+  <span class="eyebrow">Catégorie 4</span>
+  <h2>Les recherches hors produits de santé (HPS)</h2>
+  <p class="sub">Compléments alimentaires, cosmétiques, physiologie, nutrition, sport : le produit n'est pas un produit de santé, mais dès qu'un volontaire participe, la recherche est encadrée comme les autres. L'enjeu : <strong>prouver l'effet revendiqué</strong>.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 268" role="img" aria-label="Parcours hors produits de santé. Complément alimentaire : formulation, étude contrôlée randomisée, dossier EFSA, allégation autorisée, surveillance. Cosmétique : formulation, tests de tolérance, tests d'efficacité, dossier d'information produit, mise sur le marché.">
+      <defs><marker id="ar4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--muted)"/></marker></defs>
+
+      <text class="lane" x="10" y="24">COMPLÉMENT ALIMENTAIRE — PROUVER L'ALLÉGATION SANTÉ</text>
+      <rect class="box" x="10"  y="38" width="160" height="44" rx="8"/><text class="t" x="90"  y="65">Produit formulé</text>
+      <rect class="box" x="205" y="38" width="160" height="44" rx="8"/><text class="t" x="285" y="65">Étude contrôlée</text>
+      <rect class="box" x="400" y="38" width="160" height="44" rx="8"/><text class="t" x="480" y="65">Dossier EFSA</text>
+      <rect class="box-acc" x="595" y="38" width="160" height="44" rx="8"/><text class="t2" x="675" y="65">Allégation autorisée</text>
+      <rect class="box" x="790" y="38" width="160" height="44" rx="8"/><text class="t" x="870" y="65">Surveillance</text>
+      <line class="flow" x1="170" y1="60" x2="201" y2="60" marker-end="url(#ar4)"/>
+      <line class="flow" x1="365" y1="60" x2="396" y2="60" marker-end="url(#ar4)"/>
+      <line class="flow" x1="560" y1="60" x2="591" y2="60" marker-end="url(#ar4)"/>
+      <line class="flow" x1="755" y1="60" x2="786" y2="60" marker-end="url(#ar4)"/>
+      <text class="s" x="90"  y="102">déclaration DGCCRF</text>
+      <text class="s" x="285" y="102">randomisée · population cible</text>
+      <text class="s" x="480" y="102">niveau de preuve ≈ médicament</text>
+      <text class="s" x="675" y="102">Commission européenne</text>
+      <text class="s" x="870" y="102">DGCCRF</text>
+
+      <text class="lane" x="10" y="152">COSMÉTIQUE — PROUVER TOLÉRANCE ET EFFICACITÉ</text>
+      <rect class="box" x="10"  y="166" width="160" height="44" rx="8"/><text class="t" x="90"  y="193">Produit formulé</text>
+      <rect class="box" x="205" y="166" width="160" height="44" rx="8"/><text class="t" x="285" y="193">Tests de tolérance</text>
+      <rect class="box" x="400" y="166" width="160" height="44" rx="8"/><text class="t" x="480" y="193">Tests d'efficacité</text>
+      <rect class="box-acc" x="595" y="166" width="160" height="44" rx="8"/><text class="t2" x="675" y="193">Dossier produit</text>
+      <rect class="box" x="790" y="166" width="160" height="44" rx="8"/><text class="t" x="870" y="193">Marché</text>
+      <line class="flow" x1="170" y1="188" x2="201" y2="188" marker-end="url(#ar4)"/>
+      <line class="flow" x1="365" y1="188" x2="396" y2="188" marker-end="url(#ar4)"/>
+      <line class="flow" x1="560" y1="188" x2="591" y2="188" marker-end="url(#ar4)"/>
+      <line class="flow" x1="755" y1="188" x2="786" y2="188" marker-end="url(#ar4)"/>
+      <text class="s" x="90"  y="230">tests animaux interdits (UE)</text>
+      <text class="s" x="285" y="230">patch tests · usage</text>
+      <text class="s" x="480" y="230">mesures · scorage clinique</text>
+      <text class="s" x="675" y="230">rapport de sécurité signé</text>
+      <text class="s" x="870" y="230">pas d'autorisation préalable</text>
+    </svg>
+    <figcaption>Deux logiques : le complément alimentaire vise une allégation de santé autorisée au niveau européen (EFSA, avec un niveau de preuve proche du médicament) ; le cosmétique constitue son dossier d'information produit sous la responsabilité du fabricant, sans autorisation préalable.</figcaption>
+  </figure>
+
+  <div class="frames">
+    <div class="frame"><b>Monde</b><p>Frontières très variables : <small>USA — dietary supplements quasi libres (DSHEA) · Canada — catégorie « produits de santé naturels » · Japon — quasi-drugs.</small></p></div>
+    <div class="frame"><b>Europe</b><p>Allégations : règlements 1924/2006 et 432/2012 (EFSA) · Cosmétiques : règlement 1223/2009.</p></div>
+    <div class="frame"><b>France</b><p>Le plus souvent <strong>RIPH 2</strong> (avis CPP) · si RIPH 1 : circuit ANSM « hors produits de santé » (60 jours, silence vaut acceptation).</p></div>
+  </div>
+</section>
+
+<!-- ===================== 5. INM ===================== -->
+<section class="cat" style="--acc:var(--acc-inm)">
+  <span class="eyebrow">Catégorie 5</span>
+  <h2>Les interventions non médicamenteuses (INM)</h2>
+  <p class="sub">Activité physique adaptée, psychothérapies protocolisées, kinésithérapie, éducation thérapeutique… Ici, ce n'est pas un produit qui est évalué mais <strong>le protocole d'intervention lui-même</strong>. Pas d'AMM : la validation passe par la preuve publiée.</p>
+
+  <figure>
+    <svg viewBox="0 0 960 190" role="img" aria-label="Parcours d'une intervention non médicamenteuse : définition du protocole, étude de faisabilité avec retour d'ajustement possible, étude contrôlée randomisée, études d'implémentation, puis référencement au registre NPIS et recommandations HAS.">
+      <defs><marker id="ar5" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="var(--muted)"/></marker></defs>
+
+      <rect class="box" x="10"  y="38" width="160" height="44" rx="8"/><text class="t" x="90"  y="65">Protocole défini</text>
+      <rect class="box" x="205" y="38" width="160" height="44" rx="8"/><text class="t" x="285" y="65">Faisabilité</text>
+      <rect class="box" x="400" y="38" width="160" height="44" rx="8"/><text class="t" x="480" y="65">Étude contrôlée</text>
+      <rect class="box" x="595" y="38" width="160" height="44" rx="8"/><text class="t" x="675" y="65">Implémentation</text>
+      <rect class="box-acc" x="790" y="38" width="160" height="44" rx="8"/><text class="t2" x="870" y="65">Référencement</text>
+      <line class="flow" x1="170" y1="60" x2="201" y2="60" marker-end="url(#ar5)"/>
+      <line class="flow" x1="365" y1="60" x2="396" y2="60" marker-end="url(#ar5)"/>
+      <line class="flow" x1="560" y1="60" x2="591" y2="60" marker-end="url(#ar5)"/>
+      <line class="flow" x1="755" y1="60" x2="786" y2="60" marker-end="url(#ar5)"/>
+      <path class="flow-dash" d="M285 82 C 285 122 130 122 96 88" marker-end="url(#ar5)"/>
+      <text class="al" x="190" y="132">ajustement du protocole</text>
+      <text class="s" x="90"  y="102">contenu · dose · durée · encadrant</text>
+      <text class="s" x="285" y="102">acceptabilité · format</text>
+      <text class="s" x="480" y="102">efficacité vs groupe contrôle</text>
+      <text class="s" x="675" y="102">vie réelle · transférabilité · coût</text>
+      <text class="s" x="870" y="102">registre NPIS · reco. HAS</text>
+      <text class="s" x="480" y="168">Cadre d'évaluation standardisé : NPIS Model (plus de 1 000 experts et usagers)</text>
+    </svg>
+    <figcaption>Le parcours d'une INM boucle entre faisabilité et ajustement du protocole avant la démonstration d'efficacité. Le « sésame » n'est pas une autorisation administrative mais le référencement scientifique : registre NPIS et recommandations de bonne pratique (HAS).</figcaption>
+  </figure>
+
+  <div class="frames">
+    <div class="frame"><b>Monde</b><p>Pas de régulateur produit : reconnaissance par revues systématiques (Cochrane) et recommandations (OMS, sociétés savantes).</p></div>
+    <div class="frame"><b>Europe</b><p>Pas de règlement dédié. <small>Si l'intervention passe par un logiciel médical → bascule en DM (MDR) ; en Allemagne, voie DiGA pour les thérapies numériques remboursées.</small></p></div>
+    <div class="frame"><b>France</b><p>Loi Jardé selon le risque : souvent <strong>RIPH 2</strong>, parfois RIPH 1 « HPS » ou RIPH 3 · évaluation HAS pour l'entrée dans les parcours de soins.</p></div>
+  </div>
+</section>
+
+</div>
+
+</body>
+</html>
