@@ -39,8 +39,9 @@ Un bloc détaillé « Trois cadres, un même essai » (nomenclature internationa
 ### 2. Vérification expertises / rôles sur les 7 pages d'étapes
 Contrôler que la liste « Ce que nous faisons à cette étape » correspond bien aux rôles décrits plus bas sur la même page.
 
-### 3. Références réglementaires belges à valider
-Écrites de mémoire, **non vérifiées** : loi du 7 mai 2017 (médicament), 22 décembre 2020 (dispositifs médicaux), 7 mai 2004 (expérimentations sur la personne humaine), 30 juillet 2018 (données). Idem pour la qualification RIPH sur les pages Pratique courante et INM. Ce sont des citations de textes de loi sous la signature de Lydie : à relire avant d'aller plus loin.
+### 3. Références réglementaires belges — ✅ vérifiées le 15/08/2026
+Les quatre lois belges ont été confirmées en ligne (Moniteur belge / AFMPS / APD) : loi du 7 mai 2017 (essais cliniques de médicaments, application du règlement 536/2014, AFMPS point de contact national + Comité d'éthique agréé), loi du 22 décembre 2020 (dispositifs médicaux) + arrêté royal du 18 mai 2021 (investigations cliniques), loi du 7 mai 2004 (expérimentations sur la personne humaine — couvre interventionnel et non interventionnel, opt-out possible pour le non interventionnel), loi du 30 juillet 2018 (protection des données, application du RGPD, APD).
+Les listes « Cadres réglementaires » des 5 pages produits (FR + EN) ont été enrichies à **4 zones : Monde / Union européenne / France / Belgique**, à partir du document de fond `_notes/produits-de-sante/produits-de-sante-et-recherche-clinique.md` (Monde/UE/France) et des vérifications ci-dessus (Belgique). Restent des formulations générales et non des avis juridiques : à relire une dernière fois par Lydie.
 
 ### 4. Google Search Console — procédure complète
 Le sitemap est en ligne et accessible mais **n'a jamais été déclaré à Google**. C'est l'action qui déclenche la prise en compte de tout le travail de référencement. Gratuit, une dizaine de minutes.
