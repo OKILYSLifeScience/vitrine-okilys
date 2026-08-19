@@ -1526,7 +1526,7 @@ a.cov-phase--last:focus-visible .cov-tip { transform: translate(0, 0); }
 .cov-icon svg { width: 26px; height: 26px; }
 
 /* Ancres : compenser le bandeau collant pour que les sections ciblées ne soient pas masquées */
-section[id] { scroll-margin-top: 135px; }
+section[id], .band[id] { scroll-margin-top: 135px; }
 
 /* ---------- Développement clinique : sous-sections par type de produit ---------- */
 .pipeline-block { margin-bottom: 48px; }

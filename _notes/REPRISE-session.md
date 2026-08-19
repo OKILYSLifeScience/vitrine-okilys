@@ -95,3 +95,12 @@ Son témoignage affiche « Mission OKILYS » sans précision du rôle, contraire
 | `REPRISE-session.md` | ce document |
 
 À copier manuellement si tu veux les retrouver sur l'autre poste. Le PDF est ré-exportable depuis LinkedIn à tout moment.
+
+---
+
+## Ajout du 16/08/2026 — photos de section et valeurs HOME
+
+- **Photos** (toutes issues de « Photos Site Okilys », libres de droits Unsplash/Pexels/Pixabay, recadrées 21:9 et allégées dans `assets/images/sections/`) : `apropos.jpg` (succulente), `produits.jpg` (fleurs blanches), `expertises.jpg` (arbre lumière), `references.jpg` (enfants forêt), `contact.jpg` (gouttes sur feuille) + 5 alternatives `alt-*.jpg` non utilisées.
+- **Quatre styles panachés, pas de voile bleu** (le gingko reste le seul bandeau voilé) : A = photo en vis-à-vis du texte (À propos) · B = bandeau naturel + carte-titre chevauchante (Références sur l'accueil ; bandeau de toutes les sous-pages : fleurs pour les 5 pages produits, arbre pour les 7 pages étapes) · C = photo en filigrane sous voile blanc 88 % (Contact) · D = vignette ronde à côté du titre (Produits de santé). Classes `.split`, `.band`/`.band--sub`/`.band__card`, `.wash`, `.thumb-head` dans fusion.css. L'ancre `#references` est maintenant sur le `div.band` : scrollspy et scroll-margin étendus à `.band[id]`.
+- **Valeurs HOME** en 4 tuiles (`.home-values`) sous À propos, en remplacement de l'encadré pointillé (la phrase « santé des générations futures » est conservée sous les tuiles). Textes validés par Lydie : Humain / Objectivité / Maîtrise / Engagement — EN : Human / Objectivity / Mastery / Engagement (le mot HOME se lit dans les deux langues). Le H ne parle plus du bien-être des salariés mais de la finalité humaine ; O remplace Outsourcing ; E remplace Éco-responsable et insiste sur le chemin autant que le résultat.
+- Les gabarits des pages étapes (scratchpad tpl-fr/tpl-en) intègrent le bandeau.

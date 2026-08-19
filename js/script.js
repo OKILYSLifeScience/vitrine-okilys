@@ -82,7 +82,7 @@ window.addEventListener('scroll', () => {
 
 // Scrollspy : surligne l'entrée de menu correspondant à la section visible
 const spyLinks = [...document.querySelectorAll('.nav a[href^="#"]:not(.nav__cta)')].filter(a => a.getAttribute('href').length > 1);
-const spySections = [...document.querySelectorAll('main section[id]')];
+const spySections = [...document.querySelectorAll('main section[id], main .band[id]')];
 
 if (spyLinks.length && spySections.length) {
   const updateSpy = () => {
