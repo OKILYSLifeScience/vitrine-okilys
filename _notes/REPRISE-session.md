@@ -44,7 +44,7 @@ Les quatre lois belges ont été confirmées en ligne (Moniteur belge / AFMPS / 
 Les listes « Cadres réglementaires » des 5 pages produits (FR + EN) ont été enrichies à **4 zones : Monde / Union européenne / France / Belgique**, à partir du document de fond `_notes/produits-de-sante/produits-de-sante-et-recherche-clinique.md` (Monde/UE/France) et des vérifications ci-dessus (Belgique). Restent des formulations générales et non des avis juridiques : à relire une dernière fois par Lydie.
 
 ### 4. Google Search Console — ✅ FAIT le 20/08/2026
-Propriété https://www.okilys.com/ validée (balise HTML posée sur les 31 pages, commit 079d434) et sitemap.xml envoyé — Google a répondu « Sitemap envoyé ». Reste à surveiller le rapport « Indexation des pages » d'ici 1 à 2 semaines. Bonus Bing Webmasters (import depuis Search Console) proposé à Lydie, pas encore fait. Procédure d'origine conservée ci-dessous pour mémoire.
+Propriété https://www.okilys.com/ validée (balise HTML posée sur les 31 pages, commit 079d434) et sitemap.xml envoyé — Google a répondu « Sitemap envoyé ». Reste à surveiller le rapport « Indexation des pages » d'ici 1 à 2 semaines. Bing Webmasters : ✅ fait le 20/08/2026 — propriété importée depuis Search Console, sitemap repris (30 pages). Référencement entièrement en place sur Google et Bing ; il ne reste qu'à surveiller les rapports d'indexation. Procédure d'origine conservée ci-dessous pour mémoire.
 
 #### Procédure (archivée)
 Le sitemap est en ligne et accessible mais **n'a jamais été déclaré à Google**. C'est l'action qui déclenche la prise en compte de tout le travail de référencement. Gratuit, une dizaine de minutes.
