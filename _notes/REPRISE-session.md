@@ -43,7 +43,10 @@ Contrôler que la liste « Ce que nous faisons à cette étape » correspond bie
 Les quatre lois belges ont été confirmées en ligne (Moniteur belge / AFMPS / APD) : loi du 7 mai 2017 (essais cliniques de médicaments, application du règlement 536/2014, AFMPS point de contact national + Comité d'éthique agréé), loi du 22 décembre 2020 (dispositifs médicaux) + arrêté royal du 18 mai 2021 (investigations cliniques), loi du 7 mai 2004 (expérimentations sur la personne humaine — couvre interventionnel et non interventionnel, opt-out possible pour le non interventionnel), loi du 30 juillet 2018 (protection des données, application du RGPD, APD).
 Les listes « Cadres réglementaires » des 5 pages produits (FR + EN) ont été enrichies à **4 zones : Monde / Union européenne / France / Belgique**, à partir du document de fond `_notes/produits-de-sante/produits-de-sante-et-recherche-clinique.md` (Monde/UE/France) et des vérifications ci-dessus (Belgique). Restent des formulations générales et non des avis juridiques : à relire une dernière fois par Lydie.
 
-### 4. Google Search Console — procédure complète
+### 4. Google Search Console — ✅ FAIT le 20/08/2026
+Propriété https://www.okilys.com/ validée (balise HTML posée sur les 31 pages, commit 079d434) et sitemap.xml envoyé — Google a répondu « Sitemap envoyé ». Reste à surveiller le rapport « Indexation des pages » d'ici 1 à 2 semaines. Bonus Bing Webmasters (import depuis Search Console) proposé à Lydie, pas encore fait. Procédure d'origine conservée ci-dessous pour mémoire.
+
+#### Procédure (archivée)
 Le sitemap est en ligne et accessible mais **n'a jamais été déclaré à Google**. C'est l'action qui déclenche la prise en compte de tout le travail de référencement. Gratuit, une dizaine de minutes.
 
 **a. Créer le compte** — `search.google.com/search-console`, connexion avec un compte Google durable (c'est lui qui recevra les alertes de Google sur le site).
