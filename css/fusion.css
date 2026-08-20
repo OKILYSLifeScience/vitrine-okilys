@@ -148,7 +148,7 @@
 
 /* ---------- Photos de section : quatre styles, panachés ----------
    A : photo en vis-à-vis du texte · B : bandeau naturel + carte-titre · C : photo en filigrane · D : vignette ronde */
-.split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+.split { display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px; align-items: center; }
 .split__img { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3; box-shadow: var(--shadow); }
 .split__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .split .section__title { text-align: left; margin-left: 0; }
@@ -171,7 +171,7 @@
 .wash > .container { position: relative; }
 
 .thumb-head { display: flex; align-items: center; gap: 28px; justify-content: center; margin: 0 auto 26px; }
-.thumb-head__img { flex: none; width: 128px; height: 128px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow); border: 4px solid #fff; }
+.thumb-head__img { flex: none; width: 170px; height: 170px; border-radius: 50%; object-fit: cover; box-shadow: var(--shadow); border: 4px solid #fff; }
 .thumb-head .eyebrow { margin: 0 0 4px; text-align: left; }
 .thumb-head .section__title { margin: 0; text-align: left; }
 @media (max-width: 640px) { .thumb-head { flex-direction: column; text-align: center; } .thumb-head .eyebrow, .thumb-head .section__title { text-align: center; } }
