@@ -175,3 +175,17 @@
 .thumb-head .eyebrow { margin: 0 0 4px; text-align: left; }
 .thumb-head .section__title { margin: 0; text-align: left; }
 @media (max-width: 640px) { .thumb-head { flex-direction: column; text-align: center; } .thumb-head .eyebrow, .thumb-head .section__title { text-align: center; } }
+
+/* ---------- Navigation avant/arrière entre pages (étapes d'expertise et produits de santé) ----------
+   Ton bleu-vert pour distinguer ces boutons des actions principales (frise complète, contact).
+   Sur mobile : les deux boutons restent sur une même ligne, chacun à une extrémité, comme sur PC. */
+.pagenav { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 44px; }
+.btn--step { background: var(--teal-dark); color: #fff; border: none; padding: 15px 28px; }
+.btn--step:hover { background: var(--teal); color: #fff; }
+@media (max-width: 640px) {
+  .pagenav { gap: 8px; }
+  .pagenav .btn { padding: 11px 14px; font-size: 0.8rem; }
+}
+
+/* ---------- Rangée d'actions en bas de page (frise complète + contact) : boutons espacés, repli propre ---------- */
+.actions-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 44px; }
