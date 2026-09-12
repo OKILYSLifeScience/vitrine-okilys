@@ -1727,7 +1727,10 @@ section[id], .band[id] { scroll-margin-top: 135px; }
   color: var(--teal-dark);
 }
 
-/* Crédit INFRARCH : logo cliquable (www.infrarch.fr) à la place du nom */
-.infrarch-credit { display: inline-block; vertical-align: middle; margin: 0 4px; }
-.infrarch-credit img { height: 46px; width: auto; display: inline-block; vertical-align: middle; }
-.mod-card .infrarch-credit img { height: 40px; }
+/* Crédit INFRARCH : une ligne cliquable = icône (marque de www.infrarch.fr) + INFRARCH + tagline */
+.infrarch-credit { display: inline-flex; align-items: center; gap: 7px; vertical-align: middle; margin: 0 4px; white-space: nowrap; text-decoration: none; }
+.infrarch-credit__mark { height: 26px; width: auto; display: inline-block; }
+.infrarch-credit__name { color: #007ebd; font-weight: 800; letter-spacing: 0.04em; }
+.infrarch-credit__tag { color: #5f5f5f; font-size: 0.82rem; font-weight: 700; }
+.infrarch-credit:hover .infrarch-credit__name { text-decoration: underline; }
+.mod-card .infrarch-credit { flex-wrap: wrap; white-space: normal; }
