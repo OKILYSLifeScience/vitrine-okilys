@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OKILYS CTMS — pilotage des essais cliniques | OKILYS Life Science</title>
-<meta name="description" content="OKILYS CTMS : faisabilité, sélection et activation des centres, visites, rapports signés, actions de suivi, eTMF. Modules à la carte pour biotechs, promoteurs et CROs.">
+<meta name="description" content="OKILYS CTMS : faisabilité, sélection, activation et suivi des centres, visites et rapports signés, actions, soumissions, documents et formation, planning, safety, eTMF. Modules à la carte pour biotechs, promoteurs et CRO.">
 <link rel="canonical" href="https://www.okilys.com/ctms.html">
 <link rel="alternate" hreflang="fr" href="https://www.okilys.com/ctms.html">
 <link rel="alternate" hreflang="en" href="https://www.okilys.com/en/ctms.html">
@@ -30,11 +30,11 @@
 <meta name="twitter:image" content="https://www.okilys.com/assets/images/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-<link rel="stylesheet" href="css/fonts.css?v=20260912f">
+<link rel="stylesheet" href="css/fonts.css?v=20260913a">
 <link rel="preload" href="assets/fonts/manrope-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Agne.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20260912f">
-<link rel="stylesheet" href="css/fusion.css?v=20260912f">
+<link rel="stylesheet" href="css/styles.css?v=20260913a">
+<link rel="stylesheet" href="css/fusion.css?v=20260913a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,7 +44,7 @@
       "@id": "https://www.okilys.com/ctms.html#webpage",
       "url": "https://www.okilys.com/ctms.html",
       "name": "OKILYS CTMS — pilotage des essais cliniques | OKILYS Life Science",
-      "description": "OKILYS CTMS : faisabilité, sélection et activation des centres, visites, rapports signés, actions de suivi, eTMF. Modules à la carte pour biotechs, promoteurs et CROs.",
+      "description": "OKILYS CTMS : faisabilité, sélection, activation et suivi des centres, visites et rapports signés, actions, soumissions, documents et formation, planning, safety, eTMF. Modules à la carte pour biotechs, promoteurs et CRO.",
       "inLanguage": "fr-FR",
       "isPartOf": { "@id": "https://www.okilys.com/#website" },
       "about": { "@id": "https://www.okilys.com/#organization" },
@@ -153,13 +153,18 @@
 <main>
 
   <section class="section">
-    <div class="container" style="max-width:900px;">
-      <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">OKILYS suite · Pilotage des essais cliniques</p>
-      <h1 class="section__title">OKILYS CTMS — le CTMS des petites structures cliniques</h1>
-      <p class="section__lead">Un CTMS pensé pour les biotechs, les promoteurs et les CROs qui n'ont pas le temps de gérer des fichiers Excel. OKILYS CTMS centralise la faisabilité, la sélection et l'activation des centres, les visites, les rapports signés électroniquement, les actions de suivi et les documents des centres. Vous n'activez que les modules dont vous avez besoin, et vos données vous sont restituées à tout moment.</p>
-      <div style="text-align:center;margin-top:26px;">
-        <a href="index.html#contact" class="btn btn--primary">Parlons de votre étude</a>
-        <p style="font-size:0.85rem;color:var(--gray);margin-top:10px;">Démonstration en 30 minutes sur vos propres cas d'usage · Accès client : <a href="https://ctms.okilys.com" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">ctms.okilys.com ↗</a></p>
+    <div class="container">
+      <div class="split product-hero">
+        <div>
+          <p class="eyebrow" style="color:var(--teal-dark);">OKILYS suite · Pilotage des essais cliniques</p>
+          <h1 class="section__title">OKILYS CTMS, le CTMS modulaire des petites structures cliniques</h1>
+          <p class="section__lead" style="text-align:left;margin:0;">Un outil de pilotage pensé pour les biotechs, les promoteurs et les CRO qui suivent encore leurs études sur des fichiers Excel. OKILYS CTMS couvre la faisabilité, la sélection, la mise en place et le suivi des centres, les visites et leurs rapports signés électroniquement, les actions, les soumissions, les documents et la formation de l'équipe, le planning et la safety. Vous n'activez que les modules utiles ; vos données vous sont restituées à tout moment.</p>
+          <div style="margin-top:26px;">
+            <a href="index.html#contact" class="btn btn--primary">Parlons de votre étude</a>
+            <p style="font-size:0.85rem;color:var(--gray);margin-top:10px;">Démonstration en 30 minutes sur vos propres cas d'usage · Accès client : <a href="https://ctms.okilys.com" target="_blank" rel="noopener noreferrer" style="color:var(--blue);">ctms.okilys.com ↗</a></p>
+          </div>
+        </div>
+        <div class="split__img"><img src="assets/images/suite/ctms-hero.jpg" alt="" width="1400" height="1050"></div>
       </div>
     </div>
   </section>
@@ -167,79 +172,74 @@
   <section class="section section--alt">
     <div class="container" style="max-width:1000px;">
       <h2 class="section__title">Pourquoi remplacer les trackers Excel ?</h2>
-      <div class="mod-grid mod-grid--2">
-        <div class="mod-card"><h3>Des erreurs invisibles</h3><p>Saisies hors liste, lignes supprimées, doublons, dates fausses : un tracker partagé finit toujours par diverger de la réalité du terrain.</p></div>
-        <div class="mod-card"><h3>Une seule source de vérité</h3><p>Chaque information n'est saisie qu'une fois (visite, décision, date) et se retrouve partout où elle est affichée, sans ressaisie.</p></div>
-        <div class="mod-card"><h3>Traçabilité ALCOA+</h3><p>Qui a créé, modifié, clôturé, signé, et quand : journal d'audit complet, versions des rapports, signatures électroniques.</p></div>
-        <div class="mod-card"><h3>Vos données restent à vous</h3><p>Sauvegarde chaque nuit, paquet de données par client, export complet en fin de partenariat. Hébergement dédié, aucun partage entre clients.</p></div>
-      </div>
+      <div class="mod-grid mod-grid--2"><div class="mod-card"><h3>Des erreurs invisibles</h3><p>Saisies hors liste, lignes supprimées, doublons, dates fausses : un tracker partagé finit toujours par diverger de la réalité du terrain.</p></div><div class="mod-card"><h3>Une seule source de vérité</h3><p>Chaque information n'est saisie qu'une fois (visite, décision, date, approbation) et se retrouve partout où elle est affichée, sans ressaisie.</p></div><div class="mod-card"><h3>Traçabilité ALCOA+</h3><p>Qui a créé, modifié, clôturé, signé, et quand : journal d'audit complet, versions des rapports, signatures électroniques, suppressions justifiées.</p></div><div class="mod-card"><h3>Vos données restent à vous</h3><p>Sauvegarde chaque nuit, paquet de données par client, export complet en fin de partenariat. Hébergement en France, aucun partage entre clients.</p></div></div>
     </div>
   </section>
 
   <section class="section">
-    <div class="container" style="max-width:1080px;">
-      <h2 class="section__title">Des modules à la carte</h2>
-      <p class="section__lead">Activez pour chaque client et chaque étude uniquement les briques utiles. Les codes servent à parler le même langage entre le promoteur, la CRO et les ARCs.</p>
-      <div class="mod-grid">
-        <div class="mod-card"><span class="mod-card__code">A1 · A2</span><h3>Cycle de vie des centres</h3><p>De la pré-identification à la sélection (CDA, questionnaire de faisabilité, relances, SSV, décision), puis de la sélection à l'activation (réglementaire, éthique, contrat, SIV, activation). Tableau de bord des deux phases, par pays. Checklist greenlight construite automatiquement et signée avant la mise en place de chaque centre.</p></div>
-        <div class="mod-card"><span class="mod-card__code">B1 · B4</span><h3>Visites centres</h3><p>SSV, SIV, SMV, COV : planification, lettre de confirmation, feuille de présence, rapport-questionnaire, lettre de follow-up. Templates OKILYS adaptables par client et par étude. Rapports signés par le rédacteur puis par un relecteur (rôle dédié possible).</p></div>
-        <div class="mod-card"><span class="mod-card__code">C</span><h3>Actions de suivi</h3><p>Actions au niveau étude, pays ou centre, numérotation automatique, niveaux H/M/L/O, assignation à une personne, clôture tracée, relances datées, exports Excel et PDF.</p></div>
-        <div class="mod-card"><span class="mod-card__code">D1 · D3</span><h3>Soumissions et contrats</h3><p>Suivi réglementaire, comité d'éthique, contrat et budget par centre, dates héritées dans le cycle de vie.</p></div>
-        <div class="mod-card"><span class="mod-card__code">E · F</span><h3>Reporting et paramétrage</h3><p>Tableaux de bord proposés selon votre rôle et la phase de l'étude, tableaux croisés entièrement paramétrables, graphiques (recrutement réel vs prévu, activation prévue vs réelle), indicateurs, extractions ; équipe de l'étude, templates, journal d'audit, corbeille.</p></div>
-        <div class="mod-card"><span class="mod-card__code">G1 · G4</span><h3>Outils autonomes</h3><p>Revue automatisée de rapport, suivi des calls avec les ARCs, dépôt des documents des centres, journal des questions-réponses : utilisables seuls, sans le reste du CTMS.</p></div>
-        <div class="mod-card"><span class="mod-card__code">H</span><h3>Documents de l'étude, formation et actualités</h3><p>Toutes les versions des documents de l'étude au global et par pays, mises à jour automatiquement depuis les soumissions ; formation attribuée par rôle et par pays, certification de lecture tracée, statut d'équipe extrait en un clic ; actualités de l'étude publiées automatiquement.</p></div>
-        <div class="mod-card"><span class="mod-card__code">I</span><h3>eTMF</h3><p>Trial Master File structuré selon le TMF Reference Model : documents collectés, versions des documents de l'étude, soumissions, contrats, greenlights et rapports signés déposés automatiquement en brouillon dans la bonne section, puis vérifiés ; complétude par zone, pays et centre ; revue de l'ISF depuis les visites de monitoring ; export ZIP indexé.</p></div>
-        <div class="mod-card"><span class="mod-card__code">J</span><h3>Planning et ressources</h3><p>Plan d'étude (phases, jalons, tâches) avec Gantt, dates réelles des jalons lues dans le CTMS, ressources, capacité et charge des ARCs ; paramétrable par le chef de projet.</p></div>
-        <div class="mod-card"><span class="mod-card__code">K</span><h3>Safety et IMP</h3><p>Journal des SAE alimenté depuis les visites de monitoring, réconcilié avec le listing de l'eCRF choisi par le client ; revue de la comptabilité IMP à chaque visite.</p></div>
+    <div class="container">
+      <div class="split split--rev">
+        <div class="split__img"><img src="assets/images/suite/ctms-equipe.jpg" alt="" width="1400" height="1050" loading="lazy"></div>
+        <div>
+          <p class="eyebrow" style="color:var(--teal-dark);">Vue d'ensemble</p>
+          <h2 class="section__title">L'étude en un coup d'œil, pour le chef de projet comme pour l'ARC</h2>
+          <p>La page Overview compare les objectifs de l'étude (centres à activer, patients à screener et à inclure, jalons FSA / FPI / LPI / LPO / DBL) au réel : entonnoir de start-up, recrutement réel vs cible et vs plan, visites des 30 prochains jours et rapports en attente, actions ouvertes par niveau, équipe et formation, documents courants, actualités de l'étude. Chaque tuile ouvre le détail.</p>
+          <ul class="product-list"><li>Objectifs et jalons paramétrés dans le profil de l'étude</li><li>Recrutement cumulé réel vs plan</li><li>Alertes : visites en retard, rapports à revoir, actions overdue</li><li>Actualités publiées automatiquement (amendement, nouvelle version)</li></ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="section section--alt">
+    <div class="container" style="max-width:1080px;">
+      <div class="product-modhead">
+        <img src="assets/images/suite/puzzle.png" alt="" class="product-modhead__img" width="320" height="201" loading="lazy">
+        <div>
+          <p class="eyebrow" style="color:var(--teal-dark);">Modules à la carte</p>
+          <h2 class="section__title">Choisissez vos briques</h2>
+          <p class="section__lead">Activez pour chaque client et chaque étude uniquement les modules utiles, à l'unité ou par pack : Faisabilité & Sélection, Start-up & Activation, Monitoring & Clôture, ou le CTMS complet. Les codes servent à parler le même langage entre le promoteur, la CRO et les ARC.</p>
+        </div>
+      </div>
+      <div class="mod-grid"><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-site.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">A1 · A2</span><h3>Cycle de vie des centres</h3><p>De la pré-identification à la sélection (CDA, questionnaire de faisabilité, relances, SSV, décision de sélection tracée), puis de la sélection à l'activation (réglementaire, éthique, contrat, greenlight signé, SIV, activation, clôture). Tableau de bord des deux phases par pays ; annuaire des centres alimenté automatiquement.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-rapport.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">B1 · B4</span><h3>Visites centres</h3><p>SSV, SIV, SMV / SMC / RMV, COV : planification, lettre de confirmation, feuille de présence, rapport-questionnaire qui propose les actions de suivi, lettre de follow-up, timelines. Templates OKILYS adaptables par client et par étude. Rapport signé par le rédacteur puis par le relecteur (rôle Report reviewer dédié) ; nouvelle version si correction après signature.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="36" height="36" rx="6"/><path d="M14 17l4 4 7-8"/><path d="M14 31l4 4 7-8"/><path d="M28 17h8M28 31h8"/></svg></span><div><span class="mod-card__code">C</span><h3>Actions de suivi</h3><p>Actions au niveau étude, pays ou centre, numérotation automatique, niveaux H/M/L/O, assignation obligatoire à une personne (équipe ou contact du centre), due date, follow-up horodaté et signé, clôture tracée, annulation motivée, demande de suppression justifiée validée par le CTM, exports Excel et PDF.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-conformite.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">D1 · D3</span><h3>Soumissions et contrats</h3><p>Suivi réglementaire, comité d'éthique, contrat et budget par centre ; dates héritées dans le cycle de vie et dans la checklist greenlight ; un document soumis puis approuvé devient automatiquement la version courante dans les documents de l'étude.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-reporting.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">E · F</span><h3>Reporting et paramétrage (socle)</h3><p>Tableaux de bord proposés selon votre rôle et la phase de l'étude, tableaux croisés paramétrables sur les actions, les centres et les patients, graphiques (recrutement réel vs prévu, activation prévue vs réelle), exports Excel / PDF ; équipe de l'étude, templates, journal d'audit, corbeille.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-revue.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">G1 · G4</span><h3>Outils autonomes</h3><p>Revue automatisée de rapport (contrôles logiques, checklist), suivi des calls ARC de la sélection à la clôture, dépôt des documents des centres, journal des questions-réponses : utilisables seuls, sans le reste du CTMS.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-certif.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">H</span><h3>Documents de l'étude, formation et actualités</h3><p>Toutes les versions des documents (protocole, amendements, brochure investigateur, consentement, study plans, manuels) au global et par pays. Le chef de projet attribue la formation par rôle et par pays, chaque membre certifie sa lecture, le statut de formation de l'équipe s'extrait en un clic.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 12a3 3 0 0 1 3-3h10l4 4h16a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z"/><path d="M6 20h36"/><path d="M16 28h16M16 34h10"/></svg></span><div><span class="mod-card__code">I</span><h3>eTMF</h3><p>Trial Master File structuré selon le TMF Reference Model : documents collectés, versions, soumissions, contrats, greenlights et rapports signés déposés automatiquement en brouillon dans la bonne section, vérifiés par l'ARC ou le chef de projet ; complétude par zone, pays et centre ; revue de l'ISF depuis les visites ; export ZIP indexé.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8v32h32"/><rect x="14" y="13" width="14" height="5" rx="2" fill="#2d9caf" stroke="none"/><rect x="20" y="22" width="18" height="5" rx="2" fill="#124cef" stroke="none"/><rect x="26" y="31" width="10" height="5" rx="2" fill="#2d9caf" stroke="none"/></svg></span><div><span class="mod-card__code">J</span><h3>Planning et ressources</h3><p>Plan d'étude (phases, jalons, tâches) avec Gantt, dates réelles lues dans le CTMS, ressources, capacité et charge des ARC ; paramétrable par le chef de projet.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-imp.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><span class="mod-card__code">K</span><h3>Safety et IMP</h3><p>Journal des SAE alimenté depuis les visites de monitoring (délais de déclaration, statut de revue), réconcilié avec le listing de l'eCRF choisi par le client ; revue de la comptabilité IMP à chaque visite.</p></div></div></div>
+    </div>
+  </section>
+
+  <section class="section">
     <div class="container" style="max-width:1000px;">
       <h2 class="section__title">Quatre outils que vous pouvez adopter seuls</h2>
-      <div class="mod-grid mod-grid--2">
-        <div class="mod-card"><h3>Revue automatisée de rapport</h3><p>Contrôles de cohérence sur chaque item du rapport (réponses manquantes, N/A non justifiés, actions de suivi absentes, commentaires insuffisants, versions et dates manquantes) et vérification de couverture de la checklist OKILYS. Fonctionne aussi sur vos rapports Word ou PDF existants.</p></div>
-        <div class="mod-card"><h3>Suivi des calls ARC</h3><p>La grille du point hebdomadaire CTM/CPL – ARC, de la sélection à la clôture : une colonne par appel, une ligne par centre, les statuts hérités automatiquement et surlignés quand ils ont changé. ARC absent ? Une demande de mise à jour lui est adressée en tâche à 5 jours ouvrés. Export Excel au format que vos équipes connaissent.</p></div>
-        <div class="mod-card"><h3>Documents des centres</h3><p>Téléversement des documents collectés (CV, licences, GCP, DoI…) directement depuis le rapport de visite, nommage selon la convention de l'étude, versions, empreintes, export ZIP et restitution.</p></div>
-        <div class="mod-card"><h3>Journal des questions-réponses</h3><p>Toutes les questions des centres, des ARCs ou du promoteur et les réponses de l'équipe étude, numérotées, classées par catégorie et par pays. Export Excel pour le TMF ou la réunion investigateurs.</p></div>
-      </div>
+      <div class="mod-grid mod-grid--2"><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-revue.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Revue automatisée de rapport</h3><p>Contrôles de cohérence sur chaque item du rapport (réponses manquantes, N/A non justifiés, actions de suivi absentes, commentaires insuffisants, versions et dates manquantes) et couverture de la checklist OKILYS. Fonctionne aussi sur vos rapports Word ou PDF existants.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-equipe.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Suivi des calls ARC</h3><p>La grille du point hebdomadaire CTM/CPL – ARC, en trois phases (sélection, start-up, conduite) : une colonne par appel, une ligne par centre, statuts hérités et surlignés quand ils ont changé. ARC absent ? Une tâche de mise à jour à 5 jours ouvrés lui est adressée ; ses propositions sont validées par le CTM avant d'être appliquées. Export Excel au format connu.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-rapport.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Documents des centres</h3><p>Téléversement des documents collectés (CV, licences, GCP, DoI…) directement depuis le rapport de visite, nommage selon la convention de l'étude, versions, empreintes, export ZIP et restitution.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="36" height="36" rx="6"/><path d="M14 17l4 4 7-8"/><path d="M14 31l4 4 7-8"/><path d="M28 17h8M28 31h8"/></svg></span><div><h3>Journal des questions-réponses</h3><p>Toutes les questions des centres, des ARC ou du promoteur et les réponses de l'équipe étude, numérotées, classées par catégorie et par pays, réponses valables pour tous les centres signalées. Export Excel pour le TMF ou la réunion investigateurs.</p></div></div></div>
+    </div>
+  </section>
+
+  <section class="section wash" style="background-image:url('assets/images/suite/ctms-reunion.jpg')">
+    <div class="container" style="max-width:900px;">
+      <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">Rôles et autorisations</p>
+      <h2 class="section__title">Un modèle global, personnalisable étude par étude</h2>
+      <p style="text-align:center;">Admin, chef de projet (CTM / CPL), relecteur de rapports, ARC, lecteur : chaque profil voit et modifie ce qui le concerne, l'ARC uniquement ses pays. Le modèle global d'autorisations s'ajuste par un administrateur d'étude pour coller à chaque typologie d'étude. Périodes d'accès par compte et par étude, révocation en cascade, guide utilisateur par profil intégré.</p>
+      <ul class="product-list product-list--center"><li>Une même personne peut être CTM sur une étude et ARC sur une autre</li><li>Accès à donner aux ARC comme aux CPL du promoteur</li><li>Interface en anglais, utilisable sur mobile</li></ul>
     </div>
   </section>
 
   <section class="section">
     <div class="container" style="max-width:1000px;">
       <h2 class="section__title">Sécurité et conformité, par construction</h2>
-      <div class="mod-grid mod-grid--2">
-        <div class="mod-card"><h3>Accès</h3><p>Comptes nominatifs, authentification à deux facteurs obligatoire, rôles par étude (CPL/CTM, ARC, lecteur), périodes d'accès, révocation immédiate.</p></div>
-        <div class="mod-card"><h3>Signatures électroniques</h3><p>Finalisation des rapports par deux signatures électroniques avancées (rédacteur puis relecteur) : ré-authentification, empreinte du contenu, horodatage, manifeste vérifiable.</p></div>
-        <div class="mod-card"><h3>Audit trail</h3><p>Chaque création, modification, clôture, téléchargement et signature est journalisée (qui, quand, avant / après). Suppressions douces avec corbeille.</p></div>
-        <div class="mod-card"><h3>Confidentialité</h3><p>Vos données ne servent à rien d'autre qu'à votre étude. Aucun envoi à un service tiers ; hébergement en France.</p></div>
-      </div>
+      <div class="mod-grid mod-grid--2"><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="20" width="28" height="22" rx="4"/><path d="M16 20v-6a8 8 0 0 1 16 0v6"/><circle cx="24" cy="31" r="3" fill="#21778a" stroke="none"/></svg></span><div><h3>Accès</h3><p>Comptes nominatifs, authentification à deux facteurs obligatoire, verrouillage après échecs, sessions limitées, révocation immédiate.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 38c6-8 10-4 14-10s8-8 12-4 6 8 8 2"/><path d="M30 10l8 8-16 16h-8v-8z"/><path d="M8 42h32"/></svg></span><div><h3>Signatures électroniques</h3><p>Rapports et greenlights finalisés par signature électronique avancée : ré-authentification, empreinte du contenu, horodatage, manifeste vérifiable.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 4"/></svg></span><div><h3>Audit trail</h3><p>Chaque création, modification, clôture, téléchargement et signature est journalisée (qui, quand, avant / après). Suppressions douces avec corbeille.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="16" r="6"/><path d="M6 38c0-7 5-11 12-11s12 4 12 11"/><circle cx="34" cy="20" r="4"/><path d="M30 38c0-5 3-8 8-8 2 0 3 0 4 1"/></svg></span><div><h3>Confidentialité</h3><p>Vos données ne servent à rien d'autre qu'à votre étude. Aucun envoi à un service tiers ; hébergement en France ; notice de confidentialité et CGU acceptées et tracées.</p></div></div></div>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container" style="max-width:1000px;">
-      <h2 class="section__title">Pour qui ?</h2>
-      <div class="mod-grid">
-        <div class="mod-card"><h3>Biotechs et petits promoteurs</h3><p>Une visibilité complète sur la sélection et l'activation des centres, sans recruter une équipe informatique ni déployer un outil surdimensionné.</p></div>
-        <div class="mod-card"><h3>CROs</h3><p>Un espace par client, des modules par étude, des paquets de données à remettre à vos clients à la demande ou en fin de partenariat.</p></div>
-        <div class="mod-card"><h3>Équipes d'oversight</h3><p>Le suivi des ARCs et des actions critiques, les rapports revus et signés, les décisions de sélection tracées.</p></div>
-      </div>
+      <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">Pour qui ?</p>
+      <h2 class="section__title">Des équipes de terrain, pas des services informatiques</h2>
+      <div class="mod-grid"><div class="mod-card"><h3>Biotechs et petits promoteurs</h3><p>Une visibilité complète sur la sélection, l'activation et le suivi des centres, sans recruter une équipe informatique ni déployer un outil surdimensionné.</p></div><div class="mod-card"><h3>CRO</h3><p>Un espace par client, des modules par étude, des paquets de données à remettre à vos clients à la demande ou en fin de partenariat.</p></div><div class="mod-card"><h3>Équipes d'oversight</h3><p>Le suivi des ARC et des actions critiques, les rapports revus et signés, les décisions de sélection tracées, la formation de l'équipe suivie.</p></div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="container" style="max-width:1000px;">
       <h2 class="section__title">Comment ça se passe</h2>
-      <div class="ctms-steps">
-        <div class="ctms-step"><span class="ctms-step__num">1</span><h3>Cadrage</h3><p>Un échange de 30 minutes pour choisir les modules et les templates (les vôtres ou ceux d'OKILYS).</p></div>
-        <div class="ctms-step"><span class="ctms-step__num">2</span><h3>Mise en place</h3><p>Création de votre espace, de l'étude, des pays et des accès ; import de vos trackers existants.</p></div>
-        <div class="ctms-step"><span class="ctms-step__num">3</span><h3>Accompagnement</h3><p>Guide utilisateur par profil intégré, prise en main des ARCs, ajustements des templates et des règles d'actions.</p></div>
-        <div class="ctms-step"><span class="ctms-step__num">4</span><h3>Exploitation</h3><p>Sauvegardes nocturnes, paquets de données, évolutions au fil de vos retours.</p></div>
-      </div>
-      <p style="text-align:center;margin-top:30px;font-size:0.95rem;"><strong>L'offre :</strong> abonnement par étude et par module, sans engagement de volume. Les outils autonomes peuvent être souscrits seuls. Tarifs et conditions sur devis, selon le nombre d'études, de pays et de centres.</p>
+      <div class="ctms-steps"><div class="ctms-step"><span class="ctms-step__num">1</span><h3>Cadrage</h3><p>Un échange de 30 minutes pour choisir les modules et les templates (les vôtres ou ceux d'OKILYS).</p></div><div class="ctms-step"><span class="ctms-step__num">2</span><h3>Mise en place</h3><p>Création de votre espace, de l'étude, des pays et des accès ; import de vos trackers d'actions et de suivi ARC existants.</p></div><div class="ctms-step"><span class="ctms-step__num">3</span><h3>Accompagnement</h3><p>Guide utilisateur par profil intégré, prise en main des ARC, ajustements des templates et des règles d'actions.</p></div><div class="ctms-step"><span class="ctms-step__num">4</span><h3>Exploitation</h3><p>Sauvegardes nocturnes, paquets de données, évolutions au fil de vos retours.</p></div></div>
+      <p style="text-align:center;margin-top:30px;font-size:0.95rem;"><strong>L'offre :</strong> abonnement par étude, par pack ou par module ; le nombre de centres prévus est fixé au contrat. Les outils autonomes peuvent être souscrits seuls. Tarifs et conditions sur devis.</p>
       <div style="text-align:center;margin-top:26px;">
         <a href="index.html#contact" class="btn btn--primary">Parlons de votre étude</a>
       </div>
@@ -282,6 +282,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=20260912f"></script>
+<script src="js/script.js?v=20260913a"></script>
 </body>
 </html>

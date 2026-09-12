@@ -239,3 +239,23 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 /* ---------- Grille de 4 tuiles : 2 x 2 (tuiles larges) plutôt que 3 + 1 ; une colonne sur mobile ---------- */
 .mod-grid--2 { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 640px) { .mod-grid--2 { grid-template-columns: 1fr; } }
+
+/* ---------- Pages produit (CTMS, eTMF) : photos et icônes ----------
+   Photos et pictogrammes issus des dossiers Communication d'OKILYS (redimensionnés dans assets/images/suite/). */
+.product-hero .section__title { text-align: left; margin-left: 0; }
+.product-hero .eyebrow { text-align: left; }
+.split--rev .split__img { order: -1; }
+@media (max-width: 900px) { .split--rev .split__img { order: 0; } }
+.product-list { margin: 16px 0 0; padding-left: 0; list-style: none; display: grid; gap: 8px; }
+.product-list li { position: relative; padding-left: 26px; font-size: 0.93rem; }
+.product-list li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--teal); font-weight: 800; }
+.product-list--center { max-width: 560px; margin-left: auto; margin-right: auto; }
+.product-modhead { display: grid; grid-template-columns: 220px 1fr; gap: 32px; align-items: center; margin-bottom: 8px; }
+.product-modhead .section__title, .product-modhead .section__lead { text-align: left; margin: 0 0 10px; }
+.product-modhead .eyebrow { text-align: left; }
+.product-modhead__img { width: 100%; height: auto; }
+@media (max-width: 720px) { .product-modhead { grid-template-columns: 1fr; } .product-modhead__img { max-width: 200px; margin: 0 auto; } }
+.mod-card--ico { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+.mod-card__icon { width: 56px; height: 56px; object-fit: contain; border-radius: 12px; background: var(--bg-alt); padding: 8px; box-sizing: border-box; display: block; }
+.mod-card__icon--svg svg { width: 100%; height: 100%; display: block; }
+.section.wash .section__title, .section.wash h2 { color: var(--ink); }
