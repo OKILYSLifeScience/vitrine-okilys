@@ -329,4 +329,23 @@
     <priority>0.2</priority>
   </url>
 
+  <url>
+    <loc>https://www.okilys.com/suite.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/suite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/suite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/suite.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/suite.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/suite.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/suite.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/suite.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
