@@ -7,7 +7,7 @@
 
 *Rédigée le 2026-08-11, fin de session sur le PC portable. À coller dans la nouvelle session Claude du PC fixe.*
 
-**Emplacement du dossier local (depuis le 12/09/2026)** : `C:\Users\lydie\Documents\Claude\vitrine-fusion-OKILYS` (déplacé depuis `C:\Users\lydie\Documents`). Sur le PC portable, relocaliser le dépôt dans GitHub Desktop (« Locate ») si besoin.
+**Emplacement du dossier local (depuis le 12/09/2026)** : `C:\Users\lydie\Documents\Claude\Site Web OKILYS` (anciennement `vitrine-fusion-OKILYS` dans `Documents`). Sur le PC portable, relocaliser le dépôt dans GitHub Desktop (« Locate ») si besoin.
 
 ---
 
