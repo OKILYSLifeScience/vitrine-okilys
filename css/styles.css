@@ -140,12 +140,12 @@ input, textarea { font-family: inherit; }
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 4px 11px;
+  gap: 4px 8px;
 }
 .nav a {
   font-weight: 600;
   font-size: 0.92rem;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.028em;
   color: var(--ink);
   padding: 6px 2px;
   border-bottom: 2px solid transparent;
@@ -212,7 +212,7 @@ input, textarea { font-family: inherit; }
 }
 /* Plage serrée : menu légèrement compressé */
 @media (min-width: 1321px) and (max-width: 1500px) {
-  .nav { gap: 4px 7px; }
+  .nav { gap: 4px 5px; }
   .nav a { font-size: 0.84rem; }
   .nav__cta { padding: 8px 11px !important; }
   .nav .nav__suite { padding: 6px 10px !important; }
@@ -1598,7 +1598,7 @@ section[id], .band[id] { scroll-margin-top: 135px; }
 
 /* ---------- Sous-menu de navigation (Developpement clinique) ---------- */
 .nav-item { position: relative; display: inline-flex; }
-.nav-item > a .caret { font-size: 0.7em; margin-left: 4px; }
+.nav-item > a .caret { font-size: 0.7em; margin-left: 1px; }
 .nav-item .sub-menu {
   display: none;
   position: absolute;
