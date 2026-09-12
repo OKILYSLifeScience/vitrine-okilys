@@ -128,3 +128,9 @@ Son témoignage affiche « Mission OKILYS » sans précision du rôle, contraire
 
 ## 12/09/2026 (soir) - pages produit CTMS / eTMF avec photos et icônes
 - `ctms.html`, `etmf.html`, `en/ctms.html`, `en/etmf.html` : `<main>` régénéré par le script `site_product_pages.py` (scratchpad de la session CTMS) - contenu aligné sur OKILYS CTMS 1.20 ; photos et icônes dans `assets/images/suite/` (issues des dossiers Communication d'OKILYS sur X:) ; CSS ajouté en fin de `css/fusion.css` (`.product-*`, `.mod-card--ico`) ; version `?v=20260913a` sur toutes les pages. Ne pas mettre de tiret cadratin « — » dans les titres (police Agne sans ce glyphe).
+
+## Ajout du 12/09/2026 (soir) — rubrique Actualités / Insights
+
+- **Pages** `actualites.html` + `en/insights.html` (entrée de menu « Actualités » / « Insights » après Réalisations/Highlights sur toutes les pages, 404 comprise ; menu vérifié sur une ligne à 1366 px). 3 articles au lancement : lancement CTMS (#lancement-ctms / #ctms-launch), eTMF en préparation (#etmf-a-venir / #etmf-coming), nouveau site (#nouveau-site / #new-website). Sitemap : 38 URLs.
+- **Diaporama accueil** (`.news-band`, entre le bandeau de chiffres et À propos) : glissement droite-gauche automatique (6,5 s), flèches, points, glissement tactile sur mobile, bouton teal « Lire l'actualité » vers l'ancre de l'article. Slides à mettre à jour à la main dans index.html / en/index.html quand on ajoute une actualité (garder les 3-4 dernières).
+- **Procédure « nouvelle actualité »** (ex. nouveau contrat : courte présentation du client + pathologie) : 1) ajouter l'article en haut de actualites.html et en/insights.html avec une ancre ; 2) mettre à jour les slides du diaporama (FR+EN) ; 3) sitemap lastmod ; 4) publier ; 5) poster sur la page LinkedIn OKILYS avec le lien https://www.okilys.com/actualites.html#ancre.

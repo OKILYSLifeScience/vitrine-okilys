@@ -259,3 +259,44 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .mod-card__icon { width: 56px; height: 56px; object-fit: contain; border-radius: 12px; background: var(--bg-alt); padding: 8px; box-sizing: border-box; display: block; }
 .mod-card__icon--svg svg { width: 100%; height: 100%; display: block; }
 .section.wash .section__title, .section.wash h2 { color: var(--ink); }
+
+/* ---------- Actualités : bandeau-diaporama de l'accueil ----------
+   Glissement horizontal droite-gauche, une actualité à la fois, flèches + points, défilement automatique. */
+.news-band { background: var(--bg-alt); padding: 40px 0 34px; }
+.news-band__head { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.news-band__head .eyebrow { margin: 0; }
+.news-band__all { font-size: 0.88rem; font-weight: 700; color: var(--teal-dark); }
+.news-band__all:hover { color: var(--blue); }
+.news-carousel { position: relative; }
+.news-carousel__viewport { overflow: hidden; border-radius: var(--radius); }
+.news-carousel__track { display: flex; transition: transform .55s ease; }
+.news-slide {
+  flex: 0 0 100%; box-sizing: border-box; background: #fff; border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px 90px 26px; text-align: center;
+}
+.news-slide__date { font-size: 0.76rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-dark); margin: 0 0 8px; }
+.news-slide h3 { font-size: 1.3rem; margin: 0 0 8px; }
+.news-slide p { max-width: 640px; margin: 0 auto 16px; font-size: 0.92rem; }
+.news-carousel__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border);
+  background: #fff; color: var(--teal-dark); font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+}
+.news-carousel__arrow:hover { border-color: var(--teal); color: var(--blue); }
+.news-carousel__arrow--prev { left: 14px; }
+.news-carousel__arrow--next { right: 14px; }
+.news-carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.news-carousel__dot { width: 9px; height: 9px; border-radius: 50%; border: none; padding: 0; background: var(--border); cursor: pointer; }
+.news-carousel__dot.is-active { background: var(--teal); }
+@media (max-width: 640px) {
+  .news-slide { padding: 22px 18px 20px; }
+  .news-carousel__arrow { display: none; } /* au doigt : glissement tactile via les points */
+}
+
+/* ---------- Page Actualités ---------- */
+.news-article { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 30px; margin-top: 22px; scroll-margin-top: 150px; }
+.news-article h2 { font-size: 1.35rem; margin: 0 0 10px; text-align: left; }
+.news-article p:last-of-type { margin-bottom: 0; }
+.news-article .news-slide__date { margin-bottom: 6px; }
+.news-article__cta { display: inline-block; margin-top: 14px; font-weight: 800; color: var(--teal-dark); font-size: 0.92rem; }
+.news-article__cta:hover { color: var(--blue); }
