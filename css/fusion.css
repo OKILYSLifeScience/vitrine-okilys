@@ -219,3 +219,19 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .ctms-step__num { width: 34px; height: 34px; border-radius: 50%; background: var(--gradient); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
 .ctms-step h3 { font-size: 0.98rem; margin: 0 0 6px; }
 .ctms-step p { margin: 0; font-size: 0.86rem; }
+
+/* ---------- Encart « OKILYS suite » (accueil) ----------
+   Bandeau sombre assorti à la barre suite : une carte par produit de la suite. */
+.suite-panel { background: var(--ink); }
+.suite-panel .eyebrow { color: #9fb3c8; }
+.suite-panel .section__title { color: #fff; }
+.suite-panel .section__lead { color: #b9d4e8; }
+.suite-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 430px)); gap: 20px; justify-content: center; margin-top: 30px; }
+.suite-card {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); border-radius: var(--radius);
+  padding: 26px 28px; display: block; transition: border-color .2s, background .2s, transform .2s;
+}
+.suite-card:hover, .suite-card:focus-visible { border-color: var(--teal); background: rgba(255,255,255,0.1); transform: translateY(-2px); }
+.suite-card h3 { color: #fff; margin: 0 0 8px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.suite-card p { color: #c6d4e2; font-size: 0.92rem; margin: 0 0 14px; line-height: 1.55; }
+.suite-card__arrow { color: var(--teal); font-weight: 800; font-size: 0.9rem; }
