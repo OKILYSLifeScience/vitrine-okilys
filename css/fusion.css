@@ -235,3 +235,7 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .suite-card h3 { color: #fff; margin: 0 0 8px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .suite-card p { color: #c6d4e2; font-size: 0.92rem; margin: 0 0 14px; line-height: 1.55; }
 .suite-card__arrow { color: var(--teal); font-weight: 800; font-size: 0.9rem; }
+
+/* ---------- Grille de 4 tuiles : 2 x 2 (tuiles larges) plutôt que 3 + 1 ; une colonne sur mobile ---------- */
+.mod-grid--2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 640px) { .mod-grid--2 { grid-template-columns: 1fr; } }

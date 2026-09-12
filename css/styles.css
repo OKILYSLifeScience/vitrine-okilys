@@ -1726,3 +1726,8 @@ section[id], .band[id] { scroll-margin-top: 135px; }
   font-weight: 700;
   color: var(--teal-dark);
 }
+
+/* Crédit INFRARCH : logo cliquable (www.infrarch.fr) à la place du nom */
+.infrarch-credit { display: inline-block; vertical-align: middle; margin: 0 4px; }
+.infrarch-credit img { height: 46px; width: auto; display: inline-block; vertical-align: middle; }
+.mod-card .infrarch-credit img { height: 40px; }
