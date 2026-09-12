@@ -291,6 +291,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.okilys.com/a-propos.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/a-propos.html"/>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/a-propos.html"/>
+    <lastmod>2026-09-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.okilys.com/actualites.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/actualites.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/insights.html"/>

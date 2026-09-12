@@ -112,6 +112,7 @@ input, textarea { font-family: inherit; }
   text-transform: uppercase;
   color: var(--ink-soft);
   margin-top: 5px;
+  white-space: nowrap;
 }
 @media (max-width: 720px) {
   .brand__mark { height: 56px; }
