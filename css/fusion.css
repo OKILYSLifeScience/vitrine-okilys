@@ -189,3 +189,33 @@
 
 /* ---------- Rangée d'actions en bas de page (frise complète + contact) : boutons espacés, repli propre ---------- */
 .actions-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 16px; margin-top: 44px; }
+
+/* ---------- Barre OKILYS suite (au-dessus de l'en-tête, harmonisée avec le CTMS) ----------
+   Même dessin que la .suite-bar du CTMS : fond encre, outil courant en dégradé, badge « à venir ». */
+.topbar.suite-bar { font-size: 0.76rem; color: #d9e3ee; }
+.suite-bar__inner { display: flex; align-items: center; gap: 6px; padding: 5px 24px; }
+.suite-bar__brand { color: #9fb3c8; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 6px; font-size: 0.68rem; white-space: nowrap; }
+.suite-bar__tool { color: #eef4fb; padding: 3px 10px; border-radius: 6px; display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.suite-bar__tool.is-current { background: var(--gradient); color: #fff; font-weight: 700; }
+.suite-bar__tool.is-soon { color: #9fb3c8; cursor: default; }
+.suite-bar__soon { background: #d97706; color: #fff; font-size: 0.62rem; padding: 1px 6px; border-radius: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
+.suite-bar__tag { margin-left: auto; color: #9fb3c8; }
+@media (max-width: 900px) { .suite-bar__tag { display: none; } }
+@media (max-width: 560px) {
+  .suite-bar__brand { display: none; }
+  .suite-bar__inner { justify-content: center; padding: 5px 8px; gap: 3px; }
+  .suite-bar__tool { padding: 3px 7px; font-size: 0.7rem; }
+}
+
+/* ---------- Page OKILYS CTMS (page produit) ---------- */
+.mod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; margin-top: 26px; }
+.mod-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; }
+.mod-card__code { display: inline-block; background: var(--bg-alt); color: var(--teal-dark); font-weight: 800; font-size: 0.72rem; border-radius: 999px; padding: 3px 10px; margin-bottom: 8px; letter-spacing: 0.04em; }
+.mod-card h3 { font-size: 1rem; margin: 0 0 6px; }
+.mod-card p { margin: 0; font-size: 0.88rem; line-height: 1.5; }
+.ctms-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; margin-top: 26px; }
+.ctms-step { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.ctms-step__num { width: 34px; height: 34px; border-radius: 50%; background: var(--gradient); color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+.ctms-step h3 { font-size: 0.98rem; margin: 0 0 6px; }
+.ctms-step p { margin: 0; font-size: 0.86rem; }

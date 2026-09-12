@@ -255,6 +255,24 @@
 
   <!-- ============ Réalisations ============ -->
   <url>
+    <loc>https://www.okilys.com/ctms.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/ctms.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/ctms.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/ctms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/ctms.html"/>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.okilys.com/highlights.html</loc>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/highlights.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/highlights.html"/>
