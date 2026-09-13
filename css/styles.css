@@ -258,7 +258,8 @@ input, textarea { font-family: inherit; }
   }
   .nav a.is-active { border-bottom-color: var(--teal); }
   .nav__cta { margin-top: 8px; }
-  .nav .nav__suite { width: auto; display: inline-block; margin: 8px 0 4px; }
+  .nav .nav__suite { width: auto; display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 4px; }
+  .nav .nav__suite .caret { width: 28px; height: 28px; margin: 0; }
   .nav .lang-switch { margin-top: 12px; }
 }
 
@@ -1735,3 +1736,10 @@ section[id], .band[id] { scroll-margin-top: 135px; }
 .infrarch-credit__tag { color: #5f5f5f; font-size: 0.82rem; font-weight: 700; }
 .infrarch-credit:hover .infrarch-credit__name { text-decoration: underline; }
 .mod-card .infrarch-credit { flex-wrap: wrap; white-space: normal; }
+
+/* Tagline de l'en-tête : sur mobile, retour à la ligne juste avant le « & » */
+.tagline-br { display: none; }
+@media (max-width: 720px) {
+  .tagline-br { display: inline; }
+  .brand__tagline { white-space: normal; }
+}
