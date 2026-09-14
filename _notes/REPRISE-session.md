@@ -7,7 +7,7 @@
 
 *Rédigée le 2026-08-11, fin de session sur le PC portable. À coller dans la nouvelle session Claude du PC fixe.*
 
-**Emplacement du dossier local (depuis le 12/09/2026)** : `C:\Users\lydie\Documents\Claude\Site Web OKILYS` (anciennement `vitrine-fusion-OKILYS` dans `Documents`). Sur le PC portable, relocaliser le dépôt dans GitHub Desktop (« Locate ») si besoin.
+**Emplacement du dossier local** : PC fixe `C:\Users\lydie\Documents\Claude\OKILYS\Site Web OKILYS` (anciennement `vitrine-fusion-OKILYS` dans `Documents`) ; laptop `C:\Users\LydiePARSUS{Okilys}\Documents\Claude\OKILYS\Site Web OKILYS` (copie du 13/09/2026, reprise le 14/09/2026). Sur le laptop, aucun identifiant GitHub n'est enregistré au départ : le premier push passe par la fenêtre de connexion de Git ou par le bouton Push de GitHub Desktop (après « Locate » vers le nouveau dossier).
 
 ---
 
