@@ -1,7 +1,7 @@
 <!-- Dossier _notes : versionne dans le depot mais exclu de la publication GitHub Pages (prefixe _). -->
 # OKILYS website (www.okilys.com) - Test specification
 
-Version 1.0 - 15 September 2026 - site state: commit `4a8ce3e` (stylesheet / script version `20260913e`, 40 indexable pages + 10 redirect stubs + 404). Author: assistant, on request of Lydie PARSUS (OKILYS). Companion document of the OKILYS CTMS test specification (`OKILYS CTMS\ctms\docs\TEST-SPECIFICATION.md`): same four levels, same conventions, same reporting format (dated run report, defect register with severity and French plain-language columns), so that the results of both products can be compiled together.
+Version 1.1 - 15 September 2026 - site state: stylesheet / script version `20260915a` (v1.0: 15 September 2026, commit `4a8ce3e`, 40 indexable pages + 10 redirect stubs + 404). Author: assistant, on request of Lydie PARSUS (OKILYS). Companion document of the OKILYS CTMS test specification (`OKILYS CTMS\ctms\docs\TEST-SPECIFICATION.md`): same four levels, same conventions, same reporting format (dated run report, defect register with severity and French plain-language columns), so that the results of both products can be compiled together.
 
 ## 1. Purpose, scope and references
 
@@ -107,7 +107,7 @@ Risk-based approach: the contact form and the external links carry the only secu
 
 | Id | Test | Expected | Traduction FR (où, quoi) |
 |---|---|---|---|
-| IT-NAV-01 | every main-menu entry on every page | Accueil → `index.html`; Produits de santé → `index.html#developpement` + 5 sub-entries → the 5 product pages; Expertises → `index.html#expertise` + 7 steps in order; Secteurs → `#domaines`; Réalisations → `highlights.html`; Actualités → `actualites.html`; À propos → `a-propos.html`; OKILYS Suite → `suite.html` + `ctms.html` + `etmf.html` (badge à venir); Contact → `index.html#contact`; all targets exist | Menu : chaque entrée mène à la bonne page ou section |
+| IT-NAV-01 | every main-menu entry on every page | Accueil → `index.html`; Produits de santé → `index.html#produits-de-sante` (EN `#health-products`) + 5 sub-entries → the 5 product pages; Expertises → `index.html#expertises` (EN `#expertise`) + 7 steps in order; Secteurs → `#secteurs` (EN `#sectors`); Réalisations → `highlights.html`; Actualités → `actualites.html`; À propos → `a-propos.html`; OKILYS Suite → `suite.html` + `ctms.html` + `etmf.html` (badge à venir); Contact → `index.html#contact`; all targets exist | Menu : chaque entrée mène à la bonne page ou section |
 | IT-NAV-02 | suite bar on every page | OKILYS website marked current (no link); OKILYS CTMS → `https://ctms.okilys.com` in a new tab with `rel="noopener"`; OKILYS eTMF badge *à venir / coming soon* with no external link; tagline present | Barre OKILYS Suite : passage vers le CTMS, eTMF annoncé à venir |
 | IT-NAV-03 | footer links on every page | each link resolves; the footer entries name the same destinations as the menu (no obsolete label such as "Contactez-nous" vs "Contact", "Fondatrice" pointing to `a-propos.html#fondatrice`); legal link → `mentions-legales.html` / `en/legal-notice.html`; LinkedIn → company or founder profile with `noopener` | Pied de page : liens à jour et cohérents avec le menu |
 | IT-NAV-04 | previous / next step links on the 7 step pages | chain 1 → 7 in order, both languages | Pages Expertises : les liens « étape précédente / suivante » suivent l'ordre |
@@ -123,7 +123,7 @@ Risk-based approach: the contact form and the external links carry the only secu
 | IT-I18N-01 | language switch on each of the 40 pages | FR page → its own EN mirror (never the EN home), and back | Bouton EN / FR : on tombe sur la même page dans l'autre langue |
 | IT-I18N-02 | structural parity | same number of `<section>` and same `id` set between a page and its mirror; same menu structure; same number of cards in each grid | Les deux versions ont la même structure |
 | IT-I18N-03 | content parity of the last changes | the differentiators, the core / modules / tools cards, the Overview and Workspace sections of `ctms` have the same items in both languages; product pages have the 4 regulatory zones in both languages | Les derniers ajouts existent dans les deux langues |
-| IT-I18N-04 | shared anchors | `#apropos`, `#developpement`, `#expertise`, `#domaines`, `#okilys-suite`, `#contact`, `#fondatrice`, `#references` identical in FR and EN | Les ancres portent les mêmes noms dans les deux langues |
+| IT-I18N-04 | anchors per language | home sections: FR `#apropos`, `#produits-de-sante`, `#expertises`, `#secteurs`, `#okilys-suite`, `#contact` ↔ EN `#apropos`, `#health-products`, `#expertise`, `#sectors`, `#okilys-suite`, `#contact` (renamed 15/09/2026 for readable addresses); `#fondatrice`, `#references` identical; old names `#developpement`, `#domaines` (and FR `#expertise`) redirected by the script to the new ones | Les repères de sections sont lisibles dans chaque langue ; les anciennes adresses sont rattrapées |
 | IT-I18N-05 | quotes kept in English | the 4 LinkedIn recommendations on `a-propos.html` are in their original English | Page À propos : les recommandations restent en anglais d'origine (décision) |
 
 ### 5.3 IT-SEO (search-engine files and consistency)
@@ -141,7 +141,7 @@ Risk-based approach: the contact form and the external links carry the only secu
 
 | Id | Test | Expected | Traduction FR (où, quoi) |
 |---|---|---|---|
-| IT-REDIR-01 | targets | `contact` → `index.html#contact`; `fondatrice` → `a-propos.html#fondatrice`; `notre-expertise` → `index.html#expertise`; `presentation` → `index.html#apropos` (or `a-propos.html`); `services` → `index.html#expertise`; EN equivalents; `en/privacy-policy` → `en/legal-notice.html` | Les anciennes adresses redirigent vers la bonne section |
+| IT-REDIR-01 | targets | `contact` → `index.html#contact`; `fondatrice` → `a-propos.html#fondatrice`; `notre-expertise` → `index.html#expertises`; `presentation` → `index.html#apropos` (or `a-propos.html`); `services` → `index.html#expertises`; EN equivalents; `en/privacy-policy` → `en/legal-notice.html` | Les anciennes adresses redirigent vers la bonne section |
 | IT-REDIR-02 | behaviour | HTTP 200 + instant `meta refresh`; visible link if JavaScript / refresh disabled; `noindex`; canonical = target | Redirection immédiate, avec lien de secours |
 
 ### 5.5 IT-ASSET (files, fonts, images, versions)

@@ -193,3 +193,17 @@ if (newsTrack) {
   }, { passive: true });
   restartNews();
 }
+
+// Anciens reperes de sections de l'accueil (avant le 15/09/2026) : un lien externe qui les utilise encore
+// est ramene sur le nouveau repere, dans la langue de la page.
+(function () {
+  const legacy = document.documentElement.lang === 'en'
+    ? { developpement: 'health-products', domaines: 'sectors' }
+    : { developpement: 'produits-de-sante', expertise: 'expertises', domaines: 'secteurs' };
+  const old = location.hash.slice(1);
+  const target = legacy[old] && document.getElementById(legacy[old]);
+  if (target) {
+    history.replaceState(null, '', '#' + legacy[old]);
+    target.scrollIntoView();
+  }
+})();

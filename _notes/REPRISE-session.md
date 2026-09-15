@@ -146,3 +146,8 @@ Son témoignage affiche « Mission OKILYS » sans précision du rôle, contraire
 - **Grille des modules = 1 carte par module réel** du catalogue `db.py` du CTMS (A1, A2, B1, B2, B3, B4, C, D1, D2, D3, H, I, J, K — sans les codes, réservés à la plaquette) + note « socle toujours inclus » (E/F). Section « Les outils hors modules » = les 4 outils autonomes G1-G4 + note sur les modules souscriptibles seuls (C, H, I, J, K = TOOLS_ALONE).
 - Page suite : carte « Conçu par OKILYS, développé par INFRARCH », « Les spécifications viennent du terrain », point retiré après le badge INFRARCH.
 - NB : dans le code actuel du CTMS, Safety et IMP forment UN module (K « Safety & IMP trackers ») — la carte les présente donc ensemble ; à scinder si le CTMS les sépare un jour.
+
+## Ajout du 15/09/2026 — repères de sections lisibles
+
+- Les repères des sections de l'accueil ont été renommés pour que l'adresse se lise comme le menu : FR `#produits-de-sante`, `#expertises`, `#secteurs` (anciennement `#developpement`, `#expertise`, `#domaines`) ; EN `#health-products`, `#expertise`, `#sectors`. Les repères ne sont donc **plus identiques en FR et EN** pour ces trois sections (`#apropos`, `#okilys-suite`, `#contact`, `#fondatrice`, `#references` restent communs). Le script rattrape les anciennes adresses encore en circulation (LinkedIn, Google) et les ramène sur le nouveau repère. Version des feuilles de style et du script : `20260915a`.
+- Spécification de tests du site : `_notes/TEST-SPECIFICATION-site-web.md` (v1.1), transmise à la session de tests ; les défauts remontés se corrigent dans la session Site Web.
