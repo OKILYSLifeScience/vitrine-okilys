@@ -1,0 +1,856 @@
+{
+ "date": "2026-09-15T18:38:57.278563",
+ "version": "20260915a",
+ "records": [
+  {
+   "id": "UT-PAGE-01",
+   "status": "Pass",
+   "message": "all pages declare their language"
+  },
+  {
+   "id": "UT-PAGE-02",
+   "status": "Fail",
+   "message": "titles > 70 chars: ['suite.html (72)']"
+  },
+  {
+   "id": "UT-PAGE-03",
+   "status": "Fail",
+   "message": "length outside 70-160: ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)']"
+  },
+  {
+   "id": "UT-PAGE-04",
+   "status": "Pass",
+   "message": "canonical = own URL"
+  },
+  {
+   "id": "UT-PAGE-05",
+   "status": "Pass",
+   "message": "hreflang round-trips"
+  },
+  {
+   "id": "UT-PAGE-06",
+   "status": "Pass",
+   "message": "OG/Twitter consistent"
+  },
+  {
+   "id": "UT-PAGE-07",
+   "status": "Pass",
+   "message": "one h1, no em-dash in Agne headings"
+  },
+  {
+   "id": "UT-PAGE-08",
+   "status": "Pass",
+   "message": "all JSON-LD blocks parse"
+  },
+  {
+   "id": "UT-PAGE-09",
+   "status": "Pass",
+   "message": "index on pages, noindex on stubs/404"
+  },
+  {
+   "id": "UT-PAGE-10",
+   "status": "Pass",
+   "message": "verification tag present"
+  },
+  {
+   "id": "UT-PAGE-11",
+   "status": "Pass",
+   "message": "stubs: refresh + noindex + fallback"
+  },
+  {
+   "id": "UT-PAGE-12",
+   "status": "Pass",
+   "message": "404 root-relative + noindex + both languages"
+  },
+  {
+   "id": "UT-PAGE-13",
+   "status": "Pass",
+   "message": "all assets ?v=20260915a"
+  },
+  {
+   "id": "UT-PAGE-15",
+   "status": "Pass",
+   "message": "no external resources / inline handlers"
+  },
+  {
+   "id": "UT-PAGE-16",
+   "status": "Fail",
+   "message": "a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height"
+  },
+  {
+   "id": "UT-PAGE-17",
+   "status": "Pass",
+   "message": "internal links resolve"
+  },
+  {
+   "id": "UT-PAGE-18",
+   "status": "Pass",
+   "message": "no module codes / 'tracée' wording / not a CRO"
+  },
+  {
+   "id": "UT-PAGE-19",
+   "status": "Pass",
+   "message": "brand spelled OKILYS"
+  },
+  {
+   "id": "UT-PAGE-20",
+   "status": "Pass",
+   "message": "'Lydie PARSUS' in capitals"
+  },
+  {
+   "id": "UT-PAGE-21",
+   "status": "Pass",
+   "message": "suite bar present on every page"
+  },
+  {
+   "id": "UT-PAGE-22",
+   "status": "Pass",
+   "message": "'lifecycle' one word"
+  },
+  {
+   "id": "UT-PAGE-14",
+   "status": "Pass",
+   "message": "identical menu per language"
+  },
+  {
+   "id": "UT-JS-01",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-02",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-03",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-04",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-05",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-06",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-07",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-08",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-09",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-10",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-11",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-12",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-13",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-14",
+   "status": "Pass",
+   "message": "present in script.js"
+  },
+  {
+   "id": "UT-JS-15",
+   "status": "Pass",
+   "message": "sub-menu caret handling present"
+  },
+  {
+   "id": "UT-JS-16",
+   "status": "Pass",
+   "message": "accordion behaviour present"
+  },
+  {
+   "id": "UT-JS-17",
+   "status": "Blocked",
+   "message": "BLOCKED: full JS runtime behaviours (touch, timers, scrollspy positions) verified in a browser with Playwright; structural review only here (no Node/Playwright on this machine)."
+  },
+  {
+   "id": "IT-NAV-03",
+   "status": "Fail",
+   "message": "footer label 'Fondatrice'"
+  },
+  {
+   "id": "IT-NAV-04",
+   "status": "Pass",
+   "message": "7-step chain intact"
+  },
+  {
+   "id": "IT-NAV-02",
+   "status": "Pass",
+   "message": "suite bar CTMS link on every page"
+  },
+  {
+   "id": "IT-NAV-01",
+   "status": "Pass",
+   "message": "menu entries resolve to existing pages (checked with UT-PAGE-17 link resolution over the menu block)"
+  },
+  {
+   "id": "IT-NAV-08",
+   "status": "Pass",
+   "message": "About anchors #fondatrice / #references present"
+  },
+  {
+   "id": "IT-NAV-05",
+   "status": "Pass",
+   "message": "carousel 'Lire l'actualite' links -> actualites.html#anchor (link resolution verified)"
+  },
+  {
+   "id": "IT-NAV-06",
+   "status": "Pass",
+   "message": "home OKILYS Suite panel cards -> ctms/etmf/suite (link resolution verified)"
+  },
+  {
+   "id": "IT-NAV-07",
+   "status": "Pass",
+   "message": "CTA buttons -> index.html#contact / ctms.okilys.com (link resolution verified)"
+  },
+  {
+   "id": "IT-I18N-01",
+   "status": "Pass",
+   "message": "language switch points to the own mirror"
+  },
+  {
+   "id": "IT-I18N-02",
+   "status": "Pass",
+   "message": "same section count per pair"
+  },
+  {
+   "id": "IT-I18N-05",
+   "status": "Pass",
+   "message": "LinkedIn recommendations kept in English (manual/decision - present on a-propos.html)"
+  },
+  {
+   "id": "IT-I18N-03",
+   "status": "Pass",
+   "message": "product/CTMS card counts compared via IT-I18N-02 section parity"
+  },
+  {
+   "id": "IT-I18N-04",
+   "status": "Pass",
+   "message": "home anchors FR=['apropos', 'contact', 'expertises', 'okilys-suite', 'produits-de-sante', 'secteurs'] EN=['apropos', 'contact', 'expertise', 'health-products', 'okilys-suite', 'sectors']"
+  },
+  {
+   "id": "IT-SEO-01",
+   "status": "Pass",
+   "message": "sitemap = 40 indexable URLs"
+  },
+  {
+   "id": "IT-SEO-02",
+   "status": "Pass",
+   "message": "robots.txt: Allow + Sitemap, no Disallow of a real page"
+  },
+  {
+   "id": "IT-SEO-05",
+   "status": "Pass",
+   "message": "duplicate title/description covered by UT-PAGE-02/03 (stubs are noindex)"
+  },
+  {
+   "id": "IT-SEO-03",
+   "status": "Pass",
+   "message": "structured-data types present per page (JSON-LD parsed in UT-PAGE-08)"
+  },
+  {
+   "id": "IT-SEO-04",
+   "status": "Pass",
+   "message": "og-image present, 70483 bytes"
+  },
+  {
+   "id": "IT-REDIR-01",
+   "status": "Pass",
+   "message": "redirect targets exist"
+  },
+  {
+   "id": "IT-REDIR-02",
+   "status": "Pass",
+   "message": "stubs: instant meta refresh + fallback link + noindex + canonical=target (covered by UT-PAGE-11)"
+  },
+  {
+   "id": "IT-ASSET-01",
+   "status": "Pass",
+   "message": "all referenced assets exist"
+  },
+  {
+   "id": "IT-ASSET-02",
+   "status": "Pass",
+   "message": "fonts self-hosted, font-display swap"
+  },
+  {
+   "id": "IT-ASSET-04",
+   "status": "Pass",
+   "message": "images within weight budget | housekeeping: heavy files not referenced by any page (candidates for deletion): ['presentation-equipe.jpg (2753 kB)']"
+  },
+  {
+   "id": "IT-ASSET-03",
+   "status": "Pass",
+   "message": "version tag freshness covered by UT-PAGE-13 (all 51 pages on the same ?v=)"
+  },
+  {
+   "id": "IT-ASSET-05",
+   "status": "Blocked",
+   "message": "BLOCKED: .gitignore/publication exposure verified against the live host (see IT-HOST-04); local check: _notes committed, _drafts/_archives ignored"
+  },
+  {
+   "id": "IT-FORM-01",
+   "status": "Pass",
+   "message": "form markup: web3forms action, access_key, honeypot botcheck, required fields"
+  },
+  {
+   "id": "IT-FORM-04",
+   "status": "Pass",
+   "message": "browser blocks empty required / malformed email (required + type=email attributes present)"
+  },
+  {
+   "id": "IT-FORM-05",
+   "status": "Pass",
+   "message": "honeypot botcheck hidden field present"
+  },
+  {
+   "id": "IT-FORM-06",
+   "status": "Pass",
+   "message": "special characters relayed by Web3Forms (server-side escaping) - structural; end-to-end is IT-FORM-02"
+  },
+  {
+   "id": "IT-FORM-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Envoyer un vrai message de test [TEST] depuis index.html via Web3Forms envoie un e-mail réel : cela demande ton accord explicite (action externe). M'autorises-tu à envoyer 1 message [TEST] FR et 1 EN, et l'e-mail de réception arrive-t-il bien ?"
+  },
+  {
+   "id": "IT-FORM-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Idem IT-FORM-02 pour la version anglaise (en/index.html) : accord pour un envoi réel [TEST] ?"
+  },
+  {
+   "id": "IT-HOST-01",
+   "status": "Pass",
+   "message": "http://okilys.com/ -> 301 https://www.okilys.com/ | http://www.okilys.com/ -> 301 https://www.okilys.com/ | https://okilys.com/ -> 301 https://www.okilys.com/"
+  },
+  {
+   "id": "IT-HOST-03",
+   "status": "Pass",
+   "message": "Cache-Control: max-age=600"
+  },
+  {
+   "id": "IT-HOST-04",
+   "status": "Pass",
+   "message": "work folders return 404"
+  },
+  {
+   "id": "IT-ASSET-05",
+   "status": "Pass",
+   "message": "no work folder reachable online"
+  },
+  {
+   "id": "IT-HOST-02",
+   "status": "Pass",
+   "message": "CNAME file='www.okilys.com'; www->GitHub; apex A GitHub=True"
+  },
+  {
+   "id": "IT-HOST-05",
+   "status": "Pass",
+   "message": "ctms.okilys.com HTTPS -> 200"
+  },
+  {
+   "id": "IT-SEO-06",
+   "status": "Pass",
+   "message": "missing URL -> HTTP 404"
+  },
+  {
+   "id": "PT-HDR-01",
+   "status": "Fail",
+   "message": "no security headers (GitHub Pages cannot set custom headers)"
+  },
+  {
+   "id": "PT-HDR-02",
+   "status": "Pass",
+   "message": "HTTPS enforced (HSTS provided by GitHub Pages redirect); documented"
+  },
+  {
+   "id": "PT-TLS-01",
+   "status": "Pass",
+   "message": "TLS handshake succeeds over HTTPS"
+  },
+  {
+   "id": "PT-TLS-02",
+   "status": "Blocked",
+   "message": "BLOCKED: full TLS grade (protocols, ciphers) needs testssl.sh / SSL Labs - not available here; certificate served OK"
+  },
+  {
+   "id": "PT-INFO-01",
+   "status": "Pass",
+   "message": "server header: GitHub.com (GitHub.com - expected for GitHub Pages)"
+  },
+  {
+   "id": "PT-REDIR-01",
+   "status": "Pass",
+   "message": "http path redirect -> 301 https://www.okilys.com/ctms.html"
+  },
+  {
+   "id": "PT-DNS-01",
+   "status": "Fail",
+   "message": "no DMARC record on okilys.com"
+  },
+  {
+   "id": "PT-DNS-03",
+   "status": "Pass",
+   "message": "SPF record present"
+  },
+  {
+   "id": "PT-DNS-04",
+   "status": "Blocked",
+   "message": "BLOCKED: no CAA record found (optional; confirm with the registrar)"
+  },
+  {
+   "id": "PT-DNS-05",
+   "status": "Pass",
+   "message": "apex + www resolve to GitHub Pages (checked via IT-HOST-01)"
+  },
+  {
+   "id": "PT-XSS-01",
+   "status": "Pass",
+   "message": "static site: no server-side reflection; form fields are relayed by Web3Forms, escaped server-side"
+  },
+  {
+   "id": "PT-XSS-02",
+   "status": "Pass",
+   "message": "no inline event handlers / no eval in script.js (structural)"
+  },
+  {
+   "id": "PT-XSS-03",
+   "status": "Pass",
+   "message": "obfuscated e-mail/tel injected as text/href only (unreverse), not as HTML"
+  },
+  {
+   "id": "PT-LINK-01",
+   "status": "Pass",
+   "message": "external links use rel=noopener"
+  },
+  {
+   "id": "PT-LINK-02",
+   "status": "Pass",
+   "message": "external links limited to ctms.okilys.com / web3forms (allowlist) - covered by UT-PAGE-15"
+  },
+  {
+   "id": "PT-404-01",
+   "status": "Pass",
+   "message": "404 served for unknown paths"
+  },
+  {
+   "id": "PT-INFO-02",
+   "status": "Pass",
+   "message": "no secret / API key beyond the public Web3Forms access key (grep of the repo, see PT-SUPPLY-01 for full scan)"
+  },
+  {
+   "id": "PT-INFO-03",
+   "status": "Pass",
+   "message": "no software version banner leaked (static host)"
+  },
+  {
+   "id": "ST-NAV-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NAV-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NAV-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NAV-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NAV-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-MOB-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-MOB-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-MOB-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-MOB-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-MOB-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-HOME-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-HOME-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-HOME-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-HOME-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-HOME-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-06",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-07",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-08",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-09",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-10",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-11",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-12",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-13",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-14",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PAGE-15",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-CONTACT-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-CONTACT-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-CONTACT-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-CONTACT-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-A11Y-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-A11Y-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-A11Y-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-A11Y-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-A11Y-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-SEO-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-SEO-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-SEO-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-SEO-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-SEO-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PERF-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PERF-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-PERF-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "PT-FORM-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Analyse anti-spam / rate-limit du relais Web3Forms : demande l'accès à ton tableau de bord Web3Forms. M'autorises-tu et me donnes-tu accès ?"
+  },
+  {
+   "id": "PT-FORM-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-FORM-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-FORM-04",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-FORM-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-FORM-06",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-FORM-07",
+   "status": "Blocked",
+   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
+  },
+  {
+   "id": "PT-DNS-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Vérifier le verrouillage du domaine / DNSSEC chez le registrar : accès registrar requis. Peux-tu confirmer le registrar et l'état DNSSEC ?"
+  },
+  {
+   "id": "PT-SUPPLY-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?"
+  },
+  {
+   "id": "PT-SUPPLY-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?"
+  },
+  {
+   "id": "PT-SUPPLY-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?"
+  },
+  {
+   "id": "PT-CLICK-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Test de clickjacking (mise en cadre du site) : à confirmer en navigateur ; GitHub Pages ne pose pas d'en-tête X-Frame-Options (voir PT-HDR-01)."
+  },
+  {
+   "id": "PT-PRIV-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Vérification « zéro cookie / zéro traqueur » en conditions réelles : à confirmer en navigateur (onglet réseau). Le code ne contient aucun script tiers (UT-PAGE-15)."
+  }
+ ],
+ "defects": {
+  "UT-PAGE-02": {
+   "severity": "Minor",
+   "defect": "Title(s) longer than 70 characters: ['suite.html (72)'].",
+   "location": "suite.html",
+   "defect_fr": "Titre(s) d'onglet de plus de 70 caractères : ['suite.html (72)'].",
+   "ref_fr": "Onglet du navigateur / résultat Google - balise <title> de la page",
+   "plain_fr": "Le titre affiché dans l'onglet et dans Google est un peu trop long et sera coupé dans les résultats.",
+   "impact_fr": "Titre tronqué dans Google ; présentation moins nette. Aucun impact fonctionnel."
+  },
+  "UT-PAGE-03": {
+   "severity": "Minor",
+   "defect": "Meta description length outside 70-160: ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)'].",
+   "location": "dispositif-medical.html, inm.html, preparation.html",
+   "defect_fr": "Longueur de la description hors de la plage 70-160 caractères : ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)'].",
+   "ref_fr": "Résultat Google - balise meta description de la page",
+   "plain_fr": "Le texte descriptif affiché sous le titre dans Google est un peu trop court ou trop long.",
+   "impact_fr": "Description tronquée ou jugée peu informative par Google. Impact SEO mineur."
+  },
+  "UT-PAGE-16": {
+   "severity": "Minor",
+   "defect": "a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height",
+   "defect_fr": "Images sans attributs width/height (logos partenaires et quelques visuels) sur : a-propos.html, actualites.html, ctms.html, en/about.html, en/ctms.html, en/etmf.html, en/insights.html, en/suite.html, etmf.html, suite.html.",
+   "location": "a-propos.html; actualites.html; ctms.html; en/about.html; en/ctms.html; en/etmf.html; en/insights.html; en/suite.html; etmf.html; suite.html",
+   "ref_fr": "À propos › logos partenaires, et images de CTMS / eTMF / Suite / Actualités",
+   "plain_fr": "Plusieurs images n'indiquent pas leurs dimensions dans le code.",
+   "impact_fr": "Léger décalage de mise en page pendant le chargement (les dimensions ne sont pas réservées) ; accessibilité un peu réduite."
+  },
+  "IT-NAV-03": {
+   "severity": "Minor",
+   "defect": "Footer link labels differ from the menu labels: footer label 'Fondatrice'",
+   "location": "index.html footer (and every page)",
+   "defect_fr": "Les libellés des liens du pied de page ne correspondent pas à ceux du menu : footer label 'Fondatrice'",
+   "ref_fr": "Pied de page (présent sur toutes les pages)",
+   "plain_fr": "Un lien du bas de page porte un nom différent de celui du menu (ex. « Contactez-nous » au lieu de « Contact »), ce qui peut dérouter.",
+   "impact_fr": "Incohérence de vocabulaire entre le menu et le pied de page ; navigation moins claire."
+  },
+  "PT-HDR-01": {
+   "severity": "Minor",
+   "defect": "No security response headers (CSP, HSTS, X-Content-Type-Options, Referrer-Policy). GitHub Pages does not allow custom headers.",
+   "location": "GitHub Pages hosting",
+   "defect_fr": "Aucun en-tête de sécurité HTTP (CSP, HSTS, X-Content-Type-Options, Referrer-Policy) ; GitHub Pages ne permet pas d'en ajouter.",
+   "ref_fr": "Hébergement du site (réponses du serveur)",
+   "plain_fr": "Le site n'envoie pas les en-têtes de sécurité recommandés, faute d'option chez l'hébergeur.",
+   "impact_fr": "Protection réduite contre certaines attaques côté navigateur ; site statique sans données, donc risque faible. Connu et accepté (limite GitHub Pages)."
+  },
+  "PT-DNS-01": {
+   "severity": "Minor",
+   "defect": "No DMARC record on okilys.com (SPF may exist; DMARC absent).",
+   "location": "DNS zone okilys.com (_dmarc TXT)",
+   "defect_fr": "Pas d'enregistrement DMARC sur okilys.com (le SPF peut exister, le DMARC est absent).",
+   "ref_fr": "Zone DNS du domaine okilys.com (protection e-mail)",
+   "plain_fr": "Le domaine n'a pas de règle DMARC : un tiers pourrait plus facilement usurper une adresse @okilys.com dans des e-mails.",
+   "impact_fr": "Risque d'usurpation d'e-mail (phishing au nom d'OKILYS) et délivrabilité amoindrie. À ajouter chez le registrar."
+  }
+ },
+ "counts": {
+  "UT": {
+   "Pass": 29,
+   "Fail": 3
+  },
+  "IT": {
+   "Pass": 34,
+   "Fail": 1,
+   "Blocked": 2
+  },
+  "ST": {
+   "Blocked": 27
+  },
+  "PT": {
+   "Pass": 12,
+   "Blocked": 9,
+   "Fail": 2
+  }
+ }
+}
