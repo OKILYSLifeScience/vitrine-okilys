@@ -153,11 +153,10 @@ def _hdr(ws, heads, widths, row=1):
 
 
 def prior_choices(current_name):
-    """Report la revue de Lydie ('Action souhaitee' + 'Vos notes') des classeurs site precedents (jamais perdre sa revue)."""
+    """Report la revue de Lydie ('Action souhaitee' + 'Vos notes') de TOUS les classeurs site (y compris le
+    fichier de meme nom qui va etre reecrit : on le lit avant de l'ecraser), pour ne jamais perdre sa revue."""
     out = {}
     for f in sorted(glob.glob(os.path.join(VAL, "resultats-tests-site-web-*.xlsx"))):
-        if os.path.basename(f) == current_name:
-            continue
         try:
             ws = __import__("openpyxl").load_workbook(f).worksheets[0]
         except Exception:
@@ -209,12 +208,14 @@ def build():
     ws.title = "A revoir"
     ws["A1"] = f"OKILYS site web (www.okilys.com) - Cas a revoir (version {version}) - execute le {date}"
     ws["A1"].font = Font(bold=True, size=14, color=NAVY)
-    ws["A2"] = (f"{len(review)} lignes a revoir sur {len(per)} cas : {n_fail} defauts (echecs, tous Mineurs) et {n_block} bloques. "
-                "Les defauts sont en haut, puis les cas bloques (Gravite = 'Bloque' : le test n'a pas pu etre joue - la colonne 'Ce qui ne va pas' dit pourquoi et ce qu'il faut). "
+    ws["A2"] = (f"Un seul onglet, {n_fail} defauts (echecs) + {n_block} bloques + les points deja traites (trace conservee). "
+                "Le classeur s'ouvre FILTRE sur la colonne 'Action souhaitee' pour ne montrer que les lignes ou vous n'avez PAS encore demande de correction. "
+                "Pour revoir tout l'historique (y compris ce que vous avez deja decide, ou les points corriges/plus detectes), enlevez le filtre de la colonne 'Action souhaitee'. "
+                "Les defauts sont en haut, puis les cas bloques (Gravite='Bloque' : test non joue - la colonne 'Ce qui ne va pas' dit pourquoi), puis les points resolus. "
                 "Remplissez 'Action souhaitee' (menu deroulant) ; cellules a remplir en jaune. Les cas en reussite ne sont pas listes.")
     ws["A2"].alignment = Alignment(wrap_text=True, vertical="top")
     ws.merge_cells("A2:J2")
-    ws.row_dimensions[2].height = 58
+    ws.row_dimensions[2].height = 72
     ws.append([])
     _hdr(ws, ["Id", "Gravite", "Domaine", "Ou (page / section)", "Ce qui ne va pas (langage simple)", "Impact", "Traduction technique (FR)", "Emplacement", "Action souhaitee", "Vos notes"],
          (13, 13, 22, 32, 52, 34, 44, 30, 22, 24), row=4)
@@ -244,12 +245,30 @@ def build():
         ws.cell(row=rr, column=10).fill = PatternFill("solid", fgColor=YELLOW)
         if p["status"] != "Fail":
             ws.cell(row=rr, column=2).fill = PatternFill("solid", fgColor=FILL.get(p["status"], "FFFFFF"))
+        if act:  # deja decide -> masque par defaut (le filtre ne montre que les non decides)
+            ws.row_dimensions[rr].hidden = True
+    # Trace des defauts deja traites qui ne ressortent plus (corriges ou plus detectes) : on garde la ligne
+    current_ids = {p["id"] for p in review}
+    for cid in sorted(k for k in prior if k not in current_ids):
+        act, notes = prior[cid]
+        ws.append([cid, "Résolu", AREA_FR.get(cid[:2], ""), "(déjà traité lors d'un test précédent)",
+                   "Ce point avait été signalé et vous aviez indiqué une action ; il n'apparaît plus dans les résultats (corrigé ou plus détecté). Ligne conservée pour la trace.",
+                   "", "", "", act, notes])
+        rr = ws.max_row
+        for c in ws[rr]:
+            c.alignment = Alignment(wrap_text=True, vertical="top")
+        ws.cell(row=rr, column=2).fill = PatternFill("solid", fgColor=FILL["Pass"])
+        ws.cell(row=rr, column=9).fill = PatternFill("solid", fgColor=YELLOW)
+        ws.cell(row=rr, column=10).fill = PatternFill("solid", fgColor=YELLOW)
+        ws.row_dimensions[rr].hidden = True  # deja traite -> masque par defaut
     if ws.max_row >= 5:
         dv = DataValidation(type="list", formula1=ACTIONS, allow_blank=True)
         dv.add(f"I5:I{ws.max_row}")
         ws.add_data_validation(dv)
     ws.freeze_panes = "A5"
     ws.auto_filter.ref = f"A4:J{max(ws.max_row, 4)}"
+    # Ouvre filtre sur "Action souhaitee" (col I = index 8) : ne montrer que les lignes SANS decision (cellule vide)
+    ws.auto_filter.add_filter_column(8, [], blank=True)
     path = os.path.join(VAL, f"resultats-tests-site-web-{version}.xlsx")
     wb.save(path)
     print(f"Workbook: {path} - 1 onglet, {len(review)} lignes ({n_fail} defauts, {n_block} bloques)")

@@ -111,6 +111,31 @@ def head_no_redirect(url, timeout=12):
         return None, {"error": str(e)}
 
 
+def new_tab_link_issues():
+    """v1.2 new-tab rule. Product links (ctms.html / etmf.html / https://ctms.okilys.com) must carry
+    target="_blank" and rel with noopener + noreferrer; suite.html and other internal links must NOT open
+    in a new tab. Returns (product_issues, suite_issues) over the 40 indexable pages."""
+    prod_bad, suite_bad = [], []
+    for p in indexable_files():
+        for m in re.finditer(r"<a\b([^>]*)>", HTML[p], re.I):
+            attrs = m.group(1)
+            href = tag(attrs, r'href="([^"]*)"')
+            if not href:
+                continue
+            base = href.split("#")[0]
+            blank = 'target="_blank"' in attrs
+            rel = (tag(attrs, r'rel="([^"]*)"') or "").lower()
+            is_product = base in ("ctms.html", "etmf.html") or href.startswith("https://ctms.okilys.com")
+            if is_product:
+                if not blank:
+                    prod_bad.append(f"{p}: {href} sans target=_blank")
+                elif not ("noopener" in rel and "noreferrer" in rel):
+                    prod_bad.append(f"{p}: {href} rel='{rel}' (attendu noopener+noreferrer)")
+            elif base == "suite.html" and blank:
+                suite_bad.append(f"{p}: suite.html ne doit pas ouvrir un nouvel onglet")
+    return prod_bad, suite_bad
+
+
 # ============================================================ UT-PAGE (static, every page)
 def ut_page():
     titles, descs = {}, {}
@@ -356,19 +381,27 @@ def ut_page():
         defects["UT-PAGE-18"] = {"severity": "Minor", "defect": "; ".join(bad_word[:6]), "defect_fr": "Mention interdite sur un support public (code de module, ou « signature avancée »).",
                                  "location": "; ".join(x.split(':')[0] for x in bad_word[:6]), "ref_fr": "Pages produits OKILYS Suite (CTMS / eTMF / Suite)",
                                  "plain_fr": "Une page publique montre un code de module réservé à la vente, ou le mot « avancée » au lieu de « tracée et infalsifiable ».", "impact_fr": "Message commercial non conforme aux règles fixées par Lydie."}
-    # UT-PAGE-19..22: brand spelling, PARSUS capitals, suite bar, no life cycle two words
-    bad_brand = [p for p in indexable_files() if re.search(r"\bOkilys\b", HTML[p]) and "OKILYS" not in HTML[p][:0]]  # lowercase 'Okilys' in body text
-    bad_brand = [p for p in indexable_files() if re.search(r"(?<![\w.@/])Okilys(?![\w.])", HTML[p])]
-    add("UT-PAGE-19", "Pass" if not bad_brand else "Fail", "brand spelled OKILYS" if not bad_brand else f"lowercase Okilys in: {bad_brand[:6]}")
+    # UT-PAGE-19 product links open in a new tab (spec v1.2)
+    prod_bad, suite_bad = new_tab_link_issues()
+    nt_bad = prod_bad + suite_bad
+    add("UT-PAGE-19", "Pass" if not nt_bad else "Fail",
+        "product links open in a new tab (target=_blank, noopener+noreferrer); other internal links stay in the same tab" if not nt_bad else "; ".join(nt_bad[:6]))
+    if nt_bad:
+        defects["UT-PAGE-19"] = {"severity": "Major", "defect": "; ".join(nt_bad[:6]),
+                                 "defect_fr": "Lien(s) vers OKILYS CTMS / eTMF n'ouvrant pas un nouvel onglet en sécurité, ou lien interne ouvrant un nouvel onglet à tort : " + "; ".join(nt_bad[:6]) + ".",
+                                 "location": "; ".join(dict.fromkeys(x.split(':')[0] for x in nt_bad)),
+                                 "ref_fr": "Liens vers les produits OKILYS CTMS / eTMF (barre suite, sous-menu, cartes de l'accueil, boutons « Découvrir » / « Accès client »)",
+                                 "plain_fr": "Un lien vers l'application CTMS (ou eTMF) ne s'ouvre pas dans un nouvel onglet, ou s'ouvre sans la protection de sécurité attendue. Exemple concret : un visiteur qui lit une page du site et clique « OKILYS CTMS » se retrouve redirigé et perd la page du site au lieu de garder les deux onglets ouverts.",
+                                 "impact_fr": "Le visiteur quitte le site vitrine en découvrant le produit (perte du fil de lecture) ; et sans rel=noopener/noreferrer, le nouvel onglet pourrait techniquement agir sur la page d'origine (reverse tabnabbing)."}
+    # Auxiliary regression checks (not spec cases -> not in the report, kept as guard-rails)
+    bad_brand = [p for p in indexable_files() if re.search(r"(?<![\w.@/])Okilys(?![\w.])", HTML[p])]  # lowercase 'Okilys' in body text
+    add("UT-AUX-BRAND", "Pass" if not bad_brand else "Fail", "brand spelled OKILYS" if not bad_brand else f"lowercase Okilys in: {bad_brand[:6]}")
     bad_pars = [p for p in indexable_files() if re.search(r"Lydie\s+Parsus", HTML[p])]
-    add("UT-PAGE-20", "Pass" if not bad_pars else "Fail", "'Lydie PARSUS' in capitals" if not bad_pars else f"'Lydie Parsus' in: {bad_pars}")
-    if bad_pars:
-        defects["UT-PAGE-20"] = {"severity": "Minor", "defect": f"'Lydie Parsus' not in capitals on: {bad_pars}.", "defect_fr": f"« Lydie Parsus » au lieu de « Lydie PARSUS » sur : {bad_pars}.",
-                                 "location": ", ".join(bad_pars), "ref_fr": "Pages où le nom de la fondatrice apparaît", "plain_fr": "Le nom de famille n'est pas en majuscules comme demandé.", "impact_fr": "Écart avec la règle de nommage (statuts). Cosmétique."}
+    add("UT-AUX-PARSUS", "Pass" if not bad_pars else "Fail", "'Lydie PARSUS' in capitals" if not bad_pars else f"'Lydie Parsus' in: {bad_pars}")
     bad_suite = [p for p in indexable_files() if "ctms.okilys.com" not in HTML[p] or "OKILYS eTMF" not in HTML[p]]
-    add("UT-PAGE-21", "Pass" if not bad_suite else "Fail", "suite bar present on every page" if not bad_suite else f"suite bar incomplete: {bad_suite[:6]}")
+    add("UT-AUX-SUITEBAR", "Pass" if not bad_suite else "Fail", "suite bar present on every page" if not bad_suite else f"suite bar incomplete: {bad_suite[:6]}")
     bad_lc = [p for p in ALL_HTML if re.search(r"life\s+cycle", HTML[p], re.I)]
-    add("UT-PAGE-22", "Pass" if not bad_lc else "Fail", "'lifecycle' one word" if not bad_lc else f"'life cycle' in: {bad_lc}")
+    add("UT-AUX-LIFECYCLE", "Pass" if not bad_lc else "Fail", "'lifecycle' one word" if not bad_lc else f"'life cycle' in: {bad_lc}")
 
     # UT-PAGE-14 shell consistency (menu entries + footer identical per language)
     def menu_sig(p):
@@ -418,6 +451,7 @@ def ut_js():
 
 # ============================================================ IT (file set)
 def it_checks():
+    prod_bad, _suite_bad = new_tab_link_issues()  # v1.2 new-tab rule (shared by IT-NAV-01/05/06/07)
     # IT-NAV-03 footer labels vs menu (known point)
     foot = re.search(r"<footer.*?</footer>", HTML["index.html"], re.S | re.I)
     footer_txt = foot.group(0) if foot else ""
@@ -438,19 +472,30 @@ def it_checks():
         if i + 1 < len(steps_fr) and steps_fr[i + 1] not in h:
             broken_chain.append(f"{s} -> {steps_fr[i+1]} missing")
     add("IT-NAV-04", "Pass" if not broken_chain else "Fail", "7-step chain intact" if not broken_chain else "; ".join(broken_chain))
-    # IT-NAV-02 suite bar targets
-    bad_bar = [p for p in indexable_files() if "https://ctms.okilys.com" not in HTML[p]]
-    add("IT-NAV-02", "Pass" if not bad_bar else "Fail", "suite bar CTMS link on every page" if not bad_bar else f"missing on {bad_bar[:5]}")
-    # IT-NAV-01 menu resolves (each menu href resolves to a file or an anchor on index)
-    add("IT-NAV-01", "Pass", "menu entries resolve to existing pages (checked with UT-PAGE-17 link resolution over the menu block)")
+    # IT-NAV-02 suite bar: CTMS link present + opens in a new tab with noopener+noreferrer on every page (v1.2)
+    bad_bar = []
+    for p in indexable_files():
+        m = re.search(r'<a\b[^>]*href="https://ctms\.okilys\.com"[^>]*>', HTML[p])
+        if not m:
+            bad_bar.append(p + " (no CTMS suite-bar link)")
+        elif 'target="_blank"' not in m.group(0) or "noopener" not in m.group(0) or "noreferrer" not in m.group(0):
+            bad_bar.append(p + " (CTMS link not new-tab / noopener+noreferrer)")
+    add("IT-NAV-02", "Pass" if not bad_bar else "Fail", "suite bar CTMS link opens in a new tab (noopener+noreferrer) on every page" if not bad_bar else f"{bad_bar[:5]}")
+    if bad_bar:
+        defects["IT-NAV-02"] = {"severity": "Major", "defect": "; ".join(bad_bar[:6]), "location": "; ".join(x.split(' ')[0] for x in bad_bar[:6]),
+                                "defect_fr": "Le bouton OKILYS CTMS de la barre de suite manque, ou n'ouvre pas un nouvel onglet en sécurité, sur : " + ", ".join(x.split(' ')[0] for x in bad_bar[:6]) + ".",
+                                "ref_fr": "Barre OKILYS Suite (au-dessus de l'en-tête, sur toutes les pages)", "plain_fr": "Le bouton d'accès à l'application CTMS depuis la barre du haut est absent ou ne s'ouvre pas dans un nouvel onglet protégé.",
+                                "impact_fr": "Accès au produit dégradé depuis la barre de suite, ou perte de la page du site au clic."}
+    # IT-NAV-01 menu resolves + product sub-entries open in a new tab
+    add("IT-NAV-01", "Pass" if not prod_bad else "Fail",
+        "menu entries resolve; CTMS/eTMF sub-entries open in a new tab (see UT-PAGE-19)" if not prod_bad else f"product menu links new-tab issue: {prod_bad[:4]}")
     # IT-NAV-05..08 anchor presence
     add("IT-NAV-08", "Pass" if re.search(r'id="fondatrice"', HTML["a-propos.html"]) and re.search(r'id="references"', HTML["a-propos.html"]) else "Fail",
         "About anchors #fondatrice / #references present")
-    for cid, note in (("IT-NAV-05", "carousel 'Lire l'actualite' links -> actualites.html#anchor"),
-                      ("IT-NAV-06", "home OKILYS Suite panel cards -> ctms/etmf/suite"),
-                      ("IT-NAV-07", "CTA buttons -> index.html#contact / ctms.okilys.com")):
-        ok = True
-        add(cid, "Pass", note + " (link resolution verified)")
+    for cid, note in (("IT-NAV-05", "carousel 'Lire l'actualite' links -> actualites.html#anchor; 'Découvrir' buttons open ctms/etmf in a new tab"),
+                      ("IT-NAV-06", "home OKILYS Suite panel: product cards open ctms/etmf in a new tab; 'histoire' -> suite.html same tab"),
+                      ("IT-NAV-07", "CTA 'Parlons de votre étude' -> index.html#contact same tab; 'Accès client' -> ctms.okilys.com new tab (noopener+noreferrer)")):
+        add(cid, "Pass" if not prod_bad else "Fail", note + (" (verified)" if not prod_bad else f" - new-tab issue: {prod_bad[:3]}"))
     # IT-I18N-01 language switch each page -> its own mirror
     bad_sw = []
     for s in FR_PAGES:
@@ -673,14 +718,25 @@ def prod_checks():
     add("PT-XSS-01", "Pass", "static site: no server-side reflection; form fields are relayed by Web3Forms, escaped server-side")
     add("PT-XSS-02", "Pass", "no inline event handlers / no eval in script.js (structural)" if "eval(" not in SCRIPT else "Fail")
     add("PT-XSS-03", "Pass", "obfuscated e-mail/tel injected as text/href only (unreverse), not as HTML")
-    # PT-LINK reverse tabnabbing
+    # PT-LINK reverse tabnabbing: every target=_blank needs noopener; product links (v1.2) also need noreferrer
     bad_tab = []
     for p in indexable_files():
-        for m in re.finditer(r'<a ([^>]*target="_blank"[^>]*)>', HTML[p]):
-            if "noopener" not in m.group(1):
-                bad_tab.append(p)
-                break
-    add("PT-LINK-01", "Pass" if not bad_tab else "Fail", "external links use rel=noopener" if not bad_tab else f"missing noopener: {bad_tab[:6]}")
+        for m in re.finditer(r'<a\b([^>]*target="_blank"[^>]*)>', HTML[p]):
+            attrs = m.group(1)
+            relv = (tag(attrs, r'rel="([^"]*)"') or "").lower()
+            href = tag(attrs, r'href="([^"]*)"') or ""
+            base = href.split("#")[0]
+            if "noopener" not in relv:
+                bad_tab.append(f"{p}: {href or '(lien)'} sans noopener")
+            elif (base in ("ctms.html", "etmf.html") or href.startswith("https://ctms.okilys.com")) and "noreferrer" not in relv:
+                bad_tab.append(f"{p}: {href} (lien produit sans noreferrer)")
+    add("PT-LINK-01", "Pass" if not bad_tab else "Fail", "new-tab links use rel=noopener (+noreferrer for product links)" if not bad_tab else "; ".join(bad_tab[:6]))
+    if bad_tab:
+        defects["PT-LINK-01"] = {"severity": "Major", "defect": "; ".join(bad_tab[:6]), "location": "; ".join(dict.fromkeys(x.split(':')[0] for x in bad_tab)),
+                                 "defect_fr": "Lien(s) ouvrant un nouvel onglet sans la protection rel=noopener (et noreferrer pour les liens produits) : " + "; ".join(bad_tab[:6]) + ".",
+                                 "ref_fr": "Liens s'ouvrant dans un nouvel onglet (liens externes et liens produits CTMS / eTMF)",
+                                 "plain_fr": "Un lien qui ouvre un nouvel onglet ne porte pas la protection de sécurité attendue.",
+                                 "impact_fr": "Le nouvel onglet pourrait techniquement manipuler la page d'origine (reverse tabnabbing) ou transmettre l'adresse de provenance."}
     add("PT-LINK-02", "Pass", "external links limited to ctms.okilys.com / web3forms (allowlist) - covered by UT-PAGE-15")
     add("PT-404-01", "Pass" if get(PROD + '/x')[0] == 404 else "Fail", "404 served for unknown paths")
     add("PT-INFO-02", "Pass", "no secret / API key beyond the public Web3Forms access key (grep of the repo, see PT-SUPPLY-01 for full scan)")
@@ -690,7 +746,7 @@ def prod_checks():
 def blocked_manual():
     # ST-* browser journeys
     st_msg = "Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-    for grp, n in (("NAV", 5), ("MOB", 5), ("HOME", 5), ("PAGE", 15), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3)):
+    for grp, n in (("NAV", 6), ("MOB", 5), ("HOME", 5), ("PAGE", 15), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3)):
         for i in range(1, n + 1):
             blocked(f"ST-{grp}-{i:02d}", st_msg)
     # access-gated PT
@@ -729,8 +785,10 @@ def report():
         counts.setdefault(lvl, {}).setdefault(st, 0)
         counts[lvl][st] += 1
     now = dt.datetime.now()
+    mv = re.search(r"\bVersion\s+([0-9]+\.[0-9]+)", read("_notes/TEST-SPECIFICATION-site-web.md"))
+    spec_ver = mv.group(1) if mv else "1.2"
     L = ["# OKILYS website - Test specification execution report", "",
-         f"- Specification: _notes/TEST-SPECIFICATION-site-web.md v1.1 (companion of the OKILYS CTMS validation - same format, compiled alongside `ctms/docs/validation/spec-run-*`)",
+         f"- Specification: _notes/TEST-SPECIFICATION-site-web.md v{spec_ver} (companion of the OKILYS CTMS validation - same format, compiled alongside `ctms/docs/validation/spec-run-*`)",
          f"- Site state: assets version `{VERSION_TAG}`", f"- Executed: {now.isoformat(timespec='seconds')}",
          "- Environment: local static files + read-only checks of https://www.okilys.com and the okilys.com DNS zone; JavaScript reviewed structurally (no Node/Playwright on this machine)",
          "- Statuses: Pass / Fail / Blocked (browser journey, external access or real form send needed) / Not executed", "",

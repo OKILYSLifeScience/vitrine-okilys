@@ -1,5 +1,5 @@
 {
- "date": "2026-09-15T18:38:57.278563",
+ "date": "2026-09-16T22:03:15.249785",
  "version": "20260915a",
  "records": [
   {
@@ -90,20 +90,25 @@
   {
    "id": "UT-PAGE-19",
    "status": "Pass",
+   "message": "product links open in a new tab (target=_blank, noopener+noreferrer); other internal links stay in the same tab"
+  },
+  {
+   "id": "UT-AUX-BRAND",
+   "status": "Pass",
    "message": "brand spelled OKILYS"
   },
   {
-   "id": "UT-PAGE-20",
+   "id": "UT-AUX-PARSUS",
    "status": "Pass",
    "message": "'Lydie PARSUS' in capitals"
   },
   {
-   "id": "UT-PAGE-21",
+   "id": "UT-AUX-SUITEBAR",
    "status": "Pass",
    "message": "suite bar present on every page"
   },
   {
-   "id": "UT-PAGE-22",
+   "id": "UT-AUX-LIFECYCLE",
    "status": "Pass",
    "message": "'lifecycle' one word"
   },
@@ -210,12 +215,12 @@
   {
    "id": "IT-NAV-02",
    "status": "Pass",
-   "message": "suite bar CTMS link on every page"
+   "message": "suite bar CTMS link opens in a new tab (noopener+noreferrer) on every page"
   },
   {
    "id": "IT-NAV-01",
    "status": "Pass",
-   "message": "menu entries resolve to existing pages (checked with UT-PAGE-17 link resolution over the menu block)"
+   "message": "menu entries resolve; CTMS/eTMF sub-entries open in a new tab (see UT-PAGE-19)"
   },
   {
    "id": "IT-NAV-08",
@@ -225,17 +230,17 @@
   {
    "id": "IT-NAV-05",
    "status": "Pass",
-   "message": "carousel 'Lire l'actualite' links -> actualites.html#anchor (link resolution verified)"
+   "message": "carousel 'Lire l'actualite' links -> actualites.html#anchor; 'Découvrir' buttons open ctms/etmf in a new tab (verified)"
   },
   {
    "id": "IT-NAV-06",
    "status": "Pass",
-   "message": "home OKILYS Suite panel cards -> ctms/etmf/suite (link resolution verified)"
+   "message": "home OKILYS Suite panel: product cards open ctms/etmf in a new tab; 'histoire' -> suite.html same tab (verified)"
   },
   {
    "id": "IT-NAV-07",
    "status": "Pass",
-   "message": "CTA buttons -> index.html#contact / ctms.okilys.com (link resolution verified)"
+   "message": "CTA 'Parlons de votre étude' -> index.html#contact same tab; 'Accès client' -> ctms.okilys.com new tab (noopener+noreferrer) (verified)"
   },
   {
    "id": "IT-I18N-01",
@@ -455,7 +460,7 @@
   {
    "id": "PT-LINK-01",
    "status": "Pass",
-   "message": "external links use rel=noopener"
+   "message": "new-tab links use rel=noopener (+noreferrer for product links)"
   },
   {
    "id": "PT-LINK-02",
@@ -499,6 +504,11 @@
   },
   {
    "id": "ST-NAV-05",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NAV-06",
    "status": "Blocked",
    "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
   },
@@ -836,7 +846,7 @@
  },
  "counts": {
   "UT": {
-   "Pass": 29,
+   "Pass": 30,
    "Fail": 3
   },
   "IT": {
