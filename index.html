@@ -580,19 +580,19 @@
           <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="form-row">
             <label for="name">Nom &amp; prénom</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required maxlength="100" autocomplete="name">
           </div>
           <div class="form-row">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" inputmode="email">
           </div>
           <div class="form-row">
             <label for="organisation">Organisation</label>
-            <input type="text" id="organisation" name="organisation">
+            <input type="text" id="organisation" name="organisation" maxlength="150" autocomplete="organization">
           </div>
           <div class="form-row">
             <label for="message">Votre message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4" required maxlength="5000"></textarea>
           </div>
           <button type="submit" class="btn btn--primary btn--block" id="contact-submit">Envoyer le message</button>
           <p class="form-note" id="form-note" role="status"></p>
