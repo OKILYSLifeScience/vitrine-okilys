@@ -120,8 +120,22 @@ const formMsg = isEnglish
     };
 
 if (form) {
+  // Clé du relais assemblée à l'exécution (même principe que data-email) :
+  // absente du HTML brut, elle est inutilisable par un robot qui ne rend pas la page.
+  const keyEl = form.querySelector('input[name="access_key"][data-key]');
+  if (keyEl) keyEl.value = unreverse(keyEl.getAttribute('data-key'));
+  const formShownAt = Date.now();
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    // Pièges anti-robots : case cachée cochée, ou envoi < 4 s après l'affichage
+    // (impossible pour un humain remplissant 4 champs) -> faux succès, rien n'est envoyé.
+    const honeypot = form.querySelector('input[name="botcheck"]');
+    if ((honeypot && honeypot.checked) || Date.now() - formShownAt < 4000) {
+      form.reset();
+      note.textContent = formMsg.sent;
+      return;
+    }
     const submitBtn = document.getElementById('contact-submit');
     submitBtn.disabled = true;
     note.textContent = formMsg.sending;
