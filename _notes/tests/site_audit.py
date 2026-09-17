@@ -26,7 +26,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 OUT = os.path.join(ROOT, "_notes", "validation")
 PROD = "https://www.okilys.com"
 NO_NET = "--no-net" in sys.argv
-VERSION_TAG = "20260915a"
+VERSION_TAG = "20260917a"
 
 FR_PAGES = ["index", "a-propos", "actualites", "highlights", "medicament", "dispositif-medical", "donnees", "pratique-courante",
             "inm", "conception", "selection-centres", "preparation", "soumissions", "mise-en-place", "conduite-suivi", "cloture",
@@ -403,6 +403,79 @@ def ut_page():
     bad_lc = [p for p in ALL_HTML if re.search(r"life\s+cycle", HTML[p], re.I)]
     add("UT-AUX-LIFECYCLE", "Pass" if not bad_lc else "Fail", "'lifecycle' one word" if not bad_lc else f"'life cycle' in: {bad_lc}")
 
+    # UT-PAGE-20 contact-form input hardening (spec v1.3: bornes maxlength, type email, honeypot, aucun sink dynamique, pas d'autre champ)
+    bad_form = []
+    FIELD_ATTRS = {"name": ('type="text"', "required", 'maxlength="100"'),
+                   "email": ('type="email"', "required", 'maxlength="254"'),
+                   "organisation": ('maxlength="150"',),
+                   "message": ("required", 'maxlength="5000"')}
+    for p in ("index.html", "en/index.html"):
+        h = HTML[p]
+        for fname, attrs in FIELD_ATTRS.items():
+            m = re.search(r'<(?:input|textarea)\b[^>]*\bname="' + fname + r'"[^>]*>', h)
+            if not m:
+                bad_form.append(f"{p}: champ {fname} absent")
+                continue
+            for a in attrs:
+                if a not in m.group(0):
+                    bad_form.append(f"{p}: {fname} sans {a}")
+        if not re.search(r'name="botcheck"[^>]*(?:display\s*:\s*none|aria-hidden)', h):
+            bad_form.append(p + ": honeypot botcheck non masqué")
+    for sink in ("innerHTML", "eval(", "document.write"):
+        if sink in SCRIPT:
+            bad_form.append("js/script.js contient " + sink)
+    allowed_fields = {"name", "email", "organisation", "message", "botcheck"}
+    for p in ALL_HTML:
+        for m in re.finditer(r'<(input|textarea|select)\b([^>]*)>', HTML[p], re.I):
+            attrs = m.group(2)
+            if m.group(1).lower() == "input" and re.search(r'type="(hidden|submit|button|reset)"', attrs, re.I):
+                continue  # hidden Web3Forms fields (access_key, subject, from_name) and buttons
+            nm = tag(attrs, r'name="([^"]*)"')
+            if nm not in allowed_fields:
+                bad_form.append(f"{p}: champ inattendu {m.group(1)} name={nm}")
+    add("UT-PAGE-20", "Pass" if not bad_form else "Fail",
+        "form hardened (maxlength, type email, honeypot hidden); no innerHTML/eval/document.write; no other input on the site" if not bad_form else "; ".join(bad_form[:6]))
+    if bad_form:
+        defects["UT-PAGE-20"] = {"severity": "Major" if any("sink" in x or "innerHTML" in x or "eval" in x or "absent" in x for x in bad_form) else "Minor",
+                                 "defect": "; ".join(bad_form[:6]),
+                                 "defect_fr": "Durcissement du formulaire de contact incomplet : " + "; ".join(bad_form[:6]) + ".",
+                                 "location": "index.html, en/index.html, js/script.js",
+                                 "ref_fr": "Accueil › Contact - les quatre champs du formulaire (nom, e-mail, organisation, message)",
+                                 "plain_fr": "Un champ du formulaire n'a pas toutes ses protections (longueur maximale, format e-mail imposé, champ obligatoire, case anti-robot cachée), ou la page utilise une écriture de contenu potentiellement dangereuse, ou un champ de saisie inattendu existe. Exemple : sans limite de longueur, un visiteur (ou un robot) peut coller un très long texte piégé.",
+                                 "impact_fr": "Protection réduite des seuls champs de saisie du site ; le site restant statique et sans base de données, le risque est limité, mais la règle « tout champ protégé » n'est pas pleinement respectée."}
+
+    # UT-PAGE-21 + PT-INFO-04: contact e-mail / phone / Web3Forms key hidden from robots (spec v1.4)
+    KEY_RE = re.compile(r"\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b", re.I)  # web3forms UUID (reversed data-key has the mirror shape, no match)
+    EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@okilys\.com", re.I)
+    harvest = []
+    for p in indexable_files():
+        h = HTML[p]
+        for m in EMAIL_RE.finditer(h):
+            harvest.append(f"{p}: e-mail en clair {m.group(0)}")
+        if KEY_RE.search(h):
+            harvest.append(f"{p}: clé Web3Forms en clair")
+        if re.search(r'href="tel:\+?\d', h):
+            harvest.append(f"{p}: lien téléphone en clair")
+        mk = re.search(r'name="access_key"[^>]*\bvalue="([^"]*)"', h)
+        if mk and mk.group(1).strip():
+            harvest.append(f"{p}: champ access_key rempli en clair")
+    for p in ("index.html", "en/index.html"):
+        if "data-email=" not in HTML[p] or "data-key=" not in HTML[p]:
+            harvest.append(f"{p}: obfuscation data-email / data-key manquante")
+    add("UT-PAGE-21", "Pass" if not harvest else "Fail",
+        "no clear e-mail / phone / Web3Forms key in the raw HTML; reversed in data-*, access_key empty until render" if not harvest else "; ".join(harvest[:6]))
+    add("PT-INFO-04", "Pass" if not harvest else "Fail",
+        "contact e-mail, phone and Web3Forms key not harvestable from the published source (reversed in data-*)" if not harvest else "; ".join(harvest[:6]))
+    if harvest:
+        d21 = {"severity": "Major", "defect": "; ".join(harvest[:6]),
+               "defect_fr": "Donnée de contact ou clé du formulaire en clair dans le code source : " + "; ".join(harvest[:6]) + ".",
+               "location": "; ".join(dict.fromkeys(x.split(':')[0] for x in harvest[:6])),
+               "ref_fr": "Code source des pages (adresse e-mail, téléphone, clé Web3Forms) - accueil et pied de page",
+               "plain_fr": "Une adresse e-mail, un numéro de téléphone ou la clé du formulaire apparaît en clair dans le code source : un robot qui aspire le code peut la récolter (spam) ou réutiliser la clé depuis un autre site.",
+               "impact_fr": "Récolte d'adresses par des robots (spam), ou réutilisation de la clé du formulaire ailleurs. Les données doivent rester inversées dans les attributs data-* et reconstruites seulement à l'affichage."}
+        defects["UT-PAGE-21"] = d21
+        defects["PT-INFO-04"] = d21
+
     # UT-PAGE-14 shell consistency (menu entries + footer identical per language)
     def menu_sig(p):
         m = re.search(r"<nav[^>]*id=\"nav\"[^>]*>(.*?)</nav>", HTML[p], re.S | re.I)
@@ -753,6 +826,7 @@ def blocked_manual():
     blocked("PT-FORM-01", "Analyse anti-spam / rate-limit du relais Web3Forms : demande l'accès à ton tableau de bord Web3Forms. M'autorises-tu et me donnes-tu accès ?")
     for i in range(2, 8):
         blocked(f"PT-FORM-{i:02d}", "Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis).")
+    blocked("PT-INPUT-01", "Balayage d'injections (SQL, script, CRLF / en-têtes, template {{7*7}}, contenu surdimensionné dont un POST direct, caractères de contrôle) sur chacun des 4 champs du formulaire : nécessite jusqu'à 5 envois réels marqués [TEST] via le relais Web3Forms (action externe) - ton accord explicite requis. Déjà vérifié côté page par UT-PAGE-20 : bornes maxlength, format e-mail imposé, champ obligatoire, honeypot caché, affichage en textContent uniquement (aucun innerHTML / eval / document.write), et le site est statique SANS base de données (aucune injection SQL possible sur le site lui-même). Reste à confirmer par ≤5 envois [TEST] que le message arrive inerte dans la boîte (même accord que IT-FORM-02/03).")
     blocked("PT-DNS-02", "Vérifier le verrouillage du domaine / DNSSEC chez le registrar : accès registrar requis. Peux-tu confirmer le registrar et l'état DNSSEC ?")
     for i in range(1, 4):
         blocked(f"PT-SUPPLY-{i:02d}", "Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?")

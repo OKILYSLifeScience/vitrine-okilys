@@ -1,6 +1,6 @@
 {
- "date": "2026-09-16T22:03:15.249785",
- "version": "20260915a",
+ "date": "2026-09-17T14:05:43.107385",
+ "version": "20260917a",
  "records": [
   {
    "id": "UT-PAGE-01",
@@ -65,7 +65,7 @@
   {
    "id": "UT-PAGE-13",
    "status": "Pass",
-   "message": "all assets ?v=20260915a"
+   "message": "all assets ?v=20260917a"
   },
   {
    "id": "UT-PAGE-15",
@@ -111,6 +111,21 @@
    "id": "UT-AUX-LIFECYCLE",
    "status": "Pass",
    "message": "'lifecycle' one word"
+  },
+  {
+   "id": "UT-PAGE-20",
+   "status": "Pass",
+   "message": "form hardened (maxlength, type email, honeypot hidden); no innerHTML/eval/document.write; no other input on the site"
+  },
+  {
+   "id": "UT-PAGE-21",
+   "status": "Pass",
+   "message": "no clear e-mail / phone / Web3Forms key in the raw HTML; reversed in data-*, access_key empty until render"
+  },
+  {
+   "id": "PT-INFO-04",
+   "status": "Pass",
+   "message": "contact e-mail, phone and Web3Forms key not harvestable from the published source (reversed in data-*)"
   },
   {
    "id": "UT-PAGE-14",
@@ -758,6 +773,11 @@
    "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
   },
   {
+   "id": "PT-INPUT-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Balayage d'injections (SQL, script, CRLF / en-têtes, template {{7*7}}, contenu surdimensionné dont un POST direct, caractères de contrôle) sur chacun des 4 champs du formulaire : nécessite jusqu'à 5 envois réels marqués [TEST] via le relais Web3Forms (action externe) - ton accord explicite requis. Déjà vérifié côté page par UT-PAGE-20 : bornes maxlength, format e-mail imposé, champ obligatoire, honeypot caché, affichage en textContent uniquement (aucun innerHTML / eval / document.write), et le site est statique SANS base de données (aucune injection SQL possible sur le site lui-même)."
+  },
+  {
    "id": "PT-DNS-02",
    "status": "Blocked",
    "message": "BLOCKED: Vérifier le verrouillage du domaine / DNSSEC chez le registrar : accès registrar requis. Peux-tu confirmer le registrar et l'état DNSSEC ?"
@@ -846,7 +866,7 @@
  },
  "counts": {
   "UT": {
-   "Pass": 30,
+   "Pass": 32,
    "Fail": 3
   },
   "IT": {
@@ -858,8 +878,8 @@
    "Blocked": 27
   },
   "PT": {
-   "Pass": 12,
-   "Blocked": 9,
+   "Pass": 13,
+   "Blocked": 11,
    "Fail": 2
   }
  }
