@@ -20,6 +20,18 @@
     "ST-SEO-05": {"status": "Pass", "message": "Executed 19/09 (browser): SEO check - no defect."},
     "PT-PRIV-01": {"status": "Pass", "message": "Executed 19/09 (browser): 0 cookie, 0 storage, 0 third-party request."},
     "PT-SUPPLY-02": {"status": "Pass", "message": "Executed 19/09 (browser): 0 external script."},
-    "PT-CLICK-01": {"status": "Pass", "message": "Executed 19/09 (browser): CSP meta in place; frame-ancestors not settable via meta on GitHub Pages = documented limitation."}
+    "PT-CLICK-01": {"status": "Pass", "message": "Executed 19/09 (browser): CSP meta in place; frame-ancestors not settable via meta on GitHub Pages = documented limitation."},
+    "ST-PAGE-01": {"status": "Pass", "message": "Executed 19/09 (browser, commit 895ce39): 5 product pages have h1, banner, regulatory frames Monde/UE/France/Belgique; INM keeps its honest wording."},
+    "ST-PAGE-02": {"status": "Pass", "message": "Executed 19/09 (browser): 7 step pages have h1 + 'Ce que nous faisons'; prev/next chain correct."},
+    "ST-PAGE-03": {"status": "Pass", "message": "Executed 19/09 (browser): #fondatrice/#references present, 13 logos all new-tab+noopener, no 'nos clients' label, 'Lydie PARSUS' uppercase everywhere. (Spec says 11 logos, actual 13 - spec to adjust, not a defect.)"},
+    "ST-PAGE-04": {"status": "Pass", "message": "Executed 19/09 (browser): 3 news articles with anchors; the 3 home slider links point to existing anchors."},
+    "ST-PAGE-06": {"status": "Pass", "message": "Executed 19/09 (browser): legal notice cites GitHub Pages/Web3Forms/no cookies, 404 bilingual noindex. A real defect was found and fixed (895ce39): the 404 menu suite/ctms/etmf entries were relative paths - now 41 links, 0 relative."},
+    "ST-NAV-05": {"status": "Pass", "message": "Executed 19/09 (browser): /contact.html redirects to /index.html#contact; Back returns to /index.html not the stub; no loop; 10 stubs meta-refresh 0s noindex."},
+    "ST-CONTACT-03": {"status": "Pass", "message": "Executed 19/09 (browser): offline (fetch rejected) shows 'L'envoi a echoue (connexion)', text kept, button re-enabled."},
+    "ST-CONTACT-04": {"status": "Pass", "message": "Executed 19/09 (browser): 2 mailto links rebuilt at render, address absent from raw source. No tel: link exists (no phone published) - spec's tel: part is moot."},
+    "ST-MOB-03": {"status": "Pass", "message": "Executed 19/09 (browser, real TouchEvent): swipe left=next, right=previous, <40px ignored; 'Lire l'actualite' 54px, href OK."},
+    "ST-MOB-04": {"status": "Pass", "message": "Executed 19/09 (browser 375px): fields 47px, button 51px, no overflow; email field type=email + inputmode=email; autocomplete set. tel: part moot (no phone)."},
+    "ST-PERF-02": {"status": "Pass", "message": "Executed 19/09 (browser): preload on manrope-400 + Agne, font-display:swap (no invisible text), 6 fonts loaded."},
+    "PT-TLS-02": {"status": "Pass", "message": "Checked on production (curl -I, read-only): no Strict-Transport-Security header. Spec allows this as a documented GitHub Pages limitation with accepted risk -> Pass with limitation."}
   }
 }

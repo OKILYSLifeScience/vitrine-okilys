@@ -60,7 +60,7 @@ Risk-based approach: the contact form and the external links carry the only secu
 | Home (FR / EN) | Hero, figures band, news carousel, À propos + HOME values tiles, Produits de santé (5 cards), Expertises (7 steps), Secteurs, OKILYS Suite panel, Contact (form + e-mail / phone) | UT-JS-01, 07..14, UT-PAGE-20 | IT-FORM | ST-HOME, ST-CONTACT | PT-FORM, PT-XSS, PT-INPUT |
 | Product pages (×5) | Band photo + title card, definition, journey infographic, "Cadres réglementaires" in 4 zones (Monde / UE / France / Belgique) | UT-PAGE | IT-NAV, IT-I18N | ST-PAGE-01 | - |
 | Step pages (×7) | Band, "Ce que nous faisons à cette étape", roles held, links to previous / next step | UT-PAGE | IT-NAV, IT-I18N | ST-PAGE-02 | - |
-| À propos / About | Fondatrice (portrait, roles, certificate), Références (11 clickable logos, "Parcours salarié" block, 4 LinkedIn recommendations in English) | UT-PAGE | IT-NAV | ST-PAGE-03 | PT-LINK |
+| À propos / About | Fondatrice (portrait, roles, certificate), Références (14 logos, 13 clickable, "Parcours salarié" block, 4 LinkedIn recommendations in English) | UT-PAGE | IT-NAV | ST-PAGE-03 | PT-LINK |
 | Réalisations / Highlights, Actualités / Insights | Articles with anchors, links from the home carousel | UT-PAGE | IT-NAV | ST-PAGE-04 | - |
 | OKILYS Suite pages | `suite` (story), `ctms` (positioning, differentiators, core / modules / tools, overview, workspace, roles, security, process), `etmf` (coming soon) | UT-PAGE | IT-NAV | ST-PAGE-05 | PT-LINK |
 | Legal, 404, redirect stubs | Mentions légales / Legal notice, custom 404, 10 stubs with meta refresh | UT-PAGE-11, 12 | IT-REDIR, IT-HOST | ST-PAGE-06 | PT-REDIR, PT-INFO |
@@ -74,7 +74,7 @@ Risk-based approach: the contact form and the external links carry the only secu
 
 | Id | Function | Input / action | Expected | Traduction FR (où, quoi) |
 |---|---|---|---|---|
-| UT-JS-01 | `unreverse` + `[data-email]` / `[data-tel]` initialisation | page loaded | every element with `data-email` gets `href="mailto:<address>"` and shows the address; `data-tel` gets `href="tel:<number>"` and shows the label; the raw HTML never contains the address in clear | Accueil › Contact et pied de page : l'adresse e-mail et le téléphone s'affichent correctement et sont cliquables, alors qu'ils sont masqués dans le code source (anti-robots) |
+| UT-JS-01 | `unreverse` + `[data-email]` / `[data-tel]` initialisation (the `data-tel` half is dormant: no phone published, see ST-CONTACT-04) | page loaded | every element with `data-email` gets `href="mailto:<address>"` and shows the address; `data-tel` gets `href="tel:<number>"` and shows the label; the raw HTML never contains the address in clear | Accueil › Contact et pied de page : l'adresse e-mail et le téléphone s'affichent correctement et sont cliquables, alors qu'ils sont masqués dans le code source (anti-robots) |
 | UT-JS-02 | `toggleNav` | click on `#burger` at 390 px | `#nav`, `#nav-overlay`, `#burger` get `is-open`; `aria-expanded="true"`; `body.nav-open`; `nav.style.top` = bottom of the header; `maxHeight` = viewport height minus header | Menu mobile : le bouton ☰ ouvre le panneau juste sous l'en-tête, à la bonne hauteur |
 | UT-JS-03 | `closeNav` | overlay click, or click on any menu link, after UT-JS-02 | every `is-open` removed, `aria-expanded="false"`, inline `top` / `maxHeight` cleared | Menu mobile : toucher le fond grisé ou un lien referme le menu |
 | UT-JS-04 | `sizeNav` on resize | open menu, change viewport height | `maxHeight` recomputed | Menu mobile : le panneau reste défilable quand la barre d'adresse du téléphone apparaît ou disparaît |
@@ -211,7 +211,7 @@ Executed on https://www.okilys.com in Chrome, Edge and Firefox (current versions
 | ST-MOB-01 (R) | burger menu | opens below the header, scrollable to the last entry (Contact, language), overlay closes it, sub-menu carets expand in place, no page scroll behind the panel | Menu mobile complet, défilable, refermable |
 | ST-MOB-02 (R) | layout | no horizontal scroll on any of the 40 pages; images and bands fit; text ≥ 16 px; tap targets ≥ 44 px | Aucun débordement horizontal, textes lisibles, boutons assez grands |
 | ST-MOB-03 | carousel | swipe left / right changes the news; arrows and dots usable; "Lire l'actualité" reachable | Diaporama utilisable au doigt |
-| ST-MOB-04 | contact | form usable, keyboard types match fields (e-mail keyboard on the e-mail field), sending works, `tel:` link opens the dialer | Formulaire et appel téléphonique utilisables sur mobile |
+| ST-MOB-04 | contact | form usable, keyboard types match fields (`type=email` + `inputmode=email` on the e-mail field), fields and button >= 44 px, no overflow at 375 px, sending works. **`tel:` part NOT APPLICABLE while no phone number is published** (see ST-CONTACT-04). | Formulaire utilisable sur mobile avec le bon clavier ; partie téléphone sans objet |
 | ST-MOB-05 | tablet 768 px | menu behaviour (burger) and grids (2 columns) correct | Affichage tablette correct |
 
 ### 6.3 ST-HOME (home page, FR then EN)
@@ -230,7 +230,7 @@ Executed on https://www.okilys.com in Chrome, Edge and Firefox (current versions
 |---|---|---|---|
 | ST-PAGE-01 | 5 product pages | band photo (flowers) with title card; definition; journey infographic; "Cadres réglementaires" in 4 zones Monde / Union européenne / France / Belgique with the Belgian laws (7 May 2017, 22 Dec 2020 + RD 18 May 2021, 7 May 2004, 30 July 2018); INM page keeps its honest "no experience yet" wording | Pages produits : 4 zones réglementaires, page INM sans lissage |
 | ST-PAGE-02 | 7 step pages | band photo (tree); "Ce que nous faisons à cette étape" list consistent with the roles described lower on the same page; 6 key roles overall (never 7); Clinical Project Manager shown as a certificate only | Pages étapes : liste cohérente avec les rôles, 6 rôles clés |
-| ST-PAGE-03 | About page | portrait reduced size; 11 clickable logos (new tab, noopener) not labelled "clients"; "Parcours salarié, jusqu'en 2019" block; 4 recommendations in English; Magdalena's testimonial role (open point) | Page À propos conforme aux décisions |
+| ST-PAGE-03 | About page | portrait reduced size; **14 logos in the wall, of which 13 are clickable** (new tab, `noopener noreferrer`) and **one (Azeolys) carries no link** - open point, see §9; not labelled "clients"; "Parcours salarié, jusqu'en 2019" block; 4 recommendations in English; Magdalena's testimonial role (open point) | Page À propos conforme aux décisions |
 | ST-PAGE-04 | Réalisations and Actualités | articles readable, anchors reachable from the home carousel and from LinkedIn-style links; dates and order descending | Réalisations et Actualités lisibles, ancres fonctionnelles |
 | ST-PAGE-05 (R) | Suite, CTMS, eTMF | `ctms`: hero with the extended side follow-ups (trackers, calls, training, team allocation, system access register); sections in the order differentiators → core / modules / tools → overview → workspace → roles → security → process; backgrounds alternating; no module code; `etmf`: "à venir / coming soon" badge everywhere; `suite`: "Conçu par OKILYS, développé par INFRARCH" card | Pages Suite / CTMS / eTMF conformes au positionnement et à l'ordre validés |
 | ST-PAGE-06 | Legal and 404 | legal notice mentions the host (GitHub Pages), the form relay (Web3Forms) as a processor, the absence of cookies; numbered headings render (no missing dash); 404 offers both languages and the main links | Mentions légales complètes, page 404 utile |
@@ -242,7 +242,7 @@ Executed on https://www.okilys.com in Chrome, Edge and Firefox (current versions
 | ST-CONTACT-01 (R) | send a `[TEST]` message from the live FR site | confirmation shown, e-mail received, reply-to = visitor address | Envoi réel depuis le site en ligne (FR) |
 | ST-CONTACT-02 | same from EN | idem | Envoi réel (EN) |
 | ST-CONTACT-03 | offline (devtools) | network message shown, text kept | Message d'erreur clair hors connexion |
-| ST-CONTACT-04 | e-mail / phone links | `mailto:` opens the mail client with the right address; `tel:` works on mobile; address not visible in the page source | Liens e-mail et téléphone fonctionnels, adresse masquée aux robots |
+| ST-CONTACT-04 | e-mail / phone links | `mailto:` opens the mail client with the right address; address not visible in the page source. **The `tel:` part is currently NOT APPLICABLE: no phone number is published anywhere on the site** (verified 19/09). Reinstate this part if Lydie decides to publish one - it would then be obfuscated like the e-mail. | Liens e-mail fonctionnels et adresse masquée aux robots ; aucun numéro de téléphone n'est publié sur le site, cette partie est sans objet |
 
 ### 6.6 ST-A11Y (accessibility, WCAG 2.2 AA)
 
@@ -341,5 +341,8 @@ Test protocol template (one line per case): Id · Title · Preconditions · Step
 - Content-Security-Policy and referrer policy as `<meta>` tags (PT-HDR-01): decide, then add to the 51 pages with a `?v=` bump if CSS / JS change.
 - Web3Forms dashboard: confirm domain restriction and spam settings (PT-FORM-01), quota (PT-FORM-02), and mention Web3Forms as a processor in the legal notice (PT-FORM-03, ST-PAGE-06).
 - Footer labels still showing the pre-13/09 menu wording on some pages (IT-NAV-03): align with the current menu (Accueil · À propos page · Contact).
+- **Azeolys logo without a link** (ST-PAGE-03): it is the only one of the 14 logos in the wall that is not clickable, while the other 13 all open in a new tab. Decide whether to link it (and to which address) or to leave it deliberately unlinked.
+- **No phone number on the site** (ST-CONTACT-04, ST-MOB-04, UT-JS-01): the specification described a `tel:` link and a `data-tel` obfuscation that do not exist. Decide whether to publish a number - it would be obfuscated exactly like the e-mail address - or to drop these parts for good.
+- **CAA DNS record absent** (PT-DNS-02): recommendation to add a `CAA` record authorising `letsencrypt.org` (the authority GitHub Pages uses), so that no other authority can issue a certificate for okilys.com. Registrar access required.
 - Magdalena's testimonial role (ST-PAGE-03) and the OKILYS field of action on the 5 product pages (ST-PAGE-01): content decisions still pending in `_notes/REPRISE-session.md`.
 - Where to keep the site test scripts and reports: `_notes/tests/` and `_notes/validation/` (versioned, not published) is proposed.
