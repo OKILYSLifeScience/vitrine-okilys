@@ -178,6 +178,13 @@ def build():
     date = data.get("date", "?")
     defects = data.get("defects", {})
     st = {r["id"]: r for r in data["records"]}
+    # Manual overlay: browser / system tests executed by hand (the automated audit cannot drive a browser, so it marks
+    # them Blocked). Recorded as Pass with evidence in site-manual-results.json so the compiled workbook reflects that
+    # they were actually run. The contact-form real-send tests are deliberately NOT in the overlay (they await Lydie's go-ahead).
+    _mp = os.path.join(VAL, "site-manual-results.json")
+    if os.path.exists(_mp):
+        for cid, rec in (json.load(open(_mp, encoding="utf-8")).get("results", {}) or {}).items():
+            st[cid] = {"id": cid, "status": rec.get("status", "Pass"), "message": rec.get("message", "")}
     cases = spec_cases()  # (id, title) in spec order
     counts = {}
     per = []
@@ -209,8 +216,10 @@ def build():
     ws["A1"] = f"OKILYS site web (www.okilys.com) - Cas a revoir (version {version}) - execute le {date}"
     ws["A1"].font = Font(bold=True, size=14, color=NAVY)
     ws["A2"] = (f"Un seul onglet, {n_fail} defauts (echecs) + {n_block} bloques + les points deja traites (trace conservee). "
-                "Le classeur s'ouvre FILTRE sur la colonne 'Action souhaitee' pour ne montrer que les lignes ou vous n'avez PAS encore demande de correction. "
-                "Pour revoir tout l'historique (y compris ce que vous avez deja decide, ou les points corriges/plus detectes), enlevez le filtre de la colonne 'Action souhaitee'. "
+                "Le classeur s'ouvre FILTRE sur l'ETAT REEL (colonne 'Gravite') : il montre ce qui attend encore quelque chose - "
+                "les defauts ouverts et les cas encore bloques (y compris ceux qui attendent une action ou un accord de votre part, meme si vous avez deja ecrit 'Corriger') - "
+                "et masque les points resolus ou deja executes. Une decision ecrite ne ferme pas un point tant qu'il n'est pas corrige. "
+                "Pour revoir tout l'historique (points resolus / tests deja joues au navigateur), enlevez le filtre de la colonne 'Gravite'. "
                 "Les defauts sont en haut, puis les cas bloques (Gravite='Bloque' : test non joue - la colonne 'Ce qui ne va pas' dit pourquoi), puis les points resolus. "
                 "Remplissez 'Action souhaitee' (menu deroulant) ; cellules a remplir en jaune. Les cas en reussite ne sont pas listes.")
     ws["A2"].alignment = Alignment(wrap_text=True, vertical="top")
@@ -245,7 +254,12 @@ def build():
         ws.cell(row=rr, column=10).fill = PatternFill("solid", fgColor=YELLOW)
         if p["status"] != "Fail":
             ws.cell(row=rr, column=2).fill = PatternFill("solid", fgColor=FILL.get(p["status"], "FFFFFF"))
-        if act:  # deja decide -> masque par defaut (le filtre ne montre que les non decides)
+        # Default view = what STILL needs Lydie's attention (real state), NOT "has a decision been written".
+        # A written "Corriger" does not close a point: an open defect / blocked case that still waits for her (e.g. the
+        # DMARC record to create, the contact-form sends to authorise) stays visible; only a declined point is hidden here.
+        # Genuinely settled points (resolved / executed) leave the review list above (their status is Pass) or fall in the
+        # resolved-trace section below (hidden). This fixes the workbook opening visually empty when every row was decided.
+        if (act or "").strip().lower().startswith("ne pas"):  # "Ne pas corriger" = declined -> hidden by default
             ws.row_dimensions[rr].hidden = True
     # Trace des defauts deja traites qui ne ressortent plus (corriges ou plus detectes) : on garde la ligne
     current_ids = {p["id"] for p in review}
@@ -267,8 +281,14 @@ def build():
         ws.add_data_validation(dv)
     ws.freeze_panes = "A5"
     ws.auto_filter.ref = f"A4:J{max(ws.max_row, 4)}"
-    # Ouvre filtre sur "Action souhaitee" (col I = index 8) : ne montrer que les lignes SANS decision (cellule vide)
-    ws.auto_filter.add_filter_column(8, [], blank=True)
+    # Filtre par ETAT REEL (colonne "Gravite", col B = index 1), pas par presence d'une decision : on montre les defauts
+    # ouverts (leur gravite) et les cas encore bloques ("Bloque"), on masque la trace des points resolus ("Resolu").
+    # Ainsi le classeur ne s'ouvre jamais vide et ne cache jamais un point qui attend une action de Lydie (ex. le DMARC,
+    # les envois de formulaire a autoriser), meme si elle a deja ecrit "Corriger". Enlever le filtre = tout l'historique.
+    show_gravs = sorted({ws.cell(row=r, column=2).value for r in range(5, ws.max_row + 1)
+                         if ws.cell(row=r, column=2).value and ws.cell(row=r, column=2).value != "Résolu"})
+    if show_gravs:
+        ws.auto_filter.add_filter_column(1, show_gravs, blank=False)
     path = os.path.join(VAL, f"resultats-tests-site-web-{version}.xlsx")
     wb.save(path)
     print(f"Workbook: {path} - 1 onglet, {len(review)} lignes ({n_fail} defauts, {n_block} bloques)")

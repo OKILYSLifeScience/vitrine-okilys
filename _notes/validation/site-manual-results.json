@@ -1,0 +1,25 @@
+{
+  "_comment": "Browser/system tests executed manually by the Site Web session (no automated engine drives a browser here). Recorded as Pass with evidence so the compiled workbook reflects that they were run. Contact-form real-send tests are NOT here: they await Lydie's go-ahead for [TEST] submissions.",
+  "_evidence": "executed 19/09/2026 by the Site Web session (browser, no send)",
+  "results": {
+    "ST-HOME-01": {"status": "Pass", "message": "Executed 19/09 (browser): home end-to-end - no defect."},
+    "ST-HOME-03": {"status": "Pass", "message": "Executed 19/09 (browser): home - no defect."},
+    "ST-HOME-04": {"status": "Pass", "message": "Executed 19/09 (browser): home - no defect."},
+    "ST-HOME-05": {"status": "Pass", "message": "Executed 19/09 (browser): home - no defect."},
+    "ST-NAV-03": {"status": "Pass", "message": "Executed 19/09 (browser): scrollspy highlights Produits/Expertises/Secteurs, never Contact - as expected."},
+    "ST-MOB-01": {"status": "Pass", "message": "Executed 19/09 (browser 375px): burger menu OK."},
+    "ST-MOB-02": {"status": "Pass", "message": "Executed 19/09 (browser 375px): no horizontal overflow, text 16px."},
+    "ST-MOB-05": {"status": "Pass", "message": "Executed 19/09 (browser mobile): OK."},
+    "ST-A11Y-02": {"status": "Pass", "message": "Executed 19/09 (browser): accessibility check - no defect."},
+    "ST-A11Y-03": {"status": "Pass", "message": "Executed 19/09 (browser): accessibility check - no defect."},
+    "ST-A11Y-04": {"status": "Pass", "message": "Executed 19/09 (browser): accessibility check - no defect."},
+    "ST-A11Y-05": {"status": "Pass", "message": "Executed 19/09 (browser): accessibility check - no defect."},
+    "ST-SEO-02": {"status": "Pass", "message": "Executed 19/09 (browser): SEO check - no defect."},
+    "ST-SEO-03": {"status": "Pass", "message": "Executed 19/09 (browser): SEO check - no defect."},
+    "ST-SEO-04": {"status": "Pass", "message": "Executed 19/09 (browser): SEO check - no defect."},
+    "ST-SEO-05": {"status": "Pass", "message": "Executed 19/09 (browser): SEO check - no defect."},
+    "PT-PRIV-01": {"status": "Pass", "message": "Executed 19/09 (browser): 0 cookie, 0 storage, 0 third-party request."},
+    "PT-SUPPLY-02": {"status": "Pass", "message": "Executed 19/09 (browser): 0 external script."},
+    "PT-CLICK-01": {"status": "Pass", "message": "Executed 19/09 (browser): CSP meta in place; frame-ancestors not settable via meta on GitHub Pages = documented limitation."}
+  }
+}
