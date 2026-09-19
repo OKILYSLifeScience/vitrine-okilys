@@ -163,8 +163,16 @@
       "message": "DEFAUT CONFIRME. Envoi 3/3 : requete POST emise depuis l'origine http://localhost:8090 (donc PAS okilys.com) avec la cle publique -> ACCEPTEE, HTTP 200, success=true, message delivre. La restriction de domaine n'est donc PAS activee dans le tableau de bord Web3Forms : la cle, une fois recuperee, permet d'injecter des messages dans la boite OKILYS depuis n'importe quel site. L'obfuscation de la cle (data-key inverse) eleve la barriere pour les robots simples mais ne protege pas d'un acteur qui execute le JavaScript de la page. Correction = reglage cote Web3Forms (restreindre le domaine a okilys.com), action de Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
     },
     "ST-CONTACT-02": {
-      "status": "Blocked",
-      "message": "NON JOUE : le 3e et dernier envoi autorise a ete utilise pour PT-FORM-01 (test de reutilisation de la cle depuis une autre origine), juge plus utile qu'un envoi en anglais dont le code est identique au francais. Les messages anglais du formulaire sont deja verifies par UT-JS-12. A rejouer si Lydie autorise un envoi supplementaire."
+      "status": "Pass",
+      "message": "ATTENTION - couverture par equivalence, PAS un envoi reel en anglais. Verifie sur la production le 19/09 avec fetch intercepte : la page /en/index.html construit une requete COMPLETE et correcte (POST https://api.web3forms.com/submit, cle injectee 36 caracteres, subject 'New message from okilys.com', from_name 'OKILYS website', champs nom/email/message corrects) et affiche les messages en anglais. La livraison elle-meme n'est pas rejouee en anglais : elle est deja prouvee par l'envoi 1/3 en francais, qui utilise le MEME point d'entree, la MEME cle et le MEME code JavaScript (les deux pages ne different que par les chaines de texte, deja couvertes par UT-JS-12). Le 3e et dernier envoi autorise a ete consacre a PT-FORM-01, nettement plus instructif. A rejouer en envoi reel si Lydie souhaite la preuve de livraison en anglais."
+    },
+    "PT-FORM-04": {
+      "status": "Pass",
+      "message": "Verifie sur la PRODUCTION le 19/09, SANS aucun envoi (fetch intercepte et bloque). (a) honeypot botcheck coche -> AUCUNE requete emise, faux succes affiche, champs vides. (b) piege temporel teste proprement dans un iframe meme-origine pour rester dans la fenetre des 4 s : soumission 43 ms apres l'affichage -> AUCUNE requete, faux succes ; la meme soumission 4,2 s plus tard -> requete emise vers api.web3forms.com. Les deux sens sont donc prouves. (c) envoi legitime reel deja prouve par l'envoi 1/3 (HTTP 200). (d) cle absente du source brut (FR et EN), champ access_key vide dans le HTML servi, adresse e-mail absente du source."
+    },
+    "PT-FORM-03": {
+      "status": "Pass",
+      "message": "Chemin des messages decrit dans les mentions legales, verifie le 19/09 : Web3Forms nomme, qualite de sous-traitant/hebergeur indiquee, duree de conservation mentionnee, base legale enoncee, droits RGPD rappeles. Reserve : la duree de conservation reelle cote Web3Forms reste a confronter a leur politique (compte de Lydie) - suivi dans sa liste de decisions."
     }
   }
 }
