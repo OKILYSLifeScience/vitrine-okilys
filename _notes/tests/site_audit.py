@@ -26,7 +26,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 OUT = os.path.join(ROOT, "_notes", "validation")
 PROD = "https://www.okilys.com"
 NO_NET = "--no-net" in sys.argv
-VERSION_TAG = "20260917a"
+VERSION_TAG = "20260919a"
 
 FR_PAGES = ["index", "a-propos", "actualites", "highlights", "medicament", "dispositif-medical", "donnees", "pratique-courante",
             "inm", "conception", "selection-centres", "preparation", "soumissions", "mise-en-place", "conduite-suivi", "cloture",
@@ -545,15 +545,30 @@ def it_checks():
         if i + 1 < len(steps_fr) and steps_fr[i + 1] not in h:
             broken_chain.append(f"{s} -> {steps_fr[i+1]} missing")
     add("IT-NAV-04", "Pass" if not broken_chain else "Fail", "7-step chain intact" if not broken_chain else "; ".join(broken_chain))
-    # IT-NAV-02 suite bar: CTMS link present + opens in a new tab with noopener+noreferrer on every page (v1.2)
+    # IT-NAV-02 suite bar (spec v1.5): CTMS et eTMF sont tous deux annonces "a venir" et NE sont plus des liens.
+    # Le seul lien restant vers l'application est "Acces client" sur ctms.html / en/ctms.html (decision de Lydie du 19/09).
     bad_bar = []
     for p in indexable_files():
+        bar = re.search(r'<div class="topbar suite-bar">.*?</div>\s*</div>', HTML[p], re.S)
+        if not bar:
+            bad_bar.append(p + " (barre suite absente)")
+            continue
+        b = bar.group(0)
+        if re.search(r'<a\b[^>]*ctms\.okilys\.com', b):
+            bad_bar.append(p + " (lien vers l'application encore present dans la barre)")
+        for outil, dom in (("OKILYS CTMS", "ctms.okilys.com"), ("OKILYS eTMF", "etmf.okilys.com")):
+            m = re.search(r'<span class="suite-bar__tool is-soon" title="' + re.escape(dom) + r'">' + outil + r' <span class="suite-bar__soon">(à venir|coming soon)</span></span>', b)
+            if not m:
+                bad_bar.append(f"{p} ({outil} sans mention 'a venir' dans la barre)")
+    # le seul lien vers l'application doit rester l'acces client, en nouvel onglet securise
+    for p in ("ctms.html", "en/ctms.html"):
         m = re.search(r'<a\b[^>]*href="https://ctms\.okilys\.com"[^>]*>', HTML[p])
         if not m:
-            bad_bar.append(p + " (no CTMS suite-bar link)")
+            bad_bar.append(p + " (acces client manquant)")
         elif 'target="_blank"' not in m.group(0) or "noopener" not in m.group(0) or "noreferrer" not in m.group(0):
-            bad_bar.append(p + " (CTMS link not new-tab / noopener+noreferrer)")
-    add("IT-NAV-02", "Pass" if not bad_bar else "Fail", "suite bar CTMS link opens in a new tab (noopener+noreferrer) on every page" if not bad_bar else f"{bad_bar[:5]}")
+            bad_bar.append(p + " (acces client pas en nouvel onglet securise)")
+    add("IT-NAV-02", "Pass" if not bad_bar else "Fail",
+        "barre suite : CTMS et eTMF annonces 'a venir' sans lien vers l'application ; acces client conserve sur la page CTMS en nouvel onglet securise" if not bad_bar else f"{bad_bar[:5]}")
     if bad_bar:
         defects["IT-NAV-02"] = {"severity": "Major", "defect": "; ".join(bad_bar[:6]), "location": "; ".join(x.split(' ')[0] for x in bad_bar[:6]),
                                 "defect_fr": "Le bouton OKILYS CTMS de la barre de suite manque, ou n'ouvre pas un nouvel onglet en sécurité, sur : " + ", ".join(x.split(' ')[0] for x in bad_bar[:6]) + ".",
@@ -751,13 +766,25 @@ def prod_checks():
     st, hd, _ = get(PROD + "/")
     sec = {k: hd.get(k) for k in ("strict-transport-security", "content-security-policy", "x-content-type-options", "x-frame-options", "referrer-policy")}
     present = {k: v for k, v in sec.items() if v}
-    add("PT-HDR-01", "Fail" if not present else "Pass", f"security headers present: {present}" if present else "no security headers (GitHub Pages cannot set custom headers)")
-    defects["PT-HDR-01"] = {"severity": "Minor", "defect": "No security response headers (CSP, HSTS, X-Content-Type-Options, Referrer-Policy). GitHub Pages does not allow custom headers.",
-                            "location": "GitHub Pages hosting", "defect_fr": "Aucun en-tête de sécurité HTTP (CSP, HSTS, X-Content-Type-Options, Referrer-Policy) ; GitHub Pages ne permet pas d'en ajouter.",
-                            "ref_fr": "Hébergement du site (réponses du serveur)", "plain_fr": "Le site n'envoie pas les en-têtes de sécurité recommandés, faute d'option chez l'hébergeur.",
-                            "impact_fr": "Protection réduite contre certaines attaques côté navigateur ; site statique sans données, donc risque faible. Connu et accepté (limite GitHub Pages)."} if not present else None
+    # spec v1.5 : GitHub Pages ne peut pas poser d'en-tetes ; mesure compensatoire = balises meta dans les 51 pages.
+    meta_csp = re.search(r'<meta http-equiv="Content-Security-Policy" content="([^"]+)"', HTML["index.html"])
+    meta_ref = re.search(r'<meta name="referrer" content="([^"]+)"', HTML["index.html"])
+    pages_sans = [p for p in indexable_files() if "Content-Security-Policy" not in HTML[p] or 'name="referrer"' not in HTML[p]]
     if present:
+        add("PT-HDR-01", "Pass", f"security headers present: {present}")
         defects.pop("PT-HDR-01", None)
+    elif meta_csp and meta_ref and not pages_sans:
+        add("PT-HDR-01", "Pass",
+            "aucun en-tete HTTP possible sur GitHub Pages ; mesure compensatoire en place sur les 51 pages : "
+            f"CSP par balise meta ({meta_csp.group(1)[:60]}...) + referrer={meta_ref.group(1)}. "
+            "Reste non couvrable par meta : HSTS et X-Frame-Options (clickjacking, voir PT-CLICK-01) - limite documentee et acceptee.")
+        defects.pop("PT-HDR-01", None)
+    else:
+        add("PT-HDR-01", "Fail", f"ni en-tete HTTP ni balise meta complete (pages incompletes : {pages_sans[:5]})")
+        defects["PT-HDR-01"] = {"severity": "Minor", "defect": "No security response headers and no meta fallback (CSP, Referrer-Policy).",
+                            "location": "GitHub Pages hosting", "defect_fr": "Aucun en-tête de sécurité HTTP ni balise meta de remplacement (CSP, Referrer-Policy).",
+                            "ref_fr": "Hébergement du site (réponses du serveur)", "plain_fr": "Le site n'envoie pas les en-têtes de sécurité recommandés et n'a pas la protection de remplacement par balise.",
+                            "impact_fr": "Protection réduite contre certaines attaques côté navigateur ; site statique sans données, donc risque faible."}
     add("PT-HDR-02", "Pass", "HTTPS enforced (HSTS provided by GitHub Pages redirect); documented" )
     # PT-TLS
     st, hd, _ = get(PROD + "/")

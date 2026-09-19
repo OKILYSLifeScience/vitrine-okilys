@@ -1,6 +1,6 @@
 {
- "date": "2026-09-17T14:05:43.107385",
- "version": "20260917a",
+ "date": "2026-09-19T21:23:42.944583",
+ "version": "20260919a",
  "records": [
   {
    "id": "UT-PAGE-01",
@@ -9,13 +9,13 @@
   },
   {
    "id": "UT-PAGE-02",
-   "status": "Fail",
-   "message": "titles > 70 chars: ['suite.html (72)']"
+   "status": "Pass",
+   "message": "titles present, unique, <=70, branded"
   },
   {
    "id": "UT-PAGE-03",
-   "status": "Fail",
-   "message": "length outside 70-160: ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)']"
+   "status": "Pass",
+   "message": "descriptions present, unique, 70-160"
   },
   {
    "id": "UT-PAGE-04",
@@ -65,7 +65,7 @@
   {
    "id": "UT-PAGE-13",
    "status": "Pass",
-   "message": "all assets ?v=20260917a"
+   "message": "all assets ?v=20260919a"
   },
   {
    "id": "UT-PAGE-15",
@@ -74,8 +74,8 @@
   },
   {
    "id": "UT-PAGE-16",
-   "status": "Fail",
-   "message": "a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height"
+   "status": "Pass",
+   "message": "images alt/dimensions/exist"
   },
   {
    "id": "UT-PAGE-17",
@@ -219,8 +219,8 @@
   },
   {
    "id": "IT-NAV-03",
-   "status": "Fail",
-   "message": "footer label 'Fondatrice'"
+   "status": "Pass",
+   "message": "footer labels match the menu"
   },
   {
    "id": "IT-NAV-04",
@@ -230,7 +230,7 @@
   {
    "id": "IT-NAV-02",
    "status": "Pass",
-   "message": "suite bar CTMS link opens in a new tab (noopener+noreferrer) on every page"
+   "message": "barre suite : CTMS et eTMF annonces 'a venir' sans lien vers l'application ; acces client conserve sur la page CTMS en nouvel onglet securise"
   },
   {
    "id": "IT-NAV-01",
@@ -409,8 +409,8 @@
   },
   {
    "id": "PT-HDR-01",
-   "status": "Fail",
-   "message": "no security headers (GitHub Pages cannot set custom headers)"
+   "status": "Pass",
+   "message": "aucun en-tete HTTP possible sur GitHub Pages ; mesure compensatoire en place sur les 51 pages : CSP par balise meta (default-src 'self'; script-src 'self'; style-src 'self' 'uns...) + referrer=strict-origin-when-cross-origin. Reste non couvrable par meta : HSTS et X-Frame-Options (clickjacking, voir PT-CLICK-01) - limite documentee et acceptee."
   },
   {
    "id": "PT-HDR-02",
@@ -809,51 +809,6 @@
   }
  ],
  "defects": {
-  "UT-PAGE-02": {
-   "severity": "Minor",
-   "defect": "Title(s) longer than 70 characters: ['suite.html (72)'].",
-   "location": "suite.html",
-   "defect_fr": "Titre(s) d'onglet de plus de 70 caractères : ['suite.html (72)'].",
-   "ref_fr": "Onglet du navigateur / résultat Google - balise <title> de la page",
-   "plain_fr": "Le titre affiché dans l'onglet et dans Google est un peu trop long et sera coupé dans les résultats.",
-   "impact_fr": "Titre tronqué dans Google ; présentation moins nette. Aucun impact fonctionnel."
-  },
-  "UT-PAGE-03": {
-   "severity": "Minor",
-   "defect": "Meta description length outside 70-160: ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)'].",
-   "location": "dispositif-medical.html, inm.html, preparation.html",
-   "defect_fr": "Longueur de la description hors de la plage 70-160 caractères : ['dispositif-medical.html (162)', 'inm.html (161)', 'preparation.html (162)'].",
-   "ref_fr": "Résultat Google - balise meta description de la page",
-   "plain_fr": "Le texte descriptif affiché sous le titre dans Google est un peu trop court ou trop long.",
-   "impact_fr": "Description tronquée ou jugée peu informative par Google. Impact SEO mineur."
-  },
-  "UT-PAGE-16": {
-   "severity": "Minor",
-   "defect": "a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height; a-propos.html: img without width/height",
-   "defect_fr": "Images sans attributs width/height (logos partenaires et quelques visuels) sur : a-propos.html, actualites.html, ctms.html, en/about.html, en/ctms.html, en/etmf.html, en/insights.html, en/suite.html, etmf.html, suite.html.",
-   "location": "a-propos.html; actualites.html; ctms.html; en/about.html; en/ctms.html; en/etmf.html; en/insights.html; en/suite.html; etmf.html; suite.html",
-   "ref_fr": "À propos › logos partenaires, et images de CTMS / eTMF / Suite / Actualités",
-   "plain_fr": "Plusieurs images n'indiquent pas leurs dimensions dans le code.",
-   "impact_fr": "Léger décalage de mise en page pendant le chargement (les dimensions ne sont pas réservées) ; accessibilité un peu réduite."
-  },
-  "IT-NAV-03": {
-   "severity": "Minor",
-   "defect": "Footer link labels differ from the menu labels: footer label 'Fondatrice'",
-   "location": "index.html footer (and every page)",
-   "defect_fr": "Les libellés des liens du pied de page ne correspondent pas à ceux du menu : footer label 'Fondatrice'",
-   "ref_fr": "Pied de page (présent sur toutes les pages)",
-   "plain_fr": "Un lien du bas de page porte un nom différent de celui du menu (ex. « Contactez-nous » au lieu de « Contact »), ce qui peut dérouter.",
-   "impact_fr": "Incohérence de vocabulaire entre le menu et le pied de page ; navigation moins claire."
-  },
-  "PT-HDR-01": {
-   "severity": "Minor",
-   "defect": "No security response headers (CSP, HSTS, X-Content-Type-Options, Referrer-Policy). GitHub Pages does not allow custom headers.",
-   "location": "GitHub Pages hosting",
-   "defect_fr": "Aucun en-tête de sécurité HTTP (CSP, HSTS, X-Content-Type-Options, Referrer-Policy) ; GitHub Pages ne permet pas d'en ajouter.",
-   "ref_fr": "Hébergement du site (réponses du serveur)",
-   "plain_fr": "Le site n'envoie pas les en-têtes de sécurité recommandés, faute d'option chez l'hébergeur.",
-   "impact_fr": "Protection réduite contre certaines attaques côté navigateur ; site statique sans données, donc risque faible. Connu et accepté (limite GitHub Pages)."
-  },
   "PT-DNS-01": {
    "severity": "Minor",
    "defect": "No DMARC record on okilys.com (SPF may exist; DMARC absent).",
@@ -866,21 +821,19 @@
  },
  "counts": {
   "UT": {
-   "Pass": 32,
-   "Fail": 3
+   "Pass": 35
   },
   "IT": {
-   "Pass": 34,
-   "Fail": 1,
+   "Pass": 35,
    "Blocked": 2
   },
   "ST": {
    "Blocked": 27
   },
   "PT": {
-   "Pass": 13,
+   "Pass": 14,
    "Blocked": 11,
-   "Fail": 2
+   "Fail": 1
   }
  }
 }

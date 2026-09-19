@@ -285,9 +285,10 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .news-carousel__arrow:hover { border-color: var(--teal); color: var(--blue); }
 .news-carousel__arrow--prev { left: 14px; }
 .news-carousel__arrow--next { right: 14px; }
-.news-carousel__dots { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
-.news-carousel__dot { width: 9px; height: 9px; border-radius: 50%; border: none; padding: 0; background: var(--border); cursor: pointer; }
-.news-carousel__dot.is-active { background: var(--teal); }
+.news-carousel__dots { display: flex; justify-content: center; gap: 0; margin-top: 8px; }
+/* Pastille visible de 9px, mais zone tactile de 25px (WCAG 2.2 AA, cible minimale 24px) */
+.news-carousel__dot { width: 9px; height: 9px; box-sizing: content-box; padding: 8px; border-radius: 50%; border: none; background: var(--border); background-clip: content-box; cursor: pointer; }
+.news-carousel__dot.is-active { background: var(--teal); background-clip: content-box; }
 @media (max-width: 640px) {
   .news-slide { padding: 22px 18px 20px; }
   .news-carousel__arrow { display: none; } /* au doigt : glissement tactile via les points */

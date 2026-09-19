@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Conseil et expertise en essais cliniques | OKILYS Life Science</title>
 <meta name="description" content="OKILYS Life Science accompagne promoteurs, biotechs, CROs et hôpitaux sur leurs essais cliniques : conception, start-up, soumissions, monitoring, oversight.">
 <link rel="canonical" href="https://www.okilys.com/">
@@ -30,11 +32,11 @@
 <meta name="twitter:image" content="https://www.okilys.com/assets/images/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-<link rel="stylesheet" href="css/fonts.css?v=20260917a">
+<link rel="stylesheet" href="css/fonts.css?v=20260919a">
 <link rel="preload" href="assets/fonts/manrope-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Agne.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20260917a">
-<link rel="stylesheet" href="css/fusion.css?v=20260917a">
+<link rel="stylesheet" href="css/styles.css?v=20260919a">
+<link rel="stylesheet" href="css/fusion.css?v=20260919a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -224,7 +226,7 @@
   <div class="container suite-bar__inner">
     <span class="suite-bar__brand">OKILYS suite</span>
     <span class="suite-bar__tool is-current">OKILYS website</span>
-    <a class="suite-bar__tool" href="https://ctms.okilys.com" target="_blank" rel="noopener noreferrer">OKILYS CTMS</a>
+    <span class="suite-bar__tool is-soon" title="ctms.okilys.com">OKILYS CTMS <span class="suite-bar__soon">à venir</span></span>
     <span class="suite-bar__tool is-soon" title="etmf.okilys.com">OKILYS eTMF <span class="suite-bar__soon">à venir</span></span>
     <span class="suite-bar__tag">Une suite d'outils pour conduire vos essais cliniques de A à Z</span>
   </div>
@@ -272,7 +274,7 @@
         <a href="suite.html" class="nav__suite">OKILYS Suite <span class="caret" aria-hidden="true">&#9662;</span></a>
         <div class="sub-menu">
           <a href="suite.html">La suite : notre histoire</a>
-          <a href="ctms.html" target="_blank" rel="noopener noreferrer">OKILYS CTMS</a>
+          <a href="ctms.html" target="_blank" rel="noopener noreferrer">OKILYS CTMS <span class="suite-bar__soon">à venir</span></a>
           <a href="etmf.html" target="_blank" rel="noopener noreferrer">OKILYS eTMF <span class="suite-bar__soon">à venir</span></a>
         </div>
       </div>
@@ -334,7 +336,7 @@
   <section class="news-band" id="actualites">
     <div class="container">
       <div class="news-band__head">
-        <p class="eyebrow" style="color:var(--teal-dark);">Actualités</p>
+        <h2 class="eyebrow" style="color:var(--teal-dark);">Actualités</h2>
         <a class="news-band__all" href="actualites.html">Toutes les actualités →</a>
       </div>
       <div class="news-carousel">
@@ -489,7 +491,7 @@
       <p class="section__lead">Des outils nés d'une expertise terrain transversale, pour les équipes de terrain — à adopter en entier ou module par module, pour votre étude ou pour vos clients.</p>
       <div class="suite-cards">
         <a href="ctms.html" class="suite-card" target="_blank" rel="noopener noreferrer">
-          <h3>OKILYS CTMS</h3>
+          <h3>OKILYS CTMS <span class="suite-bar__soon">à venir</span></h3>
           <p>Pilotage des essais cliniques : cycle de vie des centres, visites et rapports signés, actions de suivi, soumissions et contrats, reporting — modules à la carte, données restituées à tout moment.</p>
           <span class="suite-card__arrow">Découvrir OKILYS CTMS →</span>
         </a>
@@ -644,7 +646,6 @@
       <a href="#produits-de-sante">Produits de santé</a>
       <a href="#expertises">Expertises</a>
       <a href="#secteurs">Secteurs</a>
-      <a href="a-propos.html#fondatrice">Fondatrice</a>
       <a href="actualites.html">Actualités</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -667,6 +668,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=20260917a"></script>
+<script src="js/script.js?v=20260919a"></script>
 </body>
 </html>

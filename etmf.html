@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action https://api.web3forms.com; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>OKILYS eTMF — Trial Master File connecté au CTMS, à venir | OKILYS</title>
 <meta name="description" content="OKILYS eTMF : Trial Master File structuré selon le TMF Reference Model, alimenté automatiquement par OKILYS CTMS et vérifié par vos équipes. Lancement à venir.">
 <link rel="canonical" href="https://www.okilys.com/etmf.html">
@@ -30,11 +32,11 @@
 <meta name="twitter:image" content="https://www.okilys.com/assets/images/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-<link rel="stylesheet" href="css/fonts.css?v=20260917a">
+<link rel="stylesheet" href="css/fonts.css?v=20260919a">
 <link rel="preload" href="assets/fonts/manrope-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Agne.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20260917a">
-<link rel="stylesheet" href="css/fusion.css?v=20260917a">
+<link rel="stylesheet" href="css/styles.css?v=20260919a">
+<link rel="stylesheet" href="css/fusion.css?v=20260919a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,7 +70,7 @@
   <div class="container suite-bar__inner">
     <span class="suite-bar__brand">OKILYS suite</span>
     <span class="suite-bar__tool is-current">OKILYS website</span>
-    <a class="suite-bar__tool" href="https://ctms.okilys.com" target="_blank" rel="noopener noreferrer">OKILYS CTMS</a>
+    <span class="suite-bar__tool is-soon" title="ctms.okilys.com">OKILYS CTMS <span class="suite-bar__soon">à venir</span></span>
     <span class="suite-bar__tool is-soon" title="etmf.okilys.com">OKILYS eTMF <span class="suite-bar__soon">à venir</span></span>
     <span class="suite-bar__tag">Une suite d'outils pour conduire vos essais cliniques de A à Z</span>
   </div>
@@ -116,7 +118,7 @@
         <a href="suite.html" class="nav__suite is-active">OKILYS Suite <span class="caret" aria-hidden="true">&#9662;</span></a>
         <div class="sub-menu">
           <a href="suite.html">La suite : notre histoire</a>
-          <a href="ctms.html" target="_blank" rel="noopener noreferrer">OKILYS CTMS</a>
+          <a href="ctms.html" target="_blank" rel="noopener noreferrer">OKILYS CTMS <span class="suite-bar__soon">à venir</span></a>
           <a href="etmf.html" target="_blank" rel="noopener noreferrer">OKILYS eTMF <span class="suite-bar__soon">à venir</span></a>
         </div>
       </div>
@@ -161,7 +163,7 @@
   <section class="section section--alt">
     <div class="container" style="max-width:1000px;">
       <h2 class="section__title">Ce que fait OKILYS eTMF</h2>
-      <div class="mod-grid mod-grid--2"><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 26l4-14h24l4 14v12a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"/><path d="M8 26h10l2 4h8l2-4h10"/><path d="M24 6v12M20 14l4 4 4-4"/></svg></span><div><h3>Dépôts automatiques</h3><p>Documents collectés sur les centres, versions des documents de l'étude, soumissions réglementaires et éthiques, contrats, checklists greenlight et rapports de visite signés : chaque pièce produite dans le CTMS arrive <strong>en brouillon dans la bonne section</strong> du TMF, au bon niveau (étude, pays, centre).</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-certif.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Vérification humaine</h3><p>Rien ne se classe seul en définitif : l'ARC du pays ou le chef de projet est notifié, vérifie chaque dépôt et le valide — ou le rejette. Les dépôts manuels complètent le dossier.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-reporting.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Complétude en continu</h3><p>Artefacts attendus paramétrés par étude, complétude mesurée par zone, par pays et par centre : vous savez à tout moment ce qui manque, sans attendre l'audit.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-rapport.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Revue ISF/PSF connectée</h3><p>Depuis les visites de monitoring, l'ARC coche ce qui a été revu dans le classeur investigateur, avec contrôle croisé automatique contre l'eTMF, et téléverse les documents collectés — qui se déposent directement en brouillon.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-conformite.png" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Conforme aux conventions du métier</h3><p>Structure zones / sections / artefacts du TMF Reference Model, niveaux Trial / Country / Site, exigences ICH E6(R3). Statuts Draft / Final / Superseded, versions tracées.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8"/><path d="M24 20v14M19 29l5 5 5-5"/></svg></span><div><h3>Restitution complète</h3><p>Export ZIP indexé (dossiers par zone, section, artefact et niveau + index CSV) : le TMF se remet au sponsor ou à l'auditeur en un geste, pendant l'étude comme à la clôture.</p></div></div></div>
+      <div class="mod-grid mod-grid--2"><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 26l4-14h24l4 14v12a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2z"/><path d="M8 26h10l2 4h8l2-4h10"/><path d="M24 6v12M20 14l4 4 4-4"/></svg></span><div><h3>Dépôts automatiques</h3><p>Documents collectés sur les centres, versions des documents de l'étude, soumissions réglementaires et éthiques, contrats, checklists greenlight et rapports de visite signés : chaque pièce produite dans le CTMS arrive <strong>en brouillon dans la bonne section</strong> du TMF, au bon niveau (étude, pays, centre).</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-certif.png" width="128" height="128" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Vérification humaine</h3><p>Rien ne se classe seul en définitif : l'ARC du pays ou le chef de projet est notifié, vérifie chaque dépôt et le valide — ou le rejette. Les dépôts manuels complètent le dossier.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-reporting.png" width="128" height="117" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Complétude en continu</h3><p>Artefacts attendus paramétrés par étude, complétude mesurée par zone, par pays et par centre : vous savez à tout moment ce qui manque, sans attendre l'audit.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-rapport.png" width="128" height="125" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Revue ISF/PSF connectée</h3><p>Depuis les visites de monitoring, l'ARC coche ce qui a été revu dans le classeur investigateur, avec contrôle croisé automatique contre l'eTMF, et téléverse les documents collectés — qui se déposent directement en brouillon.</p></div></div><div class="mod-card mod-card--ico"><img src="assets/images/suite/ico-conformite.png" width="123" height="128" alt="" class="mod-card__icon" loading="lazy" decoding="async"><div><h3>Conforme aux conventions du métier</h3><p>Structure zones / sections / artefacts du TMF Reference Model, niveaux Trial / Country / Site, exigences ICH E6(R3). Statuts Draft / Final / Superseded, versions tracées.</p></div></div><div class="mod-card mod-card--ico"><span class="mod-card__icon mod-card__icon--svg" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#21778a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8"/><path d="M24 20v14M19 29l5 5 5-5"/></svg></span><div><h3>Restitution complète</h3><p>Export ZIP indexé (dossiers par zone, section, artefact et niveau + index CSV) : le TMF se remet au sponsor ou à l'auditeur en un geste, pendant l'étude comme à la clôture.</p></div></div></div>
     </div>
   </section>
 
@@ -181,7 +183,7 @@
 <footer class="footer">
   <div class="container footer__inner">
     <div class="footer__brand">
-      <img src="assets/images/logo-color.png" alt="OKILYS Life Science" class="footer__logo">
+      <img src="assets/images/logo-color.png" width="500" height="320" alt="OKILYS Life Science" class="footer__logo">
     </div>
 
     <nav class="footer__nav">
@@ -189,7 +191,6 @@
       <a href="index.html#produits-de-sante">Produits de santé</a>
       <a href="index.html#expertises">Expertises</a>
       <a href="index.html#secteurs">Secteurs</a>
-      <a href="a-propos.html#fondatrice">Fondatrice</a>
       <a href="actualites.html">Actualités</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -204,7 +205,7 @@
   <div class="footer__bottom">
     <div class="container footer__bottom__inner">
       <div class="footer__bottom__brand">
-        <img src="assets/images/icon-mark.png" alt="" class="footer__bottom__mark" aria-hidden="true">
+        <img src="assets/images/icon-mark.png" width="163" height="191" alt="" class="footer__bottom__mark" aria-hidden="true">
         <p style="margin:0;">&copy; <span id="year"></span> OKILYS Life Science. Tous droits réservés.</p>
       </div>
       <a href="mentions-legales.html">Mentions légales</a>
@@ -212,6 +213,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=20260917a"></script>
+<script src="js/script.js?v=20260919a"></script>
 </body>
 </html>
