@@ -185,6 +185,8 @@ def build():
     if os.path.exists(_mp):
         for cid, rec in (json.load(open(_mp, encoding="utf-8")).get("results", {}) or {}).items():
             st[cid] = {"id": cid, "status": rec.get("status", "Pass"), "message": rec.get("message", "")}
+            if rec.get("status") == "Fail" and rec.get("defect"):  # a defect surfaced by a manual test carries its own metadata
+                defects[cid] = rec["defect"]
     cases = spec_cases()  # (id, title) in spec order
     counts = {}
     per = []

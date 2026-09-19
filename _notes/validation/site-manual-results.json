@@ -151,6 +151,14 @@
       "message": "Envoi 2/3 : charges <script> et <img onerror> transmises comme texte, aucune execution cote page. Rendu dans la boite a confirmer visuellement par Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
     },
     "PT-FORM-01": {
+      "defect": {
+        "severity": "Minor",
+        "ref_fr": "Formulaire de contact du site (relais Web3Forms) - pages accueil / contact",
+        "plain_fr": "La cle publique du formulaire n'est pas limitee a okilys.com : quelqu'un qui la recupere (elle est lisible par le navigateur) peut envoyer des messages dans la boite de contact OKILYS depuis n'importe quel autre site. Aucune donnee du site n'est exposee et rien n'est pirate ; le seul risque est de recevoir du courrier indesirable (spam) dans la boite de contact.",
+        "impact_fr": "Reception possible de spam dans la boite de contact OKILYS. Aucune fuite ni exposition de donnees.",
+        "defect_fr": "Restriction de domaine (« Allowed domains ») non activee sur la cle publique Web3Forms : une requete POST emise depuis une origine tierce (testee depuis http://localhost:8090) est acceptee (HTTP 200, message delivre). L'obfuscation de la cle ralentit les robots simples mais ne protege pas de l'execution du JavaScript de la page.",
+        "location": "Tableau de bord Web3Forms > reglage « Allowed domains » (compte OKILYS) - action de Lydie"
+      },
       "status": "Fail",
       "message": "DEFAUT CONFIRME. Envoi 3/3 : requete POST emise depuis l'origine http://localhost:8090 (donc PAS okilys.com) avec la cle publique -> ACCEPTEE, HTTP 200, success=true, message delivre. La restriction de domaine n'est donc PAS activee dans le tableau de bord Web3Forms : la cle, une fois recuperee, permet d'injecter des messages dans la boite OKILYS depuis n'importe quel site. L'obfuscation de la cle (data-key inverse) eleve la barriere pour les robots simples mais ne protege pas d'un acteur qui execute le JavaScript de la page. Correction = reglage cote Web3Forms (restreindre le domaine a okilys.com), action de Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
     },
