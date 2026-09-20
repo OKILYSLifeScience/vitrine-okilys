@@ -956,16 +956,19 @@ def prod_checks():
 def blocked_manual():
     # ST-* browser journeys
     st_msg = "Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-    for grp, n in (("NAV", 6), ("MOB", 5), ("HOME", 5), ("PAGE", 15), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3)):
+    # Counts MUST match the specification table: the harness used to emit ST-PAGE-07..15,
+    # PT-FORM-05..07 and PT-SUPPLY-03, which exist in no specification - 13 phantom cases
+    # reported as Blocked and impossible to ever close. UT-SPEC-01 below now guards this.
+    for grp, n in (("NAV", 6), ("MOB", 5), ("HOME", 5), ("PAGE", 6), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3)):
         for i in range(1, n + 1):
             blocked(f"ST-{grp}-{i:02d}", st_msg)
     # access-gated PT
     blocked("PT-FORM-01", "Analyse anti-spam / rate-limit du relais Web3Forms : demande l'accès à ton tableau de bord Web3Forms. M'autorises-tu et me donnes-tu accès ?")
-    for i in range(2, 8):
+    for i in range(2, 5):
         blocked(f"PT-FORM-{i:02d}", "Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis).")
     blocked("PT-INPUT-01", "Balayage d'injections (SQL, script, CRLF / en-têtes, template {{7*7}}, contenu surdimensionné dont un POST direct, caractères de contrôle) sur chacun des 4 champs du formulaire : nécessite jusqu'à 5 envois réels marqués [TEST] via le relais Web3Forms (action externe) - ton accord explicite requis. Déjà vérifié côté page par UT-PAGE-20 : bornes maxlength, format e-mail imposé, champ obligatoire, honeypot caché, affichage en textContent uniquement (aucun innerHTML / eval / document.write), et le site est statique SANS base de données (aucune injection SQL possible sur le site lui-même). Reste à confirmer par ≤5 envois [TEST] que le message arrive inerte dans la boîte (même accord que IT-FORM-02/03).")
     blocked("PT-DNS-02", "Vérifier le verrouillage du domaine / DNSSEC chez le registrar : accès registrar requis. Peux-tu confirmer le registrar et l'état DNSSEC ?")
-    for i in range(1, 4):
+    for i in range(1, 3):
         blocked(f"PT-SUPPLY-{i:02d}", "Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?")
     blocked("PT-CLICK-01", "Test de clickjacking (mise en cadre du site) : à confirmer en navigateur ; GitHub Pages ne pose pas d'en-tête X-Frame-Options (voir PT-HDR-01).")
     blocked("PT-PRIV-01", "Vérification « zéro cookie / zéro traqueur » en conditions réelles : à confirmer en navigateur (onglet réseau). Le code ne contient aucun script tiers (UT-PAGE-15).")
@@ -979,7 +982,11 @@ SEV_FR = {"Critical": "Critique", "High": "Haut", "Major": "Majeur", "Medium": "
 def spec_case_ids():
     spec = read("_notes/TEST-SPECIFICATION-site-web.md")
     seen, out = set(), []
-    for m in re.finditer(r"^\|\s*((?:UT|IT|ST|PT)-[A-Z0-9]+-\d+)\s*\|\s*(.*?)\s*\|", spec, re.M):
+    # The id cell may carry a marker such as "(R)" for the regression subset, and the
+    # last segment is not always numeric (UT-AUX-BRAND...). Requiring "<id> |" silently
+    # dropped 12 spec cases on 20/09/2026 - and they were exactly the regression ones,
+    # the cases that matter most. Anchor on the row, then read to the next pipe.
+    for m in re.finditer(r"^\|\s*((?:UT|IT|ST|PT)-[A-Z0-9]+-[A-Z0-9]+)[^|]*\|\s*(.*?)\s*\|", spec, re.M):
         if m.group(1) not in seen:
             seen.add(m.group(1))
             out.append((m.group(1), m.group(2)))
@@ -1051,10 +1058,43 @@ def report():
     return counts
 
 
+def traceability():
+    """UT-SPEC-01 - the harness audits itself.
+
+    The report is built from the specification table, so a case the code computes
+    but the table does not list is silently dropped, and a case the table lists but
+    the code never computes is silently counted as 'Not executed'. Both happened on
+    20/09/2026: 13 phantom ids (ST-PAGE-07..15, PT-FORM-05..07, PT-SUPPLY-03) and
+    12 specification cases invisible because their id cell carried the '(R)' marker.
+    Nothing was failing, so nothing drew attention to it - which is the whole point
+    of this guard. Found by the test session; keep it green in both directions."""
+    listed = {cid for cid, _ in spec_case_ids()}
+    # UT-SPEC-01 itself is recorded after this comparison, so count it in or the guard
+    # reports itself as missing.
+    computed = {r["id"] for r in records} | {"UT-SPEC-01"}
+    orphans = sorted(computed - listed)
+    missing = sorted(listed - computed)
+    msg = []
+    if orphans:
+        msg.append("computed but absent from the specification: " + ", ".join(orphans[:10]))
+    if missing:
+        msg.append("in the specification but never computed: " + ", ".join(missing[:10]))
+    add("UT-SPEC-01", "Pass" if not msg else "Fail",
+        "traceability intact: %d cases, specification and harness agree in both directions" % len(listed)
+        if not msg else " | ".join(msg))
+    if msg:
+        defects["UT-SPEC-01"] = {"severity": "Major", "defect": " | ".join(msg), "location": "_notes/tests/site_audit.py <-> _notes/TEST-SPECIFICATION-site-web.md",
+                                 "defect_fr": "Ecart entre les tests executes et la specification : " + " | ".join(msg),
+                                 "ref_fr": "Documents internes de test (specification et harnais)",
+                                 "plain_fr": "Des controles tournent sans figurer dans la specification, ou l inverse. Rien n est casse sur le site, mais le tableau de resultats ne reflete plus exactement ce qui est reellement teste.",
+                                 "impact_fr": "Perte de tracabilite : un controle pourrait disparaitre sans que personne s en apercoive. A corriger dans la session Site Web."}
+
+
 if __name__ == "__main__":
     ut_page()
     ut_js()
     it_checks()
     prod_checks()
     blocked_manual()
+    traceability()
     report()

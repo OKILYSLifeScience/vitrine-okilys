@@ -1,5 +1,5 @@
 {
- "date": "2026-09-20T22:00:26.485628",
+ "date": "2026-09-20T22:08:37.741346",
  "version": "20260919a",
  "records": [
   {
@@ -450,7 +450,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.110.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
@@ -623,51 +623,6 @@
    "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
   },
   {
-   "id": "ST-PAGE-07",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-08",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-09",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-10",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-11",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-12",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-13",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-14",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
-   "id": "ST-PAGE-15",
-   "status": "Blocked",
-   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
-  },
-  {
    "id": "ST-CONTACT-01",
    "status": "Blocked",
    "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
@@ -773,21 +728,6 @@
    "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
   },
   {
-   "id": "PT-FORM-05",
-   "status": "Blocked",
-   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
-  },
-  {
-   "id": "PT-FORM-06",
-   "status": "Blocked",
-   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
-  },
-  {
-   "id": "PT-FORM-07",
-   "status": "Blocked",
-   "message": "BLOCKED: Tests du formulaire de contact au-delà du balisage : nécessitent des envois réels et/ou l'accès au tableau de bord Web3Forms (ton accord requis)."
-  },
-  {
    "id": "PT-INPUT-01",
    "status": "Blocked",
    "message": "BLOCKED: Balayage d'injections (SQL, script, CRLF / en-têtes, template {{7*7}}, contenu surdimensionné dont un POST direct, caractères de contrôle) sur chacun des 4 champs du formulaire : nécessite jusqu'à 5 envois réels marqués [TEST] via le relais Web3Forms (action externe) - ton accord explicite requis. Déjà vérifié côté page par UT-PAGE-20 : bornes maxlength, format e-mail imposé, champ obligatoire, honeypot caché, affichage en textContent uniquement (aucun innerHTML / eval / document.write), et le site est statique SANS base de données (aucune injection SQL possible sur le site lui-même)."
@@ -808,11 +748,6 @@
    "message": "BLOCKED: Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?"
   },
   {
-   "id": "PT-SUPPLY-03",
-   "status": "Blocked",
-   "message": "BLOCKED: Scan de secrets et d'historique du dépôt public (gitleaks/trufflehog) + revue des Actions/dépendances : nécessite l'accès au dépôt GitHub OKILYSLifeScience/vitrine-okilys. M'autorises-tu à le cloner pour l'analyser ?"
-  },
-  {
    "id": "PT-CLICK-01",
    "status": "Blocked",
    "message": "BLOCKED: Test de clickjacking (mise en cadre du site) : à confirmer en navigateur ; GitHub Pages ne pose pas d'en-tête X-Frame-Options (voir PT-HDR-01)."
@@ -821,6 +756,11 @@
    "id": "PT-PRIV-01",
    "status": "Blocked",
    "message": "BLOCKED: Vérification « zéro cookie / zéro traqueur » en conditions réelles : à confirmer en navigateur (onglet réseau). Le code ne contient aucun script tiers (UT-PAGE-15)."
+  },
+  {
+   "id": "UT-SPEC-01",
+   "status": "Pass",
+   "message": "traceability intact: 151 cases, specification and harness agree in both directions"
   }
  ],
  "defects": {
@@ -836,17 +776,18 @@
  },
  "counts": {
   "UT": {
-   "Pass": 36
+   "Pass": 43,
+   "Blocked": 1
   },
   "IT": {
    "Pass": 35,
    "Blocked": 2
   },
   "ST": {
-   "Blocked": 27
+   "Blocked": 39
   },
   "PT": {
-   "Pass": 18,
+   "Pass": 19,
    "Blocked": 11,
    "Fail": 1
   }
