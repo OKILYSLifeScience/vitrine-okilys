@@ -1,178 +1,237 @@
 {
-  "_comment": "Browser/system tests executed by the Site Web session. Contact-form real-send tests were executed on 19/09/2026 on production with Lydie PARSUS's explicit in-chat authorisation (3 sends maximum, all marked [TEST]).",
-  "_evidence": "executed 19/09/2026 by the Site Web session (browser, no send)",
-  "results": {
-    "ST-HOME-01": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): home end-to-end - no defect."
-    },
-    "ST-HOME-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): home - no defect."
-    },
-    "ST-HOME-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): home - no defect."
-    },
-    "ST-HOME-05": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): home - no defect."
-    },
-    "ST-NAV-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): scrollspy highlights Produits/Expertises/Secteurs, never Contact - as expected."
-    },
-    "ST-MOB-01": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser 375px): burger menu OK."
-    },
-    "ST-MOB-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser 375px): no horizontal overflow, text 16px."
-    },
-    "ST-MOB-05": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser mobile): OK."
-    },
-    "ST-A11Y-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): accessibility check - no defect."
-    },
-    "ST-A11Y-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): accessibility check - no defect."
-    },
-    "ST-A11Y-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): accessibility check - no defect."
-    },
-    "ST-A11Y-05": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): accessibility check - no defect."
-    },
-    "ST-SEO-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): SEO check - no defect."
-    },
-    "ST-SEO-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): SEO check - no defect."
-    },
-    "ST-SEO-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): SEO check - no defect."
-    },
-    "ST-SEO-05": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): SEO check - no defect."
-    },
-    "PT-PRIV-01": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): 0 cookie, 0 storage, 0 third-party request."
-    },
-    "PT-SUPPLY-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): 0 external script."
-    },
-    "PT-CLICK-01": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): CSP meta in place; frame-ancestors not settable via meta on GitHub Pages = documented limitation."
-    },
-    "ST-PAGE-01": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser, commit 895ce39): 5 product pages have h1, banner, regulatory frames Monde/UE/France/Belgique; INM keeps its honest wording."
-    },
-    "ST-PAGE-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): 7 step pages have h1 + 'Ce que nous faisons'; prev/next chain correct."
-    },
-    "ST-PAGE-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): #fondatrice/#references present, 13 logos all new-tab+noopener, no 'nos clients' label, 'Lydie PARSUS' uppercase everywhere. (Spec says 11 logos, actual 13 - spec to adjust, not a defect.)"
-    },
-    "ST-PAGE-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): 3 news articles with anchors; the 3 home slider links point to existing anchors."
-    },
-    "ST-PAGE-06": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): legal notice cites GitHub Pages/Web3Forms/no cookies, 404 bilingual noindex. A real defect was found and fixed (895ce39): the 404 menu suite/ctms/etmf entries were relative paths - now 41 links, 0 relative."
-    },
-    "ST-NAV-05": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): /contact.html redirects to /index.html#contact; Back returns to /index.html not the stub; no loop; 10 stubs meta-refresh 0s noindex."
-    },
-    "ST-CONTACT-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): offline (fetch rejected) shows 'L'envoi a echoue (connexion)', text kept, button re-enabled."
-    },
-    "ST-CONTACT-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): 2 mailto links rebuilt at render, address absent from raw source. No tel: link exists (no phone published) - spec's tel: part is moot."
-    },
-    "ST-MOB-03": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser, real TouchEvent): swipe left=next, right=previous, <40px ignored; 'Lire l'actualite' 54px, href OK."
-    },
-    "ST-MOB-04": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser 375px): fields 47px, button 51px, no overflow; email field type=email + inputmode=email; autocomplete set. tel: part moot (no phone)."
-    },
-    "ST-PERF-02": {
-      "status": "Pass",
-      "message": "Executed 19/09 (browser): preload on manrope-400 + Agne, font-display:swap (no invisible text), 6 fonts loaded."
-    },
-    "PT-TLS-02": {
-      "status": "Pass",
-      "message": "Checked on production (curl -I, read-only): no Strict-Transport-Security header. Spec allows this as a documented GitHub Pages limitation with accepted risk -> Pass with limitation."
-    },
-    "IT-FORM-02": {
-      "status": "Pass",
-      "message": "Envoi 1/3 reel depuis https://www.okilys.com : POST vers api.web3forms.com, HTTP 200, success=true, message de confirmation affiche, champs vides, bouton reactive. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "IT-FORM-03": {
-      "status": "Pass",
-      "message": "Envoi 1/3 : le relais accepte et confirme (success=true). Chaine page -> Web3Forms -> boite OKILYS fonctionnelle. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "ST-CONTACT-01": {
-      "status": "Pass",
-      "message": "Envoi 1/3 depuis le site FR en ligne, marque [TEST] : confirmation affichee a l'ecran. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "PT-FORM-02": {
-      "status": "Pass",
-      "message": "Aucun depassement de quota rencontre sur 3 envois (HTTP 200 a chaque fois) ; le message de repli avec l'adresse e-mail reste affiche en cas d'echec (verifie separement hors connexion, ST-CONTACT-03). envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "PT-INPUT-01": {
-      "status": "Pass",
-      "message": "Envoi 2/3 avec charges hostiles sur les 4 champs (SQL ' OR 1=1-- et DROP TABLE, <script>, <img onerror>, template {{7*7}} ${7*7} <%= %>, CRLF Bcc:, caracteres de controle NUL et ESC, depassement volontaire de maxlength a 593 caracteres). Resultat : HTTP 200, tout transmis en TEXTE INERTE, aucune evaluation du template ({{7*7}} reste litteral), page intacte (aucun script ni image injectes, URL inchangee). INJECTION D'EN-TETE NEUTRALISEE : le CRLF du champ nom a ete supprime, 'Bcc: evil@example.com' est arrive concatene en simple texte. Rappel : site statique sans base de donnees, aucune cible SQL. Reste a confirmer visuellement par Lydie que les 2 messages s'affichent en texte inoffensif dans sa boite. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "PT-XSS-03": {
-      "status": "Pass",
-      "message": "Envoi 2/3 : charges <script> et <img onerror> transmises comme texte, aucune execution cote page. Rendu dans la boite a confirmer visuellement par Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "PT-FORM-01": {
-      "defect": {
-        "severity": "Minor",
-        "ref_fr": "Formulaire de contact du site (relais Web3Forms) - pages accueil / contact",
-        "plain_fr": "La cle publique du formulaire n'est pas limitee a okilys.com : quelqu'un qui la recupere (elle est lisible par le navigateur) peut envoyer des messages dans la boite de contact OKILYS depuis n'importe quel autre site. Aucune donnee du site n'est exposee et rien n'est pirate ; le seul risque est de recevoir du courrier indesirable (spam) dans la boite de contact.",
-        "impact_fr": "Reception possible de spam dans la boite de contact OKILYS. Aucune fuite ni exposition de donnees.",
-        "defect_fr": "Restriction de domaine (« Allowed domains ») non activee sur la cle publique Web3Forms : une requete POST emise depuis une origine tierce (testee depuis http://localhost:8090) est acceptee (HTTP 200, message delivre). L'obfuscation de la cle ralentit les robots simples mais ne protege pas de l'execution du JavaScript de la page.",
-        "location": "Tableau de bord Web3Forms > reglage « Allowed domains » (compte OKILYS) - action de Lydie"
-      },
-      "status": "Fail",
-      "message": "DEFAUT CONFIRME. Envoi 3/3 : requete POST emise depuis l'origine http://localhost:8090 (donc PAS okilys.com) avec la cle publique -> ACCEPTEE, HTTP 200, success=true, message delivre. La restriction de domaine n'est donc PAS activee dans le tableau de bord Web3Forms : la cle, une fois recuperee, permet d'injecter des messages dans la boite OKILYS depuis n'importe quel site. L'obfuscation de la cle (data-key inverse) eleve la barriere pour les robots simples mais ne protege pas d'un acteur qui execute le JavaScript de la page. Correction = reglage cote Web3Forms (restreindre le domaine a okilys.com), action de Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
-    },
-    "ST-CONTACT-02": {
-      "status": "Pass",
-      "message": "ATTENTION - couverture par equivalence, PAS un envoi reel en anglais. Verifie sur la production le 19/09 avec fetch intercepte : la page /en/index.html construit une requete COMPLETE et correcte (POST https://api.web3forms.com/submit, cle injectee 36 caracteres, subject 'New message from okilys.com', from_name 'OKILYS website', champs nom/email/message corrects) et affiche les messages en anglais. La livraison elle-meme n'est pas rejouee en anglais : elle est deja prouvee par l'envoi 1/3 en francais, qui utilise le MEME point d'entree, la MEME cle et le MEME code JavaScript (les deux pages ne different que par les chaines de texte, deja couvertes par UT-JS-12). Le 3e et dernier envoi autorise a ete consacre a PT-FORM-01, nettement plus instructif. A rejouer en envoi reel si Lydie souhaite la preuve de livraison en anglais."
-    },
-    "PT-FORM-04": {
-      "status": "Pass",
-      "message": "Verifie sur la PRODUCTION le 19/09, SANS aucun envoi (fetch intercepte et bloque). (a) honeypot botcheck coche -> AUCUNE requete emise, faux succes affiche, champs vides. (b) piege temporel teste proprement dans un iframe meme-origine pour rester dans la fenetre des 4 s : soumission 43 ms apres l'affichage -> AUCUNE requete, faux succes ; la meme soumission 4,2 s plus tard -> requete emise vers api.web3forms.com. Les deux sens sont donc prouves. (c) envoi legitime reel deja prouve par l'envoi 1/3 (HTTP 200). (d) cle absente du source brut (FR et EN), champ access_key vide dans le HTML servi, adresse e-mail absente du source."
-    },
-    "PT-FORM-03": {
-      "status": "Pass",
-      "message": "Chemin des messages decrit dans les mentions legales, verifie le 19/09 : Web3Forms nomme, qualite de sous-traitant/hebergeur indiquee, duree de conservation mentionnee, base legale enoncee, droits RGPD rappeles. Reserve : la duree de conservation reelle cote Web3Forms reste a confronter a leur politique (compte de Lydie) - suivi dans sa liste de decisions."
-    }
+ "_comment": "Browser/system tests executed by the Site Web session. Contact-form real-send tests were executed on 19/09/2026 on production with Lydie PARSUS's explicit in-chat authorisation (3 sends maximum, all marked [TEST]). UT-JS-17 added on 20/09/2026: the automated harness cannot drive a browser, so this session exercised the runtime JavaScript behaviours itself (carousel timer, arrows, dots, touch swipe, scrollspy) and records the result here.",
+ "_evidence": "executed 19/09/2026 by the Site Web session (browser, no send)",
+ "results": {
+  "ST-HOME-01": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): home end-to-end - no defect."
+  },
+  "ST-HOME-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): home - no defect."
+  },
+  "ST-HOME-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): home - no defect."
+  },
+  "ST-HOME-05": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): home - no defect."
+  },
+  "ST-NAV-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): scrollspy highlights Produits/Expertises/Secteurs, never Contact - as expected."
+  },
+  "ST-MOB-01": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser 375px): burger menu OK."
+  },
+  "ST-MOB-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser 375px): no horizontal overflow, text 16px."
+  },
+  "ST-MOB-05": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser mobile): OK."
+  },
+  "ST-A11Y-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): accessibility check - no defect."
+  },
+  "ST-A11Y-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): accessibility check - no defect."
+  },
+  "ST-A11Y-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): accessibility check - no defect."
+  },
+  "ST-A11Y-05": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): accessibility check - no defect."
+  },
+  "ST-SEO-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): SEO check - no defect."
+  },
+  "ST-SEO-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): SEO check - no defect."
+  },
+  "ST-SEO-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): SEO check - no defect."
+  },
+  "ST-SEO-05": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): SEO check - no defect."
+  },
+  "PT-PRIV-01": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): 0 cookie, 0 storage, 0 third-party request."
+  },
+  "PT-SUPPLY-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): 0 external script."
+  },
+  "PT-CLICK-01": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): CSP meta in place; frame-ancestors not settable via meta on GitHub Pages = documented limitation."
+  },
+  "ST-PAGE-01": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser, commit 895ce39): 5 product pages have h1, banner, regulatory frames Monde/UE/France/Belgique; INM keeps its honest wording."
+  },
+  "ST-PAGE-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): 7 step pages have h1 + 'Ce que nous faisons'; prev/next chain correct."
+  },
+  "ST-PAGE-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): #fondatrice/#references present, 13 logos all new-tab+noopener, no 'nos clients' label, 'Lydie PARSUS' uppercase everywhere. (Spec says 11 logos, actual 13 - spec to adjust, not a defect.)"
+  },
+  "ST-PAGE-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): 3 news articles with anchors; the 3 home slider links point to existing anchors."
+  },
+  "ST-PAGE-06": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): legal notice cites GitHub Pages/Web3Forms/no cookies, 404 bilingual noindex. A real defect was found and fixed (895ce39): the 404 menu suite/ctms/etmf entries were relative paths - now 41 links, 0 relative."
+  },
+  "ST-NAV-05": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): /contact.html redirects to /index.html#contact; Back returns to /index.html not the stub; no loop; 10 stubs meta-refresh 0s noindex."
+  },
+  "ST-CONTACT-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): offline (fetch rejected) shows 'L'envoi a echoue (connexion)', text kept, button re-enabled."
+  },
+  "ST-CONTACT-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): 2 mailto links rebuilt at render, address absent from raw source. No tel: link exists (no phone published) - spec's tel: part is moot."
+  },
+  "ST-MOB-03": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser, real TouchEvent): swipe left=next, right=previous, <40px ignored; 'Lire l'actualite' 54px, href OK."
+  },
+  "ST-MOB-04": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser 375px): fields 47px, button 51px, no overflow; email field type=email + inputmode=email; autocomplete set. tel: part moot (no phone)."
+  },
+  "ST-PERF-02": {
+   "status": "Pass",
+   "message": "Executed 19/09 (browser): preload on manrope-400 + Agne, font-display:swap (no invisible text), 6 fonts loaded."
+  },
+  "PT-TLS-02": {
+   "status": "Pass",
+   "message": "Checked on production (curl -I, read-only): no Strict-Transport-Security header. Spec allows this as a documented GitHub Pages limitation with accepted risk -> Pass with limitation."
+  },
+  "IT-FORM-02": {
+   "status": "Pass",
+   "message": "Envoi 1/3 reel depuis https://www.okilys.com : POST vers api.web3forms.com, HTTP 200, success=true, message de confirmation affiche, champs vides, bouton reactive. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "IT-FORM-03": {
+   "status": "Pass",
+   "message": "Envoi 1/3 : le relais accepte et confirme (success=true). Chaine page -> Web3Forms -> boite OKILYS fonctionnelle. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "ST-CONTACT-01": {
+   "status": "Pass",
+   "message": "Envoi 1/3 depuis le site FR en ligne, marque [TEST] : confirmation affichee a l'ecran. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "PT-FORM-02": {
+   "status": "Pass",
+   "message": "Aucun depassement de quota rencontre sur 3 envois (HTTP 200 a chaque fois) ; le message de repli avec l'adresse e-mail reste affiche en cas d'echec (verifie separement hors connexion, ST-CONTACT-03). envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "PT-INPUT-01": {
+   "status": "Pass",
+   "message": "Envoi 2/3 avec charges hostiles sur les 4 champs (SQL ' OR 1=1-- et DROP TABLE, <script>, <img onerror>, template {{7*7}} ${7*7} <%= %>, CRLF Bcc:, caracteres de controle NUL et ESC, depassement volontaire de maxlength a 593 caracteres). Resultat : HTTP 200, tout transmis en TEXTE INERTE, aucune evaluation du template ({{7*7}} reste litteral), page intacte (aucun script ni image injectes, URL inchangee). INJECTION D'EN-TETE NEUTRALISEE : le CRLF du champ nom a ete supprime, 'Bcc: evil@example.com' est arrive concatene en simple texte. Rappel : site statique sans base de donnees, aucune cible SQL. Reste a confirmer visuellement par Lydie que les 2 messages s'affichent en texte inoffensif dans sa boite. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "PT-XSS-03": {
+   "status": "Pass",
+   "message": "Envoi 2/3 : charges <script> et <img onerror> transmises comme texte, aucune execution cote page. Rendu dans la boite a confirmer visuellement par Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "PT-FORM-01": {
+   "defect": {
+    "severity": "Minor",
+    "ref_fr": "Formulaire de contact du site (relais Web3Forms) - pages accueil / contact",
+    "plain_fr": "La cle publique du formulaire n'est pas limitee a okilys.com : quelqu'un qui la recupere (elle est lisible par le navigateur) peut envoyer des messages dans la boite de contact OKILYS depuis n'importe quel autre site. Aucune donnee du site n'est exposee et rien n'est pirate ; le seul risque est de recevoir du courrier indesirable (spam) dans la boite de contact.",
+    "impact_fr": "Reception possible de spam dans la boite de contact OKILYS. Aucune fuite ni exposition de donnees.",
+    "defect_fr": "Restriction de domaine (« Allowed domains ») non activee sur la cle publique Web3Forms : une requete POST emise depuis une origine tierce (testee depuis http://localhost:8090) est acceptee (HTTP 200, message delivre). L'obfuscation de la cle ralentit les robots simples mais ne protege pas de l'execution du JavaScript de la page.",
+    "location": "Tableau de bord Web3Forms > reglage « Allowed domains » (compte OKILYS) - action de Lydie"
+   },
+   "status": "Fail",
+   "message": "DEFAUT CONFIRME. Envoi 3/3 : requete POST emise depuis l'origine http://localhost:8090 (donc PAS okilys.com) avec la cle publique -> ACCEPTEE, HTTP 200, success=true, message delivre. La restriction de domaine n'est donc PAS activee dans le tableau de bord Web3Forms : la cle, une fois recuperee, permet d'injecter des messages dans la boite OKILYS depuis n'importe quel site. L'obfuscation de la cle (data-key inverse) eleve la barriere pour les robots simples mais ne protege pas d'un acteur qui execute le JavaScript de la page. Correction = reglage cote Web3Forms (restreindre le domaine a okilys.com), action de Lydie. envois reels [TEST] du 19/09/2026 sur la production, autorises explicitement par Lydie PARSUS en chat (3 envois maximum)"
+  },
+  "ST-CONTACT-02": {
+   "status": "Pass",
+   "message": "ATTENTION - couverture par equivalence, PAS un envoi reel en anglais. Verifie sur la production le 19/09 avec fetch intercepte : la page /en/index.html construit une requete COMPLETE et correcte (POST https://api.web3forms.com/submit, cle injectee 36 caracteres, subject 'New message from okilys.com', from_name 'OKILYS website', champs nom/email/message corrects) et affiche les messages en anglais. La livraison elle-meme n'est pas rejouee en anglais : elle est deja prouvee par l'envoi 1/3 en francais, qui utilise le MEME point d'entree, la MEME cle et le MEME code JavaScript (les deux pages ne different que par les chaines de texte, deja couvertes par UT-JS-12). Le 3e et dernier envoi autorise a ete consacre a PT-FORM-01, nettement plus instructif. A rejouer en envoi reel si Lydie souhaite la preuve de livraison en anglais."
+  },
+  "PT-FORM-04": {
+   "status": "Pass",
+   "message": "Verifie sur la PRODUCTION le 19/09, SANS aucun envoi (fetch intercepte et bloque). (a) honeypot botcheck coche -> AUCUNE requete emise, faux succes affiche, champs vides. (b) piege temporel teste proprement dans un iframe meme-origine pour rester dans la fenetre des 4 s : soumission 43 ms apres l'affichage -> AUCUNE requete, faux succes ; la meme soumission 4,2 s plus tard -> requete emise vers api.web3forms.com. Les deux sens sont donc prouves. (c) envoi legitime reel deja prouve par l'envoi 1/3 (HTTP 200). (d) cle absente du source brut (FR et EN), champ access_key vide dans le HTML servi, adresse e-mail absente du source."
+  },
+  "PT-FORM-03": {
+   "status": "Pass",
+   "message": "Chemin des messages decrit dans les mentions legales, verifie le 19/09 : Web3Forms nomme, qualite de sous-traitant/hebergeur indiquee, duree de conservation mentionnee, base legale enoncee, droits RGPD rappeles. Reserve : la duree de conservation reelle cote Web3Forms reste a confronter a leur politique (compte de Lydie) - suivi dans sa liste de decisions."
+  },
+  "ST-NAV-01": {
+   "id": "ST-NAV-01",
+   "status": "Pass",
+   "message": "Full main navigation present and correct (Accueil, Produits de sante, Expertises, Secteurs, Realisations, Actualites, A propos, OKILYS Suite, Contact). (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-NAV-02": {
+   "id": "ST-NAV-02",
+   "status": "Pass",
+   "message": "The three drop-downs (Produits de sante, Expertises, OKILYS Suite) are present with all their clickable entries and the parent links navigate. Note: menu structure + entries verified on production; the hover/keyboard open-close dynamic (Tab/Enter/Escape) was not exercised headless. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-NAV-04": {
+   "id": "ST-NAV-04",
+   "status": "Pass",
+   "message": "Language switch works: the EN mirror (/en/) carries a 'FR' link back to ../index.html; both mirrors render with the right lang. Scroll-position-on-anchor nuance not measured. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-NAV-06": {
+   "id": "ST-NAV-06",
+   "status": "Pass",
+   "message": "Footer navigation complete (9 links: About, Health products, Expertise, Sectors, Insights, Contact, e-mail, LinkedIn, Legal notice). (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-HOME-02": {
+   "id": "ST-HOME-02",
+   "status": "Pass",
+   "message": "Home sections render (hero, values HOME, About, Actualites with the 3 'coming soon' cards). (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-PAGE-05": {
+   "id": "ST-PAGE-05",
+   "status": "Pass",
+   "message": "Step page (site-selection) renders: title, single h1, meta description, prev/next chain, all images with alt. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-A11Y-01": {
+   "id": "ST-A11Y-01",
+   "status": "Pass",
+   "message": "Accessibility basics on production: html lang set (fr / en), exactly one h1 per page, 0 image without alt. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-SEO-01": {
+   "id": "ST-SEO-01",
+   "status": "Pass",
+   "message": "SEO basics present on production FR and EN: descriptive <title> and meta description on home and step pages. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "ST-PERF-01": {
+   "id": "ST-PERF-01",
+   "status": "Pass",
+   "message": "Home loads and renders with 0 console error; no JS runtime error. Precise performance metrics (Lighthouse) not measured headless. (verified on production okilys.com 20/09/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 20/09/2026 production browser campaign (test session)"
+  },
+  "UT-JS-17": {
+   "status": "Pass",
+   "message": "Joue au navigateur le 20/09/2026 par la session Site Web, serveur local, FR (index.html) et EN (en/index.html). Diaporama : fleche suivante et fleche precedente changent bien de slide ; les 3 pastilles positionnent directement (clic sur la 3e -> index 2, classe is-active portee par la bonne pastille) ; defilement automatique observe sans aucune interaction (avance mesuree apres 5,3 s d'une periode annoncee a 6,5 s, mesure demarree en cours de cycle). Glissement tactile : evenements touchstart/touchmove/touchend synthetiques sur le viewport - glissement vers la gauche avance, glissement vers la droite recule. Scrollspy : 3/3 en francais (#produits-de-sante, #expertises, #secteurs) et 3/3 en anglais (#health-products, #expertise, #sectors) ; aucune entree surlignee en haut de page, ce qui est le comportement attendu. Console vide dans les deux langues. Attribution honnete : verifie par la session Site Web elle-meme, pas par un testeur independant, et sur le serveur local et non sur la production.",
+   "evidence": "browser run 20/09/2026, local server :8090, FR + EN"
   }
+ }
 }
