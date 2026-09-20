@@ -1,5 +1,5 @@
 {
- "date": "2026-09-20T09:54:27.363547",
+ "date": "2026-09-20T20:26:55.950260",
  "version": "20260919a",
  "records": [
   {
@@ -439,8 +439,8 @@
   },
   {
    "id": "PT-DNS-01",
-   "status": "Fail",
-   "message": "no DMARC record on okilys.com"
+   "status": "Pass",
+   "message": "DMARC record present"
   },
   {
    "id": "PT-DNS-03",
@@ -808,17 +808,7 @@
    "message": "BLOCKED: Vérification « zéro cookie / zéro traqueur » en conditions réelles : à confirmer en navigateur (onglet réseau). Le code ne contient aucun script tiers (UT-PAGE-15)."
   }
  ],
- "defects": {
-  "PT-DNS-01": {
-   "severity": "Minor",
-   "defect": "No DMARC record on okilys.com (SPF may exist; DMARC absent).",
-   "location": "DNS zone okilys.com (_dmarc TXT)",
-   "defect_fr": "Pas d'enregistrement DMARC sur okilys.com (le SPF peut exister, le DMARC est absent).",
-   "ref_fr": "Zone DNS du domaine okilys.com (protection e-mail)",
-   "plain_fr": "Le domaine n'a pas de règle DMARC : un tiers pourrait plus facilement usurper une adresse @okilys.com dans des e-mails.",
-   "impact_fr": "Risque d'usurpation d'e-mail (phishing au nom d'OKILYS) et délivrabilité amoindrie. À ajouter chez le registrar."
-  }
- },
+ "defects": {},
  "counts": {
   "UT": {
    "Pass": 35
@@ -831,9 +821,8 @@
    "Blocked": 27
   },
   "PT": {
-   "Pass": 14,
-   "Blocked": 11,
-   "Fail": 1
+   "Pass": 15,
+   "Blocked": 11
   }
  }
 }
