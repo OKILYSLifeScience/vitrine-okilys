@@ -802,18 +802,88 @@ def prod_checks():
             return out
         except Exception as e:  # noqa: BLE001
             return f"error {e}"
+    def doh(name, typ):
+        """DNS over HTTPS (dns.google). Windows nslookup cannot query CAA or DS
+        ('unknown query type'), so those checks could never pass through it.
+        Returns a list of record strings, or None when the lookup itself failed
+        (offline / blocked) so the caller can report Blocked rather than Fail."""
+        try:
+            import urllib.request
+            req = urllib.request.Request(
+                "https://dns.google/resolve?name=%s&type=%s" % (name, typ),
+                headers={"accept": "application/dns-json"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return json.load(r)
+        except Exception:  # noqa: BLE001
+            return None
+
+    def doh_data(name, typ):
+        d = doh(name, typ)
+        return None if d is None else [a.get("data", "") for a in d.get("Answer", [])]
+
     txt = nslookup("okilys.com", "TXT")
     spf = "v=spf1" in txt
     dmarc = "v=DMARC1" in nslookup("_dmarc.okilys.com", "TXT")
-    caa = "issue" in nslookup("okilys.com", "CAA").lower()
-    add("PT-DNS-01", "Pass" if dmarc else "Fail", "DMARC record present" if dmarc else "no DMARC record on okilys.com")
+    caa_ans = doh_data("okilys.com", "CAA")
+    caa = bool(caa_ans) and any("issue" in a.lower() for a in caa_ans)
+    dkim_ans = doh_data("selector1._domainkey.okilys.com", "TXT")
+    dkim = bool(dkim_ans) and any("v=DKIM1" in a for a in dkim_ans)
+    ds_ans = doh_data("okilys.com", "DS")
+    add("PT-DNS-01", "Pass" if (dmarc and dkim) else "Fail",
+        "DMARC published and DKIM public key resolving" if (dmarc and dkim)
+        else ("DMARC present but DKIM key does not resolve" if dmarc else "no DMARC record on okilys.com"))
+    if dmarc and not dkim:
+        defects["PT-DNS-01"] = {"severity": "Minor", "defect": "DMARC published but the DKIM public key does not resolve.", "location": "DNS zone okilys.com (selector1._domainkey CNAME)",
+                                "defect_fr": "Le DMARC est publie mais la cle DKIM ne repond pas.", "ref_fr": "Zone DNS du domaine okilys.com (signature des e-mails)",
+                                "plain_fr": "La signature electronique de tes e-mails ne repond plus : le DMARC s'appuie alors sur le seul SPF, qui ne resiste pas a la reexpedition d'un message.", "impact_fr": "Tes e-mails legitimes reexpedies par un destinataire risquent d'etre traites comme suspects. A verifier chez Microsoft 365 et chez Gandi."}
     if not dmarc:
         defects["PT-DNS-01"] = {"severity": "Minor", "defect": "No DMARC record on okilys.com (SPF may exist; DMARC absent).", "location": "DNS zone okilys.com (_dmarc TXT)",
                                 "defect_fr": "Pas d'enregistrement DMARC sur okilys.com (le SPF peut exister, le DMARC est absent).", "ref_fr": "Zone DNS du domaine okilys.com (protection e-mail)",
                                 "plain_fr": "Le domaine n'a pas de règle DMARC : un tiers pourrait plus facilement usurper une adresse @okilys.com dans des e-mails.", "impact_fr": "Risque d'usurpation d'e-mail (phishing au nom d'OKILYS) et délivrabilité amoindrie. À ajouter chez le registrar."}
-    add("PT-DNS-03", "Pass" if spf else "Fail", "SPF record present" if spf else "no SPF record")
-    add("PT-DNS-04", "Pass" if caa else "Blocked", "CAA record present" if caa else "BLOCKED: no CAA record found (optional; confirm with the registrar)")
+    # PT-DNS-03 sub-domain takeover. Until 20/09/2026 this id carried the SPF check,
+    # so takeover was never actually tested. The sub-domain list is explicit and must
+    # be kept in step with reality: `freelance` was found on 20/09 via the CTMS session.
+    # A CNAME whose target no longer resolves is the takeover signature.
+    sub_ok, sub_bad = [], []
+    for sub in ("www", "ctms", "freelance", "etmf"):
+        fqdn = sub + ".okilys.com"
+        d = doh(fqdn, "A")
+        if d is None:
+            sub_ok.append(sub + ": lookup unavailable")
+            continue
+        ans = [a.get("data", "") for a in d.get("Answer", [])]
+        ips = [a for a in ans if re.match(r"^\d+\.\d+\.\d+\.\d+$", a)]
+        cnames = [a for a in ans if a not in ips]
+        if d.get("Status") == 3 or not ans:
+            sub_ok.append(sub + ": absent (nothing to hijack)")
+        elif cnames and not ips:
+            sub_bad.append(sub + " -> CNAME " + cnames[-1] + " does not resolve (dangling)")
+        else:
+            sub_ok.append(sub + " -> " + (ips[-1] if ips else "?"))
+    add("PT-DNS-03", "Fail" if sub_bad else "Pass",
+        "; ".join(sub_bad) if sub_bad else "no dangling sub-domain: " + "; ".join(sub_ok))
+    if sub_bad:
+        defects["PT-DNS-03"] = {"severity": "Major", "defect": "Dangling sub-domain CNAME: " + "; ".join(sub_bad), "location": "DNS zone okilys.com",
+                                "defect_fr": "Sous-domaine abandonne pointant dans le vide : " + "; ".join(sub_bad), "ref_fr": "Zone DNS du domaine okilys.com (sous-domaines)",
+                                "plain_fr": "Un sous-domaine d'okilys.com pointe vers un service qui n'existe plus : un tiers peut reserver ce service et publier ce qu'il veut sous ton nom de domaine.", "impact_fr": "Usurpation possible du nom OKILYS sur une adresse en okilys.com. A corriger chez Gandi en supprimant l'enregistrement."}
+    add("PT-DNS-07", "Pass" if spf else "Fail", "SPF record present" if spf else "no SPF record")
+    if caa_ans is None:
+        add("PT-DNS-04", "Blocked", "BLOCKED: CAA lookup unavailable (no network or DoH blocked)")
+    else:
+        add("PT-DNS-04", "Pass" if caa else "Fail", "CAA record present: " + "; ".join(caa_ans) if caa else "no CAA record on okilys.com")
+        if not caa:
+            defects["PT-DNS-04"] = {"severity": "Minor", "defect": "No CAA record on okilys.com.", "location": "DNS zone okilys.com (CAA at apex)",
+                                    "defect_fr": "Pas d'enregistrement CAA sur okilys.com.", "ref_fr": "Zone DNS du domaine okilys.com (certificats de securite)",
+                                    "plain_fr": "Rien n'indique publiquement quelle autorite a le droit de delivrer un certificat pour okilys.com : une autre autorite pourrait en emettre un au nom du domaine.", "impact_fr": "Risque faible mais reel d'usurpation du site par un certificat emis ailleurs. Correction : ajouter 0 issue letsencrypt.org chez Gandi (compatible ctms et freelance, verifie le 20/09)."}
     add("PT-DNS-05", "Pass", "apex + www resolve to GitHub Pages (checked via IT-HOST-01)")
+    if ds_ans is None:
+        add("PT-DNS-06", "Blocked", "BLOCKED: DS lookup unavailable (no network or DoH blocked)")
+    else:
+        add("PT-DNS-06", "Pass" if ds_ans else "Fail", "DNSSEC active (DS at the .com registry)" if ds_ans else "no DS record at the registry: DNSSEC is NOT active (contrary to the 19/09 note)")
+        if not ds_ans:
+            defects["PT-DNS-06"] = {"severity": "Minor", "defect": "DNSSEC is not active: no DS record at the .com registry and no DNSKEY in the zone.", "location": "DNS zone okilys.com / Gandi registry",
+                                    "defect_fr": "DNSSEC n'est pas actif : aucun enregistrement DS au registre .com, aucune cle dans la zone.", "ref_fr": "Zone DNS du domaine okilys.com (signature de la zone)",
+                                    "plain_fr": "La note du 19/09 indiquait DNSSEC actif : c'est inexact, verifie le 20/09. Sans DNSSEC, les reponses DNS du domaine ne sont pas signees et peuvent theoriquement etre falsifiees par un intermediaire reseau.", "impact_fr": "Risque faible (necessite un attaquant deja place sur le reseau). Activation en un clic chez Gandi, mais a ne pas faire seule : une mauvaise manipulation rend le domaine injoignable. A decider avec Lydie."}
     # PT-XSS (static: no reflected inputs on a static site; form fields are client-side only)
     add("PT-XSS-01", "Pass", "static site: no server-side reflection; form fields are relayed by Web3Forms, escaped server-side")
     add("PT-XSS-02", "Pass", "no inline event handlers / no eval in script.js (structural)" if "eval(" not in SCRIPT else "Fail")

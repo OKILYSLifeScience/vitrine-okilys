@@ -1,5 +1,5 @@
 {
- "date": "2026-09-20T20:26:55.950260",
+ "date": "2026-09-20T21:36:27.114539",
  "version": "20260919a",
  "records": [
   {
@@ -440,22 +440,32 @@
   {
    "id": "PT-DNS-01",
    "status": "Pass",
-   "message": "DMARC record present"
+   "message": "DMARC published and DKIM public key resolving"
   },
   {
    "id": "PT-DNS-03",
+   "status": "Pass",
+   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+  },
+  {
+   "id": "PT-DNS-07",
    "status": "Pass",
    "message": "SPF record present"
   },
   {
    "id": "PT-DNS-04",
-   "status": "Blocked",
-   "message": "BLOCKED: no CAA record found (optional; confirm with the registrar)"
+   "status": "Fail",
+   "message": "no CAA record on okilys.com"
   },
   {
    "id": "PT-DNS-05",
    "status": "Pass",
    "message": "apex + www resolve to GitHub Pages (checked via IT-HOST-01)"
+  },
+  {
+   "id": "PT-DNS-06",
+   "status": "Fail",
+   "message": "no DS record at the registry: DNSSEC is NOT active (contrary to the 19/09 note)"
   },
   {
    "id": "PT-XSS-01",
@@ -808,7 +818,26 @@
    "message": "BLOCKED: Vérification « zéro cookie / zéro traqueur » en conditions réelles : à confirmer en navigateur (onglet réseau). Le code ne contient aucun script tiers (UT-PAGE-15)."
   }
  ],
- "defects": {},
+ "defects": {
+  "PT-DNS-04": {
+   "severity": "Minor",
+   "defect": "No CAA record on okilys.com.",
+   "location": "DNS zone okilys.com (CAA at apex)",
+   "defect_fr": "Pas d'enregistrement CAA sur okilys.com.",
+   "ref_fr": "Zone DNS du domaine okilys.com (certificats de securite)",
+   "plain_fr": "Rien n'indique publiquement quelle autorite a le droit de delivrer un certificat pour okilys.com : une autre autorite pourrait en emettre un au nom du domaine.",
+   "impact_fr": "Risque faible mais reel d'usurpation du site par un certificat emis ailleurs. Correction : ajouter 0 issue letsencrypt.org chez Gandi (compatible ctms et freelance, verifie le 20/09)."
+  },
+  "PT-DNS-06": {
+   "severity": "Minor",
+   "defect": "DNSSEC is not active: no DS record at the .com registry and no DNSKEY in the zone.",
+   "location": "DNS zone okilys.com / Gandi registry",
+   "defect_fr": "DNSSEC n'est pas actif : aucun enregistrement DS au registre .com, aucune cle dans la zone.",
+   "ref_fr": "Zone DNS du domaine okilys.com (signature de la zone)",
+   "plain_fr": "La note du 19/09 indiquait DNSSEC actif : c'est inexact, verifie le 20/09. Sans DNSSEC, les reponses DNS du domaine ne sont pas signees et peuvent theoriquement etre falsifiees par un intermediaire reseau.",
+   "impact_fr": "Risque faible (necessite un attaquant deja place sur le reseau). Activation en un clic chez Gandi, mais a ne pas faire seule : une mauvaise manipulation rend le domaine injoignable. A decider avec Lydie."
+  }
+ },
  "counts": {
   "UT": {
    "Pass": 35
@@ -821,8 +850,9 @@
    "Blocked": 27
   },
   "PT": {
-   "Pass": 15,
-   "Blocked": 11
+   "Pass": 17,
+   "Blocked": 11,
+   "Fail": 2
   }
  }
 }
