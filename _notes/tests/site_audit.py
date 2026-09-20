@@ -462,6 +462,32 @@ def ut_page():
     for p in ("index.html", "en/index.html"):
         if "data-email=" not in HTML[p] or "data-key=" not in HTML[p]:
             harvest.append(f"{p}: obfuscation data-email / data-key manquante")
+    # UT-PAGE-22 "coming soon" consistency (Lydie PARSUS's decision of 19/09, applied
+    # editorially on 20/09). OKILYS CTMS is announced as forthcoming everywhere on the
+    # public site, so no page may state that it is already launched. This guard exists
+    # because the CTMS session twice overwrote pages of this site through a generator.
+    # Forward-looking wording such as "Etre prevenu du lancement" stays legitimate and
+    # is deliberately not matched.
+    CLAIMS = ("OKILYS CTMS est lance", "OKILYS CTMS est lancé", "OKILYS CTMS is live",
+              "lancement d'OKILYS CTMS", "launch of OKILYS CTMS", "OKILYS CTMS est disponible",
+              "OKILYS CTMS is now available")
+    launched = []
+    for p_ in sorted(HTML):
+        h = HTML[p_]
+        for claim in CLAIMS:
+            if claim in h:
+                launched.append("%s: \"%s\"" % (p_, claim))
+    add("UT-PAGE-22", "Pass" if not launched else "Fail",
+        "no page claims OKILYS CTMS is already launched (coming-soon wording consistent, FR + EN)"
+        if not launched else "; ".join(launched[:6]))
+    if launched:
+        defects["UT-PAGE-22"] = {"severity": "Major", "defect": "Pages still announce OKILYS CTMS as launched: " + "; ".join(launched[:6]),
+                                 "location": "; ".join(launched[:6]),
+                                 "defect_fr": "Des pages annoncent encore OKILYS CTMS comme lance : " + "; ".join(launched[:6]),
+                                 "ref_fr": "Pages du site annoncant OKILYS CTMS",
+                                 "plain_fr": "Le site annonce OKILYS CTMS comme un outil a venir, mais cette page dit qu'il est deja lance. Un visiteur lit les deux messages dans la meme visite.",
+                                 "impact_fr": "Contradiction visible par un prospect, qui peut faire douter du serieux de l'ensemble. Decision de Lydie PARSUS du 19/09 : annoncer partout comme a venir."}
+
     add("UT-PAGE-21", "Pass" if not harvest else "Fail",
         "no clear e-mail / phone / Web3Forms key in the raw HTML; reversed in data-*, access_key empty until render" if not harvest else "; ".join(harvest[:6]))
     add("PT-INFO-04", "Pass" if not harvest else "Fail",

@@ -1,5 +1,5 @@
 {
- "date": "2026-09-20T21:48:32.356613",
+ "date": "2026-09-20T21:56:35.297326",
  "version": "20260919a",
  "records": [
   {
@@ -116,6 +116,11 @@
    "id": "UT-PAGE-20",
    "status": "Pass",
    "message": "form hardened (maxlength, type email, honeypot hidden); no innerHTML/eval/document.write; no other input on the site"
+  },
+  {
+   "id": "UT-PAGE-22",
+   "status": "Pass",
+   "message": "no page claims OKILYS CTMS is already launched (coming-soon wording consistent, FR + EN)"
   },
   {
    "id": "UT-PAGE-21",
@@ -445,7 +450,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.109.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.110.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
@@ -831,7 +836,7 @@
  },
  "counts": {
   "UT": {
-   "Pass": 35
+   "Pass": 36
   },
   "IT": {
    "Pass": 35,
