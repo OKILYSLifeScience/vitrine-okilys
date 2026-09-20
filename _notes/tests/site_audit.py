@@ -802,20 +802,34 @@ def prod_checks():
             return out
         except Exception as e:  # noqa: BLE001
             return f"error {e}"
+    DOH_RESOLVERS = ("https://dns.google/resolve",
+                     "https://cloudflare-dns.com/dns-query")
+
     def doh(name, typ):
-        """DNS over HTTPS (dns.google). Windows nslookup cannot query CAA or DS
-        ('unknown query type'), so those checks could never pass through it.
-        Returns a list of record strings, or None when the lookup itself failed
-        (offline / blocked) so the caller can report Blocked rather than Fail."""
-        try:
-            import urllib.request
-            req = urllib.request.Request(
-                "https://dns.google/resolve?name=%s&type=%s" % (name, typ),
-                headers={"accept": "application/dns-json"})
-            with urllib.request.urlopen(req, timeout=20) as r:
-                return json.load(r)
-        except Exception:  # noqa: BLE001
-            return None
+        """DNS over HTTPS. Windows nslookup cannot query CAA or DS ('unknown query
+        type'), so those checks could never pass through it.
+
+        Two resolvers are tried and the FIRST NON-EMPTY answer wins. A single
+        resolver is not enough: after a record is created, a resolver that had
+        already been asked keeps its negative answer until the SOA cache expires,
+        which produced a false Fail on the CAA on 20/09/2026, minutes after the
+        record was correctly published. Returns the parsed response, or None when
+        every resolver failed, so the caller reports Blocked rather than Fail."""
+        last = None
+        for base in DOH_RESOLVERS:
+            try:
+                import urllib.request
+                req = urllib.request.Request(
+                    "%s?name=%s&type=%s" % (base, name, typ),
+                    headers={"accept": "application/dns-json"})
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    d = json.load(r)
+                if d.get("Answer"):
+                    return d
+                last = d
+            except Exception:  # noqa: BLE001
+                continue
+        return last
 
     def doh_data(name, typ):
         d = doh(name, typ)

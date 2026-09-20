@@ -1,5 +1,5 @@
 {
- "date": "2026-09-20T21:36:27.114539",
+ "date": "2026-09-20T21:48:32.356613",
  "version": "20260919a",
  "records": [
   {
@@ -445,7 +445,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.109.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
@@ -454,8 +454,8 @@
   },
   {
    "id": "PT-DNS-04",
-   "status": "Fail",
-   "message": "no CAA record on okilys.com"
+   "status": "Pass",
+   "message": "CAA record present: 0 issue \"letsencrypt.org\""
   },
   {
    "id": "PT-DNS-05",
@@ -819,15 +819,6 @@
   }
  ],
  "defects": {
-  "PT-DNS-04": {
-   "severity": "Minor",
-   "defect": "No CAA record on okilys.com.",
-   "location": "DNS zone okilys.com (CAA at apex)",
-   "defect_fr": "Pas d'enregistrement CAA sur okilys.com.",
-   "ref_fr": "Zone DNS du domaine okilys.com (certificats de securite)",
-   "plain_fr": "Rien n'indique publiquement quelle autorite a le droit de delivrer un certificat pour okilys.com : une autre autorite pourrait en emettre un au nom du domaine.",
-   "impact_fr": "Risque faible mais reel d'usurpation du site par un certificat emis ailleurs. Correction : ajouter 0 issue letsencrypt.org chez Gandi (compatible ctms et freelance, verifie le 20/09)."
-  },
   "PT-DNS-06": {
    "severity": "Minor",
    "defect": "DNSSEC is not active: no DS record at the .com registry and no DNSKEY in the zone.",
@@ -850,9 +841,9 @@
    "Blocked": 27
   },
   "PT": {
-   "Pass": 17,
+   "Pass": 18,
    "Blocked": 11,
-   "Fail": 2
+   "Fail": 1
   }
  }
 }
