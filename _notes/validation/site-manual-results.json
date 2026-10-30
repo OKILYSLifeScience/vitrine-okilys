@@ -1,5 +1,5 @@
 {
- "_comment": "Browser/system tests executed by the Site Web session. Contact-form real-send tests were executed on 19/09/2026 on production with Lydie PARSUS's explicit in-chat authorisation (3 sends maximum, all marked [TEST]). UT-JS-17 added on 20/09/2026: the automated harness cannot drive a browser, so this session exercised the runtime JavaScript behaviours itself (carousel timer, arrows, dots, touch swipe, scrollspy) and records the result here.",
+ "_comment": "Browser/system tests executed by the Site Web session. Contact-form real-send tests were executed on 19/09/2026 on production with Lydie PARSUS's explicit in-chat authorisation (3 sends maximum, all marked [TEST]). UT-JS-17 added on 20/09/2026: the automated harness cannot drive a browser, so this session exercised the runtime JavaScript behaviours itself (carousel timer, arrows, dots, touch swipe, scrollspy) and records the result here. | 30/10/2026: ST-NEWS-01 and ST-NEWS-02 (v2.5 Actualites) executed on production by the test session (built-in browser, FR+EN, mouse/keyboard/mobile), recorded Pass; honest attribution (not an independent tester).",
  "_evidence": "executed 19/09/2026 by the Site Web session (browser, no send)",
  "results": {
   "ST-HOME-01": {
@@ -232,6 +232,18 @@
    "status": "Pass",
    "message": "Joue au navigateur le 20/09/2026 par la session Site Web, serveur local, FR (index.html) et EN (en/index.html). Diaporama : fleche suivante et fleche precedente changent bien de slide ; les 3 pastilles positionnent directement (clic sur la 3e -> index 2, classe is-active portee par la bonne pastille) ; defilement automatique observe sans aucune interaction (avance mesuree apres 5,3 s d'une periode annoncee a 6,5 s, mesure demarree en cours de cycle). Glissement tactile : evenements touchstart/touchmove/touchend synthetiques sur le viewport - glissement vers la gauche avance, glissement vers la droite recule. Scrollspy : 3/3 en francais (#produits-de-sante, #expertises, #secteurs) et 3/3 en anglais (#health-products, #expertise, #sectors) ; aucune entree surlignee en haut de page, ce qui est le comportement attendu. Console vide dans les deux langues. Attribution honnete : verifie par la session Site Web elle-meme, pas par un testeur independant, et sur le serveur local et non sur la production.",
    "evidence": "browser run 20/09/2026, local server :8090, FR + EN"
+  },
+  "ST-NEWS-01": {
+   "id": "ST-NEWS-01",
+   "status": "Pass",
+   "message": "News category filter exercised on production (actualites.html then en/insights.html). Mouse: clicking each chip turns it teal (bg rgb(33,119,138)) and leaves only that category's cards visible - Tout/All 5 cards, Carnet/Founder 2, Metier/Practice 0 (that category has no article yet, valid empty state), Outils/Tools 2, Vie/Life 1. Keyboard: arrow keys move the radio selection (Carnet -> Metier), focus and teal follow, cards refilter. Reload returns to Tout (5 cards). No JavaScript console error, same behaviour FR and EN. Note: a real mouse/keyboard event is needed to repaint the active-chip style - a scripted .checked= setter filters the cards but does not move the teal highlight (sibling-combinator repaint quirk), which is a measurement trap, not a site defect. (executed on production okilys.com 30/10/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 30/10/2026 production browser (test session), FR+EN, mouse+keyboard"
+  },
+  "ST-NEWS-02": {
+   "id": "ST-NEWS-02",
+   "status": "Pass",
+   "message": "Article journey exercised on production. Home carousel dated slide 'Lire l'article' has no target (opens same tab) -> actualites/ce-qu-on-rapporte-cote-promoteur.html: one h1, category badge 'Carnet de la fondatrice' (teal), date 30 octobre 2026 (time datetime=2026-10-30), byline 'Lydie PARSUS' (capitals, no lowercase Parsus), og:type=article, BlogPosting JSON-LD in @graph (author Lydie PARSUS, datePublished 2026-10-30), Agne-serif headings all render with no missing glyph (7 headings, 0 empty), 'Lire sur LinkedIn' -> lydieparsus profile target=_blank rel=noopener noreferrer, back link -> ../actualites.html, FR/EN switch -> ../en/insights/what-a-year-on-the-sponsor-side-brings.html (the mirror article, not the list). The EN mirror is complete and symmetrical and its FR switch round-trips back to the FR article. Mobile 375px: no horizontal scroll. No console error FR or EN. (executed on production okilys.com 30/10/2026 by the test session, built-in browser; not an independent tester)",
+   "evidence": "run 30/10/2026 production browser (test session), FR+EN, desktop+mobile 375px"
   }
  }
 }

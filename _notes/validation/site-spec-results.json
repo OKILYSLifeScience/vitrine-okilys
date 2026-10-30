@@ -1,5 +1,5 @@
 {
- "date": "2026-10-30T14:42:57.282281",
+ "date": "2026-10-30T14:49:24.357721",
  "version": "20261030a",
  "records": [
   {
@@ -465,7 +465,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.111.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
