@@ -2,7 +2,7 @@ slug: fin-de-mission-maat-pharma
 slug_en: maat-pharma-end-of-assignment
 date: 2026-10-29
 category: carnet
-linkedin: https://www.linkedin.com/in/lydieparsus/
+linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7521645433123917824/
 title_fr: Un an chez MaaT Pharma : fin de mission et bilan
 title_en: A year with MaaT Pharma: end of assignment
 description_fr: Clinical Trial Manager et Clinical Oversight Manager pendant un an chez un promoteur biotech : bilan d'une mission freelance et disponibilité pour la suivante.
