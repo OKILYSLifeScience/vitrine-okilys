@@ -337,3 +337,62 @@ a.news-badge:hover { background: var(--teal-dark); color: #fff; }
   .post { padding: 36px 0 44px; }
   .news-filter__chip { padding: 6px 11px; font-size: 0.8rem; }
 }
+
+/* ---------- Actualités : identité visuelle par catégorie et par type (validée par Lydie PARSUS le 30/10/2026) ----------
+   La catégorie donne la couleur (liseré, pastille, marque des titres, bloc de conclusion) ; le type donne l'icône.
+   Icônes = SVG en ligne, couleur héritée (compatibles avec la CSP du site, aucune police d'icônes). */
+.news-article, .post, .news-slide { --cat: var(--teal-dark); --cat-ink: var(--teal-dark); --cat-soft: #e6f3f6; }
+.cat-carnet { --cat: var(--blue); --cat-ink: var(--blue-dark); --cat-soft: #e8edfd; }
+.cat-metier { --cat: var(--navy); --cat-ink: var(--navy); --cat-soft: #e7edf4; }
+.cat-outils { --cat: var(--teal); --cat-ink: var(--teal-dark); --cat-soft: #e6f3f6; }
+.cat-vie    { --cat: var(--peach-dark); --cat-ink: #7a5a1e; --cat-soft: var(--peach); }
+/* Diapositives du carrousel : la catégorie est portée par la date (la balise news-slide reste telle que l'audit la lit) */
+.news-slide:has(.cat-carnet) { --cat: var(--blue); }
+.news-slide:has(.cat-metier) { --cat: var(--navy); }
+.news-slide:has(.cat-outils) { --cat: var(--teal); }
+.news-slide:has(.cat-vie)    { --cat: var(--peach-dark); }
+.news-slide__date.cat-carnet { color: var(--blue-dark); } .news-slide__date.cat-metier { color: var(--navy); } .news-slide__date.cat-vie { color: #7a5a1e; }
+.ico { display: inline-block; width: 1em; height: 1em; vertical-align: -0.15em; flex: none; }
+.ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round; }
+/* Cartes de la liste, diapositives du carrousel, pastilles */
+.news-article { border-left: 5px solid var(--cat); }
+.news-slide { border-top: 5px solid var(--cat); }
+.news-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--cat-soft); color: var(--cat-ink); }
+.news-badge .ico { font-size: 1.05rem; }
+a.news-badge:hover { background: var(--cat); color: #fff; }
+.cat-vie a.news-badge:hover { color: var(--navy); }
+.news-type { display: inline-flex; align-items: center; gap: 5px; color: var(--ink-soft); font-size: 0.8rem; font-weight: 700; }
+.news-type .ico { color: var(--cat); font-size: 1.05rem; }
+.news-filter__chip { display: inline-flex; align-items: center; gap: 6px; }
+.news-filter__chip .ico { font-size: 1rem; opacity: .85; }
+/* Page d'un article : pastille de catégorie, type, titres de section marqués, blocs de structure, conclusion */
+.post .news-badge { padding: 6px 12px 6px 8px; font-size: 0.78rem; letter-spacing: 0.06em; }
+.post .news-badge .ico { font-size: 1.15rem; }
+.post__type { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-soft); font-size: 0.86rem; font-weight: 700; }
+.post__type .ico { color: var(--cat); font-size: 1.1rem; }
+.post__body h2 { position: relative; padding-left: 18px; }
+.post__body h2::before { content: ""; position: absolute; left: 0; top: 0.35em; width: 6px; height: 0.9em; border-radius: 3px; background: var(--cat); }
+.post__block { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; margin: 18px 0; padding: 16px 18px; border-radius: var(--radius); background: var(--bg-alt); border: 1px solid var(--border); }
+.post__block-ico { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fff; color: var(--cat); border: 1px solid var(--border); font-size: 1.3rem; }
+.post__block p { margin: 0 0 6px; }
+.post__block p:last-child { margin-bottom: 0; }
+.post__block--insight { background: var(--cat-soft); border-color: transparent; }
+.post__block--result .post__block-ico { color: var(--teal-dark); }
+.post__points { list-style: none; padding: 0; margin: 14px 0; }
+.post__points li { position: relative; padding-left: 26px; margin: 6px 0; }
+.post__points li .ico { position: absolute; left: 2px; top: 0.3em; color: var(--cat); font-size: 1rem; }
+.post__points li .ico svg { fill: currentColor; stroke: none; }
+.post__conclusion { margin: 34px 0 0; padding: 22px 24px 22px 70px; position: relative; border-radius: var(--radius); background: linear-gradient(135deg, var(--cat-soft) 0%, #fff 70%); border: 1px solid var(--border); }
+.post__conclusion::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; border-radius: var(--radius) 0 0 var(--radius); background: var(--gradient); }
+.post__conclusion .post__block-ico { position: absolute; left: 18px; top: 22px; width: 38px; height: 38px; background: var(--cat); color: #fff; border: none; font-size: 1.25rem; }
+.cat-vie .post__conclusion .post__block-ico { color: var(--navy); }
+.post__conclusion p { margin: 0 0 8px; font-size: 1.02rem; }
+.post__cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 11px 18px; border-radius: 999px; background: var(--blue); color: #fff; font-weight: 800; font-size: 0.92rem; transition: background .2s, transform .2s; }
+.post__cta:hover { background: var(--blue-dark); color: #fff; transform: translateY(-2px); }
+.post__cta .ico { font-size: 1.1rem; }
+@media (max-width: 640px) {
+  .post__conclusion { padding: 64px 18px 18px; }
+  .post__conclusion .post__block-ico { left: 18px; top: 16px; }
+  .post__block { grid-template-columns: 34px 1fr; gap: 10px; padding: 14px; }
+  .post__block-ico { width: 34px; height: 34px; font-size: 1.1rem; }
+}

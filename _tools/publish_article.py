@@ -35,6 +35,46 @@ CATS = {
     "outils": {"fr": "Outils OKILYS", "en": "OKILYS tools"},
     "vie": {"fr": "Vie d'OKILYS", "en": "Life at OKILYS"},
 }
+# Visual identity (validated by Lydie PARSUS on 30/10/2026): the category gives the colour (css/fusion.css, .cat-<k>),
+# the type gives the icon. Icons are inline SVG (CSP-safe, no icon font); the same drawings serve the LinkedIn cards.
+TYPES = {
+    "fin-de-mission": {"fr": "Fin de mission", "en": "End of assignment", "icon": "flag"},
+    "apprentissages": {"fr": "Apprentissages", "en": "Lessons learned", "icon": "bulb"},
+    "offre": {"fr": "Offre de service", "en": "Service offer", "icon": "curve"},
+    "fond": {"fr": "Article de fond", "en": "In-depth article", "icon": "book"},
+    "reglementaire": {"fr": "Réglementaire", "en": "Regulatory", "icon": "shield"},
+    "outil": {"fr": "Outil", "en": "Tool", "icon": "grid"},
+    "evenement": {"fr": "Événement", "en": "Event", "icon": "calendar-check"},
+    "actualite": {"fr": "Actualité", "en": "News", "icon": "megaphone"},
+}
+CAT_ICON = {"carnet": "notebook", "metier": "compass", "outils": "grid", "vie": "calendar"}
+ICONS = {
+    "notebook": '<path d="M5 4h11a2 2 0 0 1 2 2v14H7a2 2 0 0 1-2-2z"/><path d="M8 4v16M11 8h5M11 11h5"/>',
+    "compass": '<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2.2 5.3-5.3 2.2 2.2-5.3z"/>',
+    "grid": '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+    "calendar": '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/>',
+    "calendar-check": '<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/><path d="m10 15 1.5 1.5L15 13"/>',
+    "flag": '<path d="M6 21V4"/><path d="M6 4h11l-2.5 4L17 12H6"/>',
+    "bulb": '<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.7.6 1.1 1.3 1.3 2.1h4.4c.2-.8.6-1.5 1.3-2.1A6 6 0 0 0 12 3z"/>',
+    "curve": '<path d="M3 12h4l3-7 4 14 3-7h4"/>',
+    "book": '<path d="M4 19V5a1 1 0 0 1 1-1h6a2 2 0 0 1 2 2v14"/><path d="M20 19V5a1 1 0 0 0-1-1h-6"/><path d="M13 20a2 2 0 0 0-2-2H4M13 20a2 2 0 0 1 2-2h5"/>',
+    "shield": '<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/>',
+    "megaphone": '<path d="M4 11v2a1 1 0 0 0 1 1h2l6 4V6L7 10H5a1 1 0 0 0-1 1z"/><path d="M16 9a4 4 0 0 1 0 6"/>',
+    "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+    "diamond": '<path d="M12 4 20 12 12 20 4 12z"/>',
+    "pin": '<path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/>',
+    "check": '<circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/>',
+    "talk": '<path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7l-5 4v-4H6a2 2 0 0 1-2-2z"/>',
+}
+# Structure blocks inside an article body:  ::: <name>  ...  :::   (French or English keyword)
+BLOCKS = {
+    "contexte": ("context", "pin"), "context": ("context", "pin"),
+    "points": ("points", "diamond"),
+    "retenir": ("insight", "bulb"), "insight": ("insight", "bulb"),
+    "resultat": ("result", "check"), "result": ("result", "check"),
+    "evenement": ("event", "calendar-check"), "event": ("event", "calendar-check"),
+    "conclusion": ("conclusion", "arrow"),
+}
 MONTHS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
 MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
@@ -43,17 +83,17 @@ T = {
            "inlang": "fr-FR", "home_name": "Accueil", "index_name": "Actualités", "author_line": "Lydie PARSUS, fondatrice d'OKILYS",
            "all": "Tout", "read": "Lire l'article →", "read_news": "Lire l'actualité", "back": "← Toutes les actualités",
            "linkedin": "Lire sur LinkedIn ↗", "filter_label": "Filtrer par catégorie", "author": "Lydie PARSUS",
-           "site_root": PROD + "/"},
+           "talk": "Parlons-en", "site_root": PROD + "/"},
     "en": {"index": "en/insights.html", "dir": "en/insights", "home": "en/index.html", "lang": "en", "locale": "en_GB", "alt_locale": "fr_FR",
            "inlang": "en-GB", "home_name": "Home", "index_name": "Insights", "author_line": "Lydie PARSUS, founder of OKILYS",
            "all": "All", "read": "Read the article →", "read_news": "Read the news", "back": "← All insights",
            "linkedin": "Read on LinkedIn ↗", "filter_label": "Filter by category", "author": "Lydie PARSUS",
-           "site_root": PROD + "/en/"},
+           "talk": "Let's talk", "site_root": PROD + "/en/"},
 }
 
 # The three historical cards (summer 2026) are kept as they were written; they have no article page.
 LEGACY = [
-    {"sort": "2026-09-19", "cat": "outils", "new_tab": True,
+    {"sort": "2026-09-19", "cat": "outils", "type": "outil", "new_tab": True,
      "fr": {"id": "lancement-ctms", "date": "À venir", "title": "OKILYS CTMS arrive",
             "text": "OKILYS prépare son premier outil, né d'une expertise terrain transversale : faisabilité, sélection et activation des centres, visites et rapports signés électroniquement, actions de suivi. Pensé pour les biotechs, promoteurs et CROs, il s'activera module par module — et vos données vous seront restituées à tout moment.",
             "slide": "OKILYS prépare son premier outil de pilotage des essais cliniques, en modules à la carte.",
@@ -62,7 +102,7 @@ LEGACY = [
             "text": "OKILYS is preparing its first tool, born from cross-cutting field expertise: site feasibility, selection and activation, visits and electronically signed reports, follow-up actions. Designed for biotechs, sponsors and CROs, it will be switched on module by module — with your data handed back at any time.",
             "slide": "OKILYS is preparing its first clinical trial management tool, with modules on demand.",
             "cta": "ctms.html", "cta_label": "Discover OKILYS CTMS →"}},
-    {"sort": "2026-09-18", "cat": "outils", "new_tab": True,
+    {"sort": "2026-09-18", "cat": "outils", "type": "outil", "new_tab": True,
      "fr": {"id": "etmf-a-venir", "date": "À venir", "title": "OKILYS eTMF en préparation",
             "text": "Le deuxième produit de la suite est en développement : un Trial Master File structuré selon le TMF Reference Model, alimenté automatiquement par le CTMS et vérifié par vos équipes. L'ambition : un TMF qui se remplit pendant l'étude, pas après.",
             "slide": "Un Trial Master File qui se remplit pendant l'étude, connecté au CTMS.",
@@ -71,7 +111,7 @@ LEGACY = [
             "text": "The second product of the suite is under development: a Trial Master File structured per the TMF Reference Model, fed automatically by the CTMS and verified by your teams. The ambition: a TMF that fills itself during the study, not after.",
             "slide": "A Trial Master File that fills itself during the study, connected to the CTMS.",
             "cta": "etmf.html", "cta_label": "Discover OKILYS eTMF →"}},
-    {"sort": "2026-07-01", "cat": "vie", "new_tab": False,
+    {"sort": "2026-07-01", "cat": "vie", "type": "actualite", "new_tab": False,
      "fr": {"id": "nouveau-site", "date": "Été 2026", "title": "Le nouveau site okilys.com est en ligne",
             "text": "Un site bilingue qui présente toute l'offre : les cinq catégories de produits de santé et leurs cadres réglementaires, les sept étapes d'une étude couvertes de la conception à la clôture, les réalisations — et les valeurs HOME qui guident chaque mission.",
             "slide": "Toute l'offre OKILYS — expertises, produits de santé, outils — dans un site bilingue.",
@@ -111,8 +151,32 @@ def inline(s):
     return s
 
 
-def md_to_html(md):
+def ico(name):
+    """Inline SVG icon, decorative (aria-hidden); colour inherited from the parent."""
+    return f'<span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24">{ICONS[name]}</svg></span>'
+
+
+def badge(cat, lang, href=None):
+    """Category pill with its icon: a link back to the list on article pages, a plain span on cards."""
+    label = esc(CATS[cat][lang])
+    inner = ico(CAT_ICON[cat]) + label
+    return f'<a class="news-badge" href="{href}">{inner}</a>' if href else f'<span class="news-badge">{inner}</span>'
+
+
+def type_tag(typ, lang, cls="news-type"):
+    """Type of article (icon + label); empty string when the source has no type."""
+    if not typ:
+        return ""
+    t = TYPES[typ]
+    return f'<span class="{cls}">{ico(t["icon"])}{esc(t[lang])}</span>'
+
+
+def md_to_html(md, lang="fr"):
+    """Body markdown -> HTML. Besides paragraphs, `## ` headings, `- ` lists and **bold**, a body may hold
+    structure blocks  ::: contexte | points | retenir | resultat | evenement | conclusion  ...  :::
+    (English keywords accepted). The conclusion block ends with the contact button (« Parlons-en »)."""
     out, para, ul = [], [], []
+    block = None  # (kind, icon) of the open ::: block
 
     def flush_p():
         if para:
@@ -121,14 +185,49 @@ def md_to_html(md):
 
     def flush_ul():
         if ul:
-            out.append("<ul>" + "".join("<li>" + inline(x) + "</li>" for x in ul) + "</ul>")
+            if block and block[0] == "points":
+                out.append('<ul class="post__points">' + "".join(f"<li>{ico('diamond')}{inline(x)}</li>" for x in ul) + "</ul>")
+            else:
+                out.append("<ul>" + "".join("<li>" + inline(x) + "</li>" for x in ul) + "</ul>")
             ul.clear()
+
+    def open_block(name):
+        kind, icon = BLOCKS[name]
+        if kind == "conclusion":
+            out.append(f'<div class="post__conclusion"><span class="post__block-ico">{ico(icon)}</span>')
+        elif kind == "points":
+            pass  # the list itself is rendered as <ul class="post__points"> by flush_ul
+        else:
+            out.append(f'<div class="post__block post__block--{kind}"><span class="post__block-ico">{ico(icon)}</span><div>')
+        return (kind, icon)
+
+    def close_block(b):
+        kind = b[0]
+        if kind == "conclusion":
+            out.append(f'<a class="post__cta" href="../index.html#contact">{ico("talk")}{esc(T[lang]["talk"])}</a></div>')
+        elif kind == "points":
+            pass
+        else:
+            out.append("</div></div>")
 
     for line in md.splitlines():
         st = line.strip()
         if not st:
             flush_p(); flush_ul(); continue
-        if st.startswith("## "):
+        if st.startswith(":::"):
+            flush_p(); flush_ul()
+            name = st[3:].strip().lower()
+            if name:
+                if block:
+                    raise SystemExit(f"block '{name}' opened inside another block")
+                if name not in BLOCKS:
+                    raise SystemExit(f"unknown block '{name}' (known: {', '.join(sorted(BLOCKS))})")
+                block = open_block(name)
+            else:
+                if not block:
+                    raise SystemExit("':::' closes nothing")
+                close_block(block); block = None
+        elif st.startswith("## "):
             flush_p(); flush_ul()
             head = st[3:].strip()
             if "—" in head:
@@ -139,7 +238,9 @@ def md_to_html(md):
         else:
             flush_ul(); para.append(st)
     flush_p(); flush_ul()
-    return "\n".join(out)
+    if block:
+        raise SystemExit(f"block '{block[0]}' not closed (missing ':::')")
+    return "\n".join(x for x in out if x is not None)
 
 
 def date_label(iso, lang):
@@ -162,6 +263,9 @@ def parse(path):
         raise SystemExit(f"{os.path.basename(path)}: missing {missing}")
     if meta["category"] not in CATS:
         raise SystemExit(f"{os.path.basename(path)}: unknown category {meta['category']}")
+    meta["type"] = meta.get("type", "")
+    if meta["type"] and meta["type"] not in TYPES:
+        raise SystemExit(f"{os.path.basename(path)}: unknown type {meta['type']} (known: {', '.join(TYPES)})")
     dt.date.fromisoformat(meta["date"])
     for lang in ("fr", "en"):
         t = meta[f"title_{lang}"] + " | OKILYS"
@@ -254,13 +358,14 @@ def article_page(a, lang):
     mirror = f"../en/insights/{slug_other}.html" if lang == "fr" else f"../../actualites/{slug_other}.html"
     before_main = before_main.replace(f'href="{mirror_idx}"', f'href="{mirror}"')
     # ---- main
-    cat = CATS[a["category"]][lang]
-    body_html = md_to_html(a[f"body_{lang}"])
+    body_html = md_to_html(a[f"body_{lang}"], lang)
+    typ = type_tag(a["type"], lang, "post__type")
+    typ = f'<span class="post__sep">·</span>{typ}' if typ else ""
     main = f"""<main>
 
-  <article class="post">
+  <article class="post cat-{a['category']}">
     <div class="container post__container">
-      <p class="post__meta"><a class="news-badge" href="../{t['index'].split('/')[-1]}">{esc(cat)}</a><span class="post__sep">·</span><time datetime="{a['date']}">{date_label(a['date'], lang)}</time><span class="post__sep">·</span>{esc(t['author_line'])}</p>
+      <p class="post__meta">{badge(a['category'], lang, "../" + t['index'].split('/')[-1])}{typ}<span class="post__sep">·</span><time datetime="{a['date']}">{date_label(a['date'], lang)}</time><span class="post__sep">·</span>{esc(t['author_line'])}</p>
       <h1 class="post__title">{esc(a[f'title_{lang}'])}</h1>
       <p class="post__lead">{inline(a[f'excerpt_{lang}'])}</p>
       <div class="post__body">
@@ -280,7 +385,7 @@ def card(item, lang, is_article):
         slug = item["slug"] if lang == "fr" else item["slug_en"]
         href = f"{t['dir'].split('/')[-1]}/{slug}.html"
         return f"""      <article class="news-article cat-{item['category']}" id="{esc(slug)}">
-        <p class="news-article__meta"><span class="news-slide__date"><time datetime="{item['date']}">{date_label(item['date'], lang)}</time></span><span class="news-badge">{esc(CATS[item['category']][lang])}</span></p>
+        <p class="news-article__meta"><span class="news-slide__date"><time datetime="{item['date']}">{date_label(item['date'], lang)}</time></span>{badge(item['category'], lang)}{type_tag(item['type'], lang)}</p>
         <h2><a href="{href}">{esc(item[f'title_{lang}'])}</a></h2>
         <p>{inline(item[f'excerpt_{lang}'])}</p>
         <a class="news-article__cta" href="{href}">{t['read']}</a>
@@ -288,7 +393,7 @@ def card(item, lang, is_article):
     L = item[lang]
     nt = ' target="_blank" rel="noopener noreferrer"' if item["new_tab"] else ""
     return f"""      <article class="news-article cat-{item['cat']}" id="{L['id']}">
-        <p class="news-article__meta"><span class="news-slide__date">{L['date']}</span><span class="news-badge">{esc(CATS[item['cat']][lang])}</span></p>
+        <p class="news-article__meta"><span class="news-slide__date">{L['date']}</span>{badge(item['cat'], lang)}{type_tag(item.get('type'), lang)}</p>
         <h2>{L['title']}</h2>
         <p>{L['text']}</p>
         <a class="news-article__cta" href="{L['cta']}"{nt}>{L['cta_label']}</a>
@@ -301,7 +406,7 @@ def news_list(entries, lang):
     labels = [f'        <label for="cat-all" class="news-filter__chip">{t["all"]}</label>']
     for key, names in CATS.items():
         chips.append(f'      <input type="radio" name="news-cat" id="cat-{key}" class="news-filter__input">')
-        labels.append(f'        <label for="cat-{key}" class="news-filter__chip">{esc(names[lang])}</label>')
+        labels.append(f'        <label for="cat-{key}" class="news-filter__chip">{ico(CAT_ICON[key])}{esc(names[lang])}</label>')
     cards = "\n\n".join(card(e["item"], lang, e["article"]) for e in entries)
     used = {e["item"]["category"] if e["article"] else e["item"]["cat"] for e in entries}
     empty_msg = {"fr": "Aucun article dans cette catégorie pour le moment.", "en": "No article in this category yet."}[lang]
@@ -318,14 +423,14 @@ def slide(entry, lang):
     if entry["article"]:
         slug = item["slug"] if lang == "fr" else item["slug_en"]
         return f"""            <div class="news-slide">
-              <p class="news-slide__date">{date_label(item['date'], lang)}</p>
+              <p class="news-slide__date cat-{item['category']}">{date_label(item['date'], lang)}</p>
               <h3>{esc(item[f'title_{lang}'])}</h3>
               <p>{inline(item[f'excerpt_{lang}'])}</p>
               <a href="{t['dir'].split('/')[-1]}/{slug}.html" class="btn btn--step">{t['read'].rstrip(' →')}</a>
             </div>"""
     L = item[lang]
     return f"""            <div class="news-slide">
-              <p class="news-slide__date">{L['date']}</p>
+              <p class="news-slide__date cat-{item['cat']}">{L['date']}</p>
               <h3>{L['title']}</h3>
               <p>{L['slide']}</p>
               <a href="{t['index'].split('/')[-1]}#{L['id']}" class="btn btn--step">{t['read_news']}</a>

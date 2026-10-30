@@ -10,7 +10,8 @@ Ce dossier commence par `_` : il n'est pas publié par GitHub Pages, mais il est
 slug: fin-de-mission-maat-pharma            # nom du fichier FR dans actualites/
 slug_en: maat-pharma-end-of-assignment      # nom du fichier EN dans en/insights/
 date: 2026-10-29                            # ISO ; sert au tri et à l'affichage
-category: carnet                            # carnet | metier | outils | vie
+category: carnet                            # carnet | metier | outils | vie  (donne la couleur)
+type: apprentissages                        # facultatif : fin-de-mission | apprentissages | offre | fond | reglementaire | outil | evenement | actualite  (donne l'icône)
 linkedin: https://www.linkedin.com/posts/…  # lien du post LinkedIn correspondant (profil si inconnu)
 title_fr: …                                 # ≤ 70 caractères une fois « | OKILYS » ajouté, sans tiret cadratin
 title_en: …
@@ -20,6 +21,9 @@ excerpt_fr: …                               # chapeau de l'article, texte de l
 excerpt_en: …
 --- fr ---
 Texte français : paragraphes séparés par une ligne vide, `## Sous-titre`, listes `- `, **gras**.
+Blocs de structure (facultatifs, validés le 30/10/2026) : `::: contexte` … `:::` (épingle), `::: points` + liste `- ` (losanges),
+`::: retenir` (ampoule, fond teinté), `::: resultat` (coche), `::: evenement` (calendrier), `::: conclusion` (flèche, liseré dégradé,
+bouton « Parlons-en » vers la page Contact ajouté automatiquement) ; mots-clés anglais acceptés (context, insight, result, event).
 --- en ---
 English text, same conventions.
 ```
@@ -42,5 +46,5 @@ English text, same conventions.
 py _tools/publish_article.py --check     # valide les sources
 py _tools/publish_article.py             # génère tout
 py _notes/tests/site_audit.py --no-net   # audit du site (doit rester vert)
-git add -A ; git commit -F msg.txt ; git push
+git add <fichiers de la section Actualites> ; git commit -F msg.txt ; git push   # jamais git add -A (depot partage)
 ```

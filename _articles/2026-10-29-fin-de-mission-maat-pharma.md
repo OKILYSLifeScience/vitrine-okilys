@@ -2,6 +2,7 @@ slug: fin-de-mission-maat-pharma
 slug_en: maat-pharma-end-of-assignment
 date: 2026-10-29
 category: carnet
+type: fin-de-mission
 linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7521645433123917824/
 title_fr: Un an chez MaaT Pharma : fin de mission et bilan
 title_en: A year with MaaT Pharma: end of assignment
@@ -28,7 +29,9 @@ Merci à toute l'équipe MaaT Pharma pour sa confiance.
 
 ## La suite
 
+::: conclusion
 Je suis disponible rapidement pour une nouvelle mission : Clinical Project / Trial Management, Clinical Oversight, Start-Up et réglementaire (EU-CTR, CTIS) ou Lead CRA, full remote avec déplacements ponctuels possibles. Un programme à sécuriser dans votre biotech ? Écrivons-nous.
+:::
 --- en ---
 I held a dual role there, Clinical Trial Manager and Clinical Oversight Manager, on an international pivotal Phase 3 programme in haemato-oncology.
 
@@ -48,4 +51,6 @@ Thank you to the whole MaaT Pharma team for their trust.
 
 ## What comes next
 
+::: conclusion
 I am available at short notice for a new assignment: Clinical Project / Trial Management, Clinical Oversight, Start-Up and Regulatory (EU-CTR, CTIS) or Lead CRA, fully remote with occasional travel possible. A programme to secure in your biotech? Let's talk.
+:::
