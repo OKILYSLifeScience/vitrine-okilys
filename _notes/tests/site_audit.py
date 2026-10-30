@@ -493,6 +493,71 @@ def ut_page():
                                  "ref_fr": "Actualités › page d'un article (actualites/<slug>.html et en/insights/<slug>.html)",
                                  "plain_fr": "Une page d'article n'a pas sa signature, sa date, sa catégorie, son lien LinkedIn ou sa jumelle dans l'autre langue, ou n'apparaît pas dans la liste des actualités.",
                                  "impact_fr": "Article mal référencé ou inaccessible depuis la liste ; incohérence FR / EN."}
+    # UT-NEWS-03 visual identity: category gives the colour, type gives the inline-SVG icon, conclusion CTA, FR / EN (v2.6, 30/10/2026)
+    bad_vi = []
+    TYPE_LABELS = {"Fin de mission", "Apprentissages", "Offre de service", "Article de fond", "Réglementaire", "Outil", "Événement",
+                   "Actualité", "End of assignment", "Lessons learned", "Service offer", "In-depth article", "Regulatory", "Tool", "Event", "News"}
+    # 1. fusion.css: --cat per category and the four .news-slide:has(.cat-<k>) rules
+    for k in CAT_KEYS:
+        if not re.search(r"\.cat-" + k + r"\s*\{[^}]*--cat\s*:", css):
+            bad_vi.append(f"fusion.css: --cat not defined for .cat-{k}")
+        if f".news-slide:has(.cat-{k})" not in css:
+            bad_vi.append(f"fusion.css: .news-slide:has(.cat-{k}) rule missing")
+    # 2. news list (FR / EN): each card badge one inline-SVG icon, each news-type one icon + a known label, the 4 category chips an icon, no <img>/icon font in the feed
+    for p in ("actualites.html", "en/insights.html"):
+        h = HTML[p]
+        mi = re.search(r'<div class="news-items">(.*?)</div>\s*</div>', h, re.S)
+        items = mi.group(1) if mi else ""
+        if not items:
+            bad_vi.append(f"{p}: news-items block not found");
+        for m in re.finditer(r'<article class="news-article cat-([a-z]+)"[^>]*>(.*?)</article>', items, re.S):
+            k, blk = m.group(1), m.group(2)
+            if len(re.findall(r'<span class="news-badge">\s*<span class="ico" aria-hidden="true"><svg', blk)) != 1:
+                bad_vi.append(f"{p}: card cat-{k} badge without exactly one inline-SVG icon")
+            for tt in re.findall(r'<span class="news-type"><span class="ico" aria-hidden="true"><svg.*?</svg></span>([^<]+)</span>', blk, re.S):
+                if tt.strip() not in TYPE_LABELS:
+                    bad_vi.append(f"{p}: card cat-{k} unknown type label '{tt.strip()}'")
+            if "<img" in blk or "<i " in blk or "fa-" in blk:
+                bad_vi.append(f"{p}: card cat-{k} uses an image or icon font (icons must be inline SVG)")
+        for k in CAT_KEYS:
+            if not re.search(r'<label for="cat-' + k + r'" class="news-filter__chip"><span class="ico" aria-hidden="true"><svg', h):
+                bad_vi.append(f"{p}: filter chip cat-{k} without its category icon")
+    # 3. home carousel (FR / EN): every slide date carries one of the four category colour classes
+    for p in ("index.html", "en/index.html"):
+        for m in re.finditer(r'class="news-slide__date([^"]*)"', HTML[p]):
+            if not any(f"cat-{k}" in m.group(1) for k in CAT_KEYS):
+                bad_vi.append(f"{p}: a carousel slide date without a category colour class")
+    # 4. article pages (FR / EN): <article class="post cat-<k>">, conclusion block with exactly one contact button, no image/script in the body
+    for fr_stem, en_stem in ARTICLE_PAIRS:
+        for p, lang in ((f"{fr_stem}.html", "fr"), (f"en/{en_stem}.html", "en")):
+            h = HTML.get(p, "")
+            art = re.search(r'<article class="post (cat-[a-z]+)"(.*?)</article>', h, re.S)
+            if not art:
+                bad_vi.append(f"{p}: <article class=\"post cat-...\"> missing"); continue
+            kcls, body = art.group(1)[4:], art.group(2)
+            if kcls not in CAT_KEYS:
+                bad_vi.append(f"{p}: unknown article category cat-{kcls}")
+            if '<a class="news-badge" href="../' not in body:
+                bad_vi.append(f"{p}: category badge no longer links back to the list")
+            if "<img" in body:
+                bad_vi.append(f"{p}: <img> inside the article body")
+            if "<script" in body:
+                bad_vi.append(f"{p}: inline script inside the article body")
+            if "post__conclusion" in body:
+                label = "Parlons-en" if lang == "fr" else "Let's talk"
+                if len(re.findall(r'<a class="post__cta" href="\.\./index\.html#contact">', body)) != 1:
+                    bad_vi.append(f"{p}: conclusion without exactly one contact button to ../index.html#contact")
+                if label not in body:
+                    bad_vi.append(f"{p}: conclusion button label '{label}' missing")
+    add("UT-NEWS-03", "Pass" if not bad_vi else "Fail",
+        "visual identity: --cat per category + 4 news-slide:has rules, every card badge and news-type an inline-SVG icon (known labels), 4 category chips iconed, every carousel slide date coloured, articles post cat-<k> with one 'Parlons-en'/'Let's talk' contact button, no image / icon font / inline script in the feature" if not bad_vi else "; ".join(bad_vi[:6]))
+    if bad_vi:
+        defects["UT-NEWS-03"] = {"severity": "Minor", "defect": "; ".join(bad_vi[:6]),
+                                 "location": "css/fusion.css, actualites.html, en/insights.html, index.html, en/index.html, actualites/*.html, en/insights/*.html",
+                                 "defect_fr": "Identité visuelle des actualités incomplète : " + "; ".join(bad_vi[:6]),
+                                 "ref_fr": "Actualités › couleur par catégorie, icône par type, bouton « Parlons-en » en fin d'article",
+                                 "plain_fr": "Une carte, une diapositive d'accueil ou un article n'a pas la couleur de sa catégorie, l'icône de son type, ou son bouton de contact de fin d'article ; ou une icône n'est pas un SVG intégré.",
+                                 "impact_fr": "La section Actualités perd sa cohérence visuelle, ou le bouton « Parlons-en » ne mène pas au formulaire de contact."}
     # Auxiliary regression checks (not spec cases -> not in the report, kept as guard-rails)
     bad_brand = [p for p in indexable_files() if re.search(r"(?<![\w.@/])Okilys(?![\w.])", HTML[p])]  # lowercase 'Okilys' in body text
     add("UT-AUX-BRAND", "Pass" if not bad_brand else "Fail", "brand spelled OKILYS" if not bad_brand else f"lowercase Okilys in: {bad_brand[:6]}")
@@ -1093,7 +1158,7 @@ def blocked_manual():
     # Counts MUST match the specification table: the harness used to emit ST-PAGE-07..15,
     # PT-FORM-05..07 and PT-SUPPLY-03, which exist in no specification - 13 phantom cases
     # reported as Blocked and impossible to ever close. UT-SPEC-01 below now guards this.
-    for grp, n in (("NAV", 6), ("MOB", 5), ("HOME", 5), ("PAGE", 6), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3), ("NEWS", 2)):
+    for grp, n in (("NAV", 6), ("MOB", 5), ("HOME", 5), ("PAGE", 6), ("CONTACT", 4), ("A11Y", 5), ("SEO", 5), ("PERF", 3), ("NEWS", 3)):
         for i in range(1, n + 1):
             blocked(f"ST-{grp}-{i:02d}", st_msg)
     # access-gated PT

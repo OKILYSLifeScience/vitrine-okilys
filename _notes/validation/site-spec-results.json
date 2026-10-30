@@ -1,6 +1,6 @@
 {
- "date": "2026-10-30T15:02:44.432047",
- "version": "20261030b",
+ "date": "2026-10-30T23:22:29.326373",
+ "version": "20261030c",
  "records": [
   {
    "id": "UT-PAGE-01",
@@ -65,7 +65,7 @@
   {
    "id": "UT-PAGE-13",
    "status": "Pass",
-   "message": "all assets ?v=20261030b"
+   "message": "all assets ?v=20261030c"
   },
   {
    "id": "UT-PAGE-15",
@@ -101,6 +101,11 @@
    "id": "UT-NEWS-02",
    "status": "Pass",
    "message": "2 article pair(s): byline Lydie PARSUS, date, category badge, BlogPosting JSON-LD, og:type article, LinkedIn link in a secure new tab, listed on the news page, language switch to the mirror article"
+  },
+  {
+   "id": "UT-NEWS-03",
+   "status": "Pass",
+   "message": "visual identity: --cat per category + 4 news-slide:has rules, every card badge and news-type an inline-SVG icon (known labels), 4 category chips iconed, every carousel slide date coloured, articles post cat-<k> with one 'Parlons-en'/'Let's talk' contact button, no image / icon font / inline script in the feature"
   },
   {
    "id": "UT-AUX-BRAND",
@@ -465,7 +470,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.110.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
@@ -733,6 +738,11 @@
    "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
   },
   {
+   "id": "ST-NEWS-03",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
    "id": "PT-FORM-01",
    "status": "Blocked",
    "message": "BLOCKED: Analyse anti-spam / rate-limit du relais Web3Forms : demande l'accès à ton tableau de bord Web3Forms. M'autorises-tu et me donnes-tu accès ?"
@@ -785,7 +795,7 @@
   {
    "id": "UT-SPEC-01",
    "status": "Pass",
-   "message": "traceability intact: 156 cases, specification and harness agree in both directions"
+   "message": "traceability intact: 158 cases, specification and harness agree in both directions"
   }
  ],
  "defects": {
@@ -801,7 +811,7 @@
  },
  "counts": {
   "UT": {
-   "Pass": 45,
+   "Pass": 46,
    "Blocked": 1
   },
   "IT": {
@@ -809,7 +819,7 @@
    "Blocked": 2
   },
   "ST": {
-   "Blocked": 41
+   "Blocked": 42
   },
   "PT": {
    "Pass": 19,
