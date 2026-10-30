@@ -318,6 +318,9 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 a.news-badge:hover { background: var(--teal-dark); color: #fff; }
 .news-article h2 a { color: inherit; }
 .news-article h2 a:hover { color: var(--blue); }
+/* Catégorie sans article : message d'état vide, affiché seulement quand sa puce est sélectionnée */
+.news-empty { display: none; margin: 22px 0 0; padding: 28px 30px; border: 1px dashed var(--border); border-radius: var(--radius); color: var(--ink-soft); text-align: center; }
+#cat-carnet:checked ~ .news-items .news-empty.cat-carnet, #cat-metier:checked ~ .news-items .news-empty.cat-metier, #cat-outils:checked ~ .news-items .news-empty.cat-outils, #cat-vie:checked ~ .news-items .news-empty.cat-vie { display: block; }
 /* Page d'un article */
 .post { padding: 56px 0 64px; }
 .post__container { max-width: 760px; }

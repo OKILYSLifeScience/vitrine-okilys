@@ -1,6 +1,6 @@
 {
- "date": "2026-10-30T14:49:24.357721",
- "version": "20261030a",
+ "date": "2026-10-30T14:50:15.522300",
+ "version": "20261030b",
  "records": [
   {
    "id": "UT-PAGE-01",
@@ -65,7 +65,7 @@
   {
    "id": "UT-PAGE-13",
    "status": "Pass",
-   "message": "all assets ?v=20261030a"
+   "message": "all assets ?v=20261030b"
   },
   {
    "id": "UT-PAGE-15",
@@ -465,7 +465,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.108.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.109.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",

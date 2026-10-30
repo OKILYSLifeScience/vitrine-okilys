@@ -26,7 +26,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 OUT = os.path.join(ROOT, "_notes", "validation")
 PROD = "https://www.okilys.com"
 NO_NET = "--no-net" in sys.argv
-VERSION_TAG = "20261030a"
+VERSION_TAG = "20261030b"
 
 FR_PAGES = ["index", "a-propos", "actualites", "highlights", "medicament", "dispositif-medical", "donnees", "pratique-courante",
             "inm", "conception", "selection-centres", "preparation", "soumissions", "mise-en-place", "conduite-suivi", "cloture",

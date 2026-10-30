@@ -303,6 +303,11 @@ def news_list(entries, lang):
         chips.append(f'      <input type="radio" name="news-cat" id="cat-{key}" class="news-filter__input">')
         labels.append(f'        <label for="cat-{key}" class="news-filter__chip">{esc(names[lang])}</label>')
     cards = "\n\n".join(card(e["item"], lang, e["article"]) for e in entries)
+    used = {e["item"]["category"] if e["article"] else e["item"]["cat"] for e in entries}
+    empty_msg = {"fr": "Aucun article dans cette catégorie pour le moment.", "en": "No article in this category yet."}[lang]
+    for key in CATS:
+        if key not in used:
+            cards += f'\n\n      <p class="news-empty cat-{key}">{empty_msg}</p>'
     return ("\n".join(chips) + f'\n      <div class="news-filter" role="group" aria-label="{t["filter_label"]}">\n' + "\n".join(labels)
             + '\n      </div>\n      <div class="news-items">\n' + cards + "\n      </div>")
 
