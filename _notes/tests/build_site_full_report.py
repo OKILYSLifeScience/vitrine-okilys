@@ -29,7 +29,14 @@ ACTIONS = '"Corriger,Corriger plus tard,Ne pas corriger,A decider"'
 def spec_cases():
     spec = open(os.path.join(ROOT, "_notes", "TEST-SPECIFICATION-site-web.md"), encoding="utf-8").read()
     seen, out = set(), []
-    for m in re.finditer(r"^\|\s*((?:UT|IT|ST|PT)-[A-Z0-9]+-\d+)\s*\|\s*(.*?)\s*\|", spec, re.M):
+    # The id cell may carry a marker such as "(R)" for the regression subset, and the last
+    # segment is not always numeric (UT-AUX-BRAND...). Requiring "<id> |" with a numeric tail
+    # silently dropped the 12 (R)-marked cases (ST-MOB-01/02, ST-NAV-01/02/04/06, ST-HOME-02,
+    # ST-PAGE-05, ST-CONTACT-01, ST-A11Y-01, ST-SEO-01, ST-PERF-01) and the UT-AUX-* checks
+    # from THIS workbook, so a defect landing on one of them (e.g. ST-MOB-02 on 30/10/2026)
+    # could never surface. site_audit.py spec_case_ids() was fixed on 20/09/2026 but this
+    # second reader was not. Mirror it: anchor on the row id, then read to the next pipe.
+    for m in re.finditer(r"^\|\s*((?:UT|IT|ST|PT)-[A-Z0-9]+-[A-Z0-9]+)[^|]*\|\s*(.*?)\s*\|", spec, re.M):
         if m.group(1) not in seen:
             seen.add(m.group(1))
             out.append((m.group(1), m.group(2)))
