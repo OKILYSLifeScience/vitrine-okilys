@@ -301,3 +301,36 @@ a.suite-bar__tool:hover { background: rgba(255,255,255,0.08); color: #fff; }
 .news-article .news-slide__date { margin-bottom: 6px; }
 .news-article__cta { display: inline-block; margin-top: 14px; font-weight: 800; color: var(--teal-dark); font-size: 0.92rem; }
 .news-article__cta:hover { color: var(--blue); }
+
+/* ---------- Page Actualités : catégories, cartes datées et pages d'article (30/10/2026) ----------
+   Filtre par catégorie sans JavaScript : boutons radio masqués, puces = labels, règles :checked ~ . */
+.news-list { margin-top: 8px; }
+.news-filter__input { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.news-filter { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 6px; }
+.news-filter__chip { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; color: var(--ink-soft); font-size: 0.84rem; font-weight: 700; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+.news-filter__chip:hover { border-color: var(--teal); color: var(--teal-dark); }
+.news-filter__input:focus-visible + .news-filter__chip, .news-filter__input:focus-visible ~ .news-filter .news-filter__chip { outline: none; }
+#cat-all:checked ~ .news-filter label[for="cat-all"], #cat-carnet:checked ~ .news-filter label[for="cat-carnet"], #cat-metier:checked ~ .news-filter label[for="cat-metier"], #cat-outils:checked ~ .news-filter label[for="cat-outils"], #cat-vie:checked ~ .news-filter label[for="cat-vie"] { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
+#cat-carnet:checked ~ .news-items .news-article:not(.cat-carnet), #cat-metier:checked ~ .news-items .news-article:not(.cat-metier), #cat-outils:checked ~ .news-items .news-article:not(.cat-outils), #cat-vie:checked ~ .news-items .news-article:not(.cat-vie) { display: none; }
+.news-article__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 8px; }
+.news-article__meta .news-slide__date { margin: 0; }
+.news-badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--bg-alt); color: var(--teal-dark); font-size: 0.74rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+a.news-badge:hover { background: var(--teal-dark); color: #fff; }
+.news-article h2 a { color: inherit; }
+.news-article h2 a:hover { color: var(--blue); }
+/* Page d'un article */
+.post { padding: 56px 0 64px; }
+.post__container { max-width: 760px; }
+.post__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 14px; }
+.post__sep { color: var(--border); }
+.post__title { font-size: clamp(1.7rem, 3.2vw, 2.4rem); line-height: 1.12; margin: 0 0 16px; }
+.post__lead { font-size: 1.08rem; color: var(--ink); font-weight: 600; margin: 0 0 28px; }
+.post__body h2 { font-size: 1.3rem; margin: 30px 0 10px; }
+.post__body p, .post__body li { font-size: 1rem; line-height: 1.7; }
+.post__body ul { padding-left: 22px; }
+.post__links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 36px 0 0; padding-top: 22px; border-top: 1px solid var(--border); }
+.post__links .news-article__cta { margin-top: 0; }
+@media (max-width: 640px) {
+  .post { padding: 36px 0 44px; }
+  .news-filter__chip { padding: 6px 11px; font-size: 0.8rem; }
+}

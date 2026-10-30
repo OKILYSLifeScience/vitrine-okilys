@@ -1,6 +1,6 @@
 {
- "date": "2026-09-20T22:22:09.924232",
- "version": "20260919a",
+ "date": "2026-10-30T14:36:03.108695",
+ "version": "20261030a",
  "records": [
   {
    "id": "UT-PAGE-01",
@@ -65,7 +65,7 @@
   {
    "id": "UT-PAGE-13",
    "status": "Pass",
-   "message": "all assets ?v=20260919a"
+   "message": "all assets ?v=20261030a"
   },
   {
    "id": "UT-PAGE-15",
@@ -91,6 +91,16 @@
    "id": "UT-PAGE-19",
    "status": "Pass",
    "message": "product links open in a new tab (target=_blank, noopener+noreferrer); other internal links stay in the same tab"
+  },
+  {
+   "id": "UT-NEWS-01",
+   "status": "Pass",
+   "message": "news list: 5 radio filters (all + 4 categories, 'all' checked), chips, every card dated and categorised, CSS hide rules present, no JavaScript"
+  },
+  {
+   "id": "UT-NEWS-02",
+   "status": "Pass",
+   "message": "2 article pair(s): byline Lydie PARSUS, date, category badge, BlogPosting JSON-LD, og:type article, LinkedIn link in a secure new tab, listed on the news page, language switch to the mirror article"
   },
   {
    "id": "UT-AUX-BRAND",
@@ -263,6 +273,11 @@
    "message": "CTA 'Parlons de votre étude' -> index.html#contact same tab; 'Accès client' -> ctms.okilys.com new tab (noopener+noreferrer) (verified)"
   },
   {
+   "id": "IT-NEWS-01",
+   "status": "Pass",
+   "message": "home carousel FR / EN = the 3 latest entries of the news page, same order, every link resolves"
+  },
+  {
    "id": "IT-I18N-01",
    "status": "Pass",
    "message": "language switch points to the own mirror"
@@ -290,7 +305,7 @@
   {
    "id": "IT-SEO-01",
    "status": "Pass",
-   "message": "sitemap = 40 indexable URLs"
+   "message": "sitemap = 44 indexable URLs"
   },
   {
    "id": "IT-SEO-02",
@@ -450,7 +465,7 @@
   {
    "id": "PT-DNS-03",
    "status": "Pass",
-   "message": "no dangling sub-domain: www -> 185.199.111.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
+   "message": "no dangling sub-domain: www -> 185.199.110.153; ctms -> 141.94.42.79; freelance -> 141.94.42.79; etmf: absent (nothing to hijack)"
   },
   {
    "id": "PT-DNS-07",
@@ -708,6 +723,16 @@
    "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
   },
   {
+   "id": "ST-NEWS-01",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
+   "id": "ST-NEWS-02",
+   "status": "Blocked",
+   "message": "BLOCKED: Scénario navigateur (Chrome/Edge/Firefox/Safari iOS, desktop + mobile), assigné au testeur ; mécanismes couverts par les tests automatiques UT/IT ci-dessus. Non piloté clic-à-clic ici (pas de navigateur automatisé sur ce poste)."
+  },
+  {
    "id": "PT-FORM-01",
    "status": "Blocked",
    "message": "BLOCKED: Analyse anti-spam / rate-limit du relais Web3Forms : demande l'accès à ton tableau de bord Web3Forms. M'autorises-tu et me donnes-tu accès ?"
@@ -760,7 +785,7 @@
   {
    "id": "UT-SPEC-01",
    "status": "Pass",
-   "message": "traceability intact: 151 cases, specification and harness agree in both directions"
+   "message": "traceability intact: 156 cases, specification and harness agree in both directions"
   }
  ],
  "defects": {
@@ -776,15 +801,15 @@
  },
  "counts": {
   "UT": {
-   "Pass": 43,
+   "Pass": 45,
    "Blocked": 1
   },
   "IT": {
-   "Pass": 35,
+   "Pass": 36,
    "Blocked": 2
   },
   "ST": {
-   "Blocked": 39
+   "Blocked": 41
   },
   "PT": {
    "Pass": 19,

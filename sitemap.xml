@@ -384,4 +384,44 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ============ Actualites / Insights : articles (generes par _tools/publish_article.py) ============ -->
+  <!-- NEWS:ARTICLES:START -->
+  <url>
+    <loc>https://www.okilys.com/actualites/fin-de-mission-maat-pharma.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/actualites/fin-de-mission-maat-pharma.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/insights/maat-pharma-end-of-assignment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/actualites/fin-de-mission-maat-pharma.html"/>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/insights/maat-pharma-end-of-assignment.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/actualites/fin-de-mission-maat-pharma.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/insights/maat-pharma-end-of-assignment.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/actualites/fin-de-mission-maat-pharma.html"/>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/actualites/ce-qu-on-rapporte-cote-promoteur.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/actualites/ce-qu-on-rapporte-cote-promoteur.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/insights/what-a-year-on-the-sponsor-side-brings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/actualites/ce-qu-on-rapporte-cote-promoteur.html"/>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.okilys.com/en/insights/what-a-year-on-the-sponsor-side-brings.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.okilys.com/actualites/ce-qu-on-rapporte-cote-promoteur.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.okilys.com/en/insights/what-a-year-on-the-sponsor-side-brings.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.okilys.com/actualites/ce-qu-on-rapporte-cote-promoteur.html"/>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<!-- NEWS:ARTICLES:END -->
+
 </urlset>

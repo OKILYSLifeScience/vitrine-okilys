@@ -32,11 +32,11 @@
 <meta name="twitter:image" content="https://www.okilys.com/assets/images/og-image.jpg">
 <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-<link rel="stylesheet" href="css/fonts.css?v=20260919a">
+<link rel="stylesheet" href="css/fonts.css?v=20261030a">
 <link rel="preload" href="assets/fonts/manrope-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Agne.otf" as="font" type="font/otf" crossorigin>
-<link rel="stylesheet" href="css/styles.css?v=20260919a">
-<link rel="stylesheet" href="css/fusion.css?v=20260919a">
+<link rel="stylesheet" href="css/styles.css?v=20261030a">
+<link rel="stylesheet" href="css/fusion.css?v=20261030a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -147,28 +147,60 @@
     <div class="container" style="max-width:860px;">
       <p class="eyebrow eyebrow--center" style="color:var(--teal-dark);">Actualités</p>
       <h1 class="section__title">La vie d'OKILYS, au fil des études et des outils</h1>
-      <p class="section__lead">L'essentiel de la vie d'OKILYS — lancements, collaborations, avancées des outils. Aussi sur <a href="https://fr.linkedin.com/in/lydieparsus" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:700;">LinkedIn ↗</a>.</p>
+      <p class="section__lead">L'essentiel de la vie d'OKILYS — lancements, avancées des outils, et le carnet de la fondatrice : missions, retours d'expérience, métier. Aussi sur <a href="https://fr.linkedin.com/in/lydieparsus" target="_blank" rel="noopener noreferrer" style="color:var(--blue);font-weight:700;">LinkedIn ↗</a>.</p>
 
-      <article class="news-article" id="lancement-ctms">
-        <p class="news-slide__date">À venir</p>
+      <div class="news-list">
+      <!-- NEWS:LIST:START -->
+      <input type="radio" name="news-cat" id="cat-all" class="news-filter__input" checked>
+      <input type="radio" name="news-cat" id="cat-carnet" class="news-filter__input">
+      <input type="radio" name="news-cat" id="cat-metier" class="news-filter__input">
+      <input type="radio" name="news-cat" id="cat-outils" class="news-filter__input">
+      <input type="radio" name="news-cat" id="cat-vie" class="news-filter__input">
+      <div class="news-filter" role="group" aria-label="Filtrer par catégorie">
+        <label for="cat-all" class="news-filter__chip">Tout</label>
+        <label for="cat-carnet" class="news-filter__chip">Carnet de la fondatrice</label>
+        <label for="cat-metier" class="news-filter__chip">Métier &amp; réglementaire</label>
+        <label for="cat-outils" class="news-filter__chip">Outils OKILYS</label>
+        <label for="cat-vie" class="news-filter__chip">Vie d'OKILYS</label>
+      </div>
+      <div class="news-items">
+      <article class="news-article cat-carnet" id="ce-qu-on-rapporte-cote-promoteur">
+        <p class="news-article__meta"><span class="news-slide__date"><time datetime="2026-10-30">30 octobre 2026</time></span><span class="news-badge">Carnet de la fondatrice</span></p>
+        <h2><a href="actualites/ce-qu-on-rapporte-cote-promoteur.html">Un an côté promoteur : ce qu'on en rapporte</a></h2>
+        <p>Un an chez MaaT Pharma se termine, et ma boîte à outils s'est sérieusement enrichie. Ce que j'emporte, en cinq points.</p>
+        <a class="news-article__cta" href="actualites/ce-qu-on-rapporte-cote-promoteur.html">Lire l'article →</a>
+      </article>
+
+      <article class="news-article cat-carnet" id="fin-de-mission-maat-pharma">
+        <p class="news-article__meta"><span class="news-slide__date"><time datetime="2026-10-29">29 octobre 2026</time></span><span class="news-badge">Carnet de la fondatrice</span></p>
+        <h2><a href="actualites/fin-de-mission-maat-pharma.html">Un an chez MaaT Pharma : fin de mission et bilan</a></h2>
+        <p>Après un peu plus d'un an chez MaaT Pharma, ma mission arrive à son terme dans les prochaines semaines. Une double casquette, Clinical Trial Manager et Clinical Oversight Manager, sur un programme pivot de phase 3 en onco-hématologie, à l'international.</p>
+        <a class="news-article__cta" href="actualites/fin-de-mission-maat-pharma.html">Lire l'article →</a>
+      </article>
+
+      <article class="news-article cat-outils" id="lancement-ctms">
+        <p class="news-article__meta"><span class="news-slide__date">À venir</span><span class="news-badge">Outils OKILYS</span></p>
         <h2>OKILYS CTMS arrive</h2>
         <p>OKILYS prépare son premier outil, né d'une expertise terrain transversale : faisabilité, sélection et activation des centres, visites et rapports signés électroniquement, actions de suivi. Pensé pour les biotechs, promoteurs et CROs, il s'activera module par module — et vos données vous seront restituées à tout moment.</p>
         <a class="news-article__cta" href="ctms.html" target="_blank" rel="noopener noreferrer">Découvrir OKILYS CTMS →</a>
       </article>
 
-      <article class="news-article" id="etmf-a-venir">
-        <p class="news-slide__date">À venir</p>
+      <article class="news-article cat-outils" id="etmf-a-venir">
+        <p class="news-article__meta"><span class="news-slide__date">À venir</span><span class="news-badge">Outils OKILYS</span></p>
         <h2>OKILYS eTMF en préparation</h2>
         <p>Le deuxième produit de la suite est en développement : un Trial Master File structuré selon le TMF Reference Model, alimenté automatiquement par le CTMS et vérifié par vos équipes. L'ambition : un TMF qui se remplit pendant l'étude, pas après.</p>
         <a class="news-article__cta" href="etmf.html" target="_blank" rel="noopener noreferrer">Découvrir OKILYS eTMF →</a>
       </article>
 
-      <article class="news-article" id="nouveau-site">
-        <p class="news-slide__date">Été 2026</p>
+      <article class="news-article cat-vie" id="nouveau-site">
+        <p class="news-article__meta"><span class="news-slide__date">Été 2026</span><span class="news-badge">Vie d'OKILYS</span></p>
         <h2>Le nouveau site okilys.com est en ligne</h2>
         <p>Un site bilingue qui présente toute l'offre : les cinq catégories de produits de santé et leurs cadres réglementaires, les sept étapes d'une étude couvertes de la conception à la clôture, les réalisations — et les valeurs HOME qui guident chaque mission.</p>
         <a class="news-article__cta" href="index.html">Parcourir le site →</a>
       </article>
+      </div>
+<!-- NEWS:LIST:END -->
+      </div>
 
       <div style="text-align:center;margin-top:36px;">
         <a href="index.html#contact" class="btn btn--primary">Nous contacter</a>
@@ -211,6 +243,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=20260919a"></script>
+<script src="js/script.js?v=20261030a"></script>
 </body>
 </html>
