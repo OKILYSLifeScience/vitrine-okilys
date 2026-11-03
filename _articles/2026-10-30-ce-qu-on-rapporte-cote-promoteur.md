@@ -3,7 +3,7 @@ slug_en: what-a-year-on-the-sponsor-side-brings
 date: 2026-11-03
 category: carnet
 type: apprentissages
-linkedin: https://www.linkedin.com/in/lydieparsus/
+linkedin: https://www.linkedin.com/feed/update/urn:li:share:7523352697350062081/
 title_fr: Un an côté promoteur : ce qu'on en rapporte
 title_en: What you bring back from a year on the sponsor's side
 description_fr: Plan d'oversight, RBQM, sélection de centres pays par pays, boîte à outils SSV, dix ARC freelance : les acquis d'un an de mission chez un promoteur biotech.
