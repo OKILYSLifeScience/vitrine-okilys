@@ -1,6 +1,6 @@
 slug: ce-qu-on-rapporte-cote-promoteur
 slug_en: what-a-year-on-the-sponsor-side-brings
-date: 2026-10-30
+date: 2026-11-03
 category: carnet
 type: apprentissages
 linkedin: https://www.linkedin.com/in/lydieparsus/
